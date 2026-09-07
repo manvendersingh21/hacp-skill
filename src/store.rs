@@ -76,11 +76,17 @@ impl Store {
         Ok(Self { root, _lock: lock })
     }
     pub fn load(&self) -> Result<Snapshot> {
-        let s: Snapshot = serde_json::from_slice(
+        let mut s: Snapshot = serde_json::from_slice(
             &fs::read(self.root.join(".hacp/session.json"))
                 .context("no session; peer a must run start")?,
         )?;
         anyhow::ensure!(s.format == 1, "unsupported snapshot format");
+        if crate::verify::recover(self, &mut s)? {
+            atomic(
+                &self.root.join(".hacp/session.json"),
+                &serde_json::to_vec_pretty(&s)?,
+            )?;
+        }
         self.project(&s)?;
         Ok(s)
     }

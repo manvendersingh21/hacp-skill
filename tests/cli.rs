@@ -278,3 +278,125 @@ fn amendment_collision_preserves_prior_claims_and_amendment_limit() {
         );
     }
 }
+fn submitted(r: &std::path::Path, commands: &[&str]) -> (String, String) {
+    let e = accept(r, "b", &proposal(r, "a", &["out.txt"], commands));
+    let cid = e["contract"]["contract_id"].as_str().unwrap().to_string();
+    let rev = e["contract"]["revisions"][0]["digest"]
+        .as_str()
+        .unwrap()
+        .to_string();
+    std::fs::write(r.join("out.txt"), "bad\n").unwrap();
+    ok(r, "a", &["submit", &cid, &rev]);
+    (cid, rev)
+}
+#[test]
+fn verification_rework_repair_and_self_refusal() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, rev) = submitted(r, &["printf 'measured\\n'; test \"$(cat out.txt)\" = good"]);
+    assert!(!call(r, "a", &["verify", &cid]).status.success());
+    let result = ok(r, "b", &["verify", &cid]);
+    assert_eq!(result["contract"]["state"], "executing");
+    assert!(result["outcome"]["rework"].is_object());
+    std::fs::write(r.join("out.txt"), "good\n").unwrap();
+    ok(r, "a", &["submit", &cid, &rev]);
+    assert_eq!(ok(r, "b", &["verify", &cid])["outcome"], "accept");
+    assert!(
+        std::fs::read_to_string(r.join(".hacp/log.md"))
+            .unwrap()
+            .contains("measured")
+    );
+}
+#[test]
+fn changed_missing_and_command_modified_artifacts_request_rework() {
+    for mode in ["changed", "missing", "during"] {
+        let dir = tempfile::tempdir().unwrap();
+        let r = dir.path();
+        pair(r);
+        let (cid, _) = submitted(
+            r,
+            &[if mode == "during" {
+                "printf changed > out.txt"
+            } else {
+                "true"
+            }],
+        );
+        if mode == "changed" {
+            std::fs::write(r.join("out.txt"), "changed").unwrap();
+        }
+        if mode == "missing" {
+            std::fs::remove_file(r.join("out.txt")).unwrap();
+        }
+        assert_eq!(
+            ok(r, "b", &["verify", &cid])["contract"]["state"],
+            "executing"
+        );
+    }
+}
+#[test]
+fn verification_timeout_kills_descendants_and_releases_metadata_lock() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, _) = submitted(r, &["(sleep 2; touch escaped) & wait"]);
+    let mut child = Command::new(env!("CARGO_BIN_EXE_hacp"))
+        .arg("--project")
+        .arg(r)
+        .args(["--peer", "b", "--json", "verify", &cid, "--timeout", "1"])
+        .stdout(std::process::Stdio::piped())
+        .spawn()
+        .unwrap();
+    std::thread::sleep(std::time::Duration::from_millis(300));
+    ok(r, "a", &["ask", "still responsive?"]);
+    let result = child.wait().unwrap();
+    assert!(result.success());
+    std::thread::sleep(std::time::Duration::from_secs(2));
+    assert!(!r.join("escaped").exists());
+    let s = ok(r, "a", &["status"]);
+    let e = &s["contracts"][&cid];
+    assert_eq!(e["attempts"][0]["commands"][0]["timed_out"], true);
+}
+#[test]
+fn interrupted_verification_requires_explicit_retry() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, _) = submitted(r, &["touch ran"]);
+    let out = Command::new(env!("CARGO_BIN_EXE_hacp"))
+        .arg("--project")
+        .arg(r)
+        .args(["--peer", "b", "verify", &cid])
+        .env("HACP_TEST_CRASH", "verification_started")
+        .output()
+        .unwrap();
+    assert_eq!(out.status.code(), Some(86));
+    let s = ok(r, "a", &["status"]);
+    assert_eq!(s["contracts"][&cid]["attempts"][0]["status"], "interrupted");
+    assert!(!r.join("ran").exists());
+    assert!(!call(r, "b", &["verify", &cid]).status.success());
+    assert_eq!(
+        ok(r, "b", &["verify", &cid, "--retry-interrupted"])["outcome"],
+        "accept"
+    );
+}
+#[test]
+fn advisory_lock_timeout_and_process_release() {
+    use fs2::FileExt;
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let file = std::fs::OpenOptions::new()
+        .read(true)
+        .write(true)
+        .open(r.join(".hacp/lock"))
+        .unwrap();
+    file.lock_exclusive().unwrap();
+    let started = std::time::Instant::now();
+    let o = call(r, "a", &["status"]);
+    assert!(!o.status.success());
+    assert!(started.elapsed() >= std::time::Duration::from_secs(3));
+    assert!(String::from_utf8_lossy(&o.stdout).contains("busy project"));
+    drop(file);
+    ok(r, "a", &["status"]);
+}

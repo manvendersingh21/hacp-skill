@@ -22,6 +22,10 @@ pub struct Entry {
     pub artifacts: Vec<crate::artifacts::StoredArtifact>,
     #[serde(default)]
     pub submissions: Vec<hacp::v2::Submission>,
+    #[serde(default)]
+    pub verifications: Vec<hacp::v2::Verification>,
+    #[serde(default)]
+    pub attempts: Vec<crate::verify::Attempt>,
 }
 pub fn entry(s: &Snapshot, id: &str) -> Result<Entry> {
     serde_json::from_value(
@@ -99,6 +103,8 @@ pub fn propose(st: &Store, s: &mut Snapshot, peer: &str, t: Terms) -> Result<Val
         proposer: peer.into(),
         artifacts: vec![],
         submissions: vec![],
+        verifications: vec![],
+        attempts: vec![],
     };
     save(s, &e)?;
     notify(s, peer, "contract.proposed", &e)?;

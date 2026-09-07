@@ -3,6 +3,7 @@ mod contracts;
 mod messages;
 mod paths;
 mod store;
+mod verify;
 use anyhow::{Result, ensure};
 use clap::{Parser, Subcommand};
 use hacp::v2::Session;
@@ -38,6 +39,13 @@ enum Command {
         owns: Vec<String>,
     },
     Status,
+    Verify {
+        contract_id: String,
+        #[arg(long, default_value_t = 300)]
+        timeout: u64,
+        #[arg(long)]
+        retry_interrupted: bool,
+    },
     Decline {
         contract_id: String,
         digest: String,
@@ -116,6 +124,20 @@ fn run(cli: &Cli) -> Result<Value> {
     } = &cli.command
     {
         return artifacts::submit(&cli.project, peer, contract_id, revision, claim);
+    }
+    if let Command::Verify {
+        contract_id,
+        timeout,
+        retry_interrupted,
+    } = &cli.command
+    {
+        return verify::verify(
+            &cli.project,
+            peer,
+            contract_id,
+            *timeout,
+            *retry_interrupted,
+        );
     }
     let st = Store::lock(&cli.project)?;
     if let Command::Start { task, owns } = &cli.command {
