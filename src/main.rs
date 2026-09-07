@@ -1,3 +1,4 @@
+mod artifacts;
 mod contracts;
 mod messages;
 mod paths;
@@ -37,6 +38,16 @@ enum Command {
         owns: Vec<String>,
     },
     Status,
+    Decline {
+        contract_id: String,
+        digest: String,
+    },
+    Submit {
+        contract_id: String,
+        revision: String,
+        #[arg(long, default_value = "completed frozen outputs")]
+        claim: String,
+    },
     Propose {
         contract_id: Option<String>,
         #[arg(long)]
@@ -97,6 +108,14 @@ fn run(cli: &Cli) -> Result<Value> {
             return messages::poll(&cli.project, peer, false, Some(timeout));
         }
         _ => {}
+    }
+    if let Command::Submit {
+        contract_id,
+        revision,
+        claim,
+    } = &cli.command
+    {
+        return artifacts::submit(&cli.project, peer, contract_id, revision, claim);
     }
     let st = Store::lock(&cli.project)?;
     if let Command::Start { task, owns } = &cli.command {
@@ -173,14 +192,21 @@ fn run(cli: &Cli) -> Result<Value> {
             Ok(json!({"message_id":message_id}))
         }
         Command::Propose { contract_id, terms } => {
-            ensure!(contract_id.is_none(), "counterproposals arrive in M3");
             let t = contracts::terms(&st.root, terms)?;
-            contracts::propose(&st, &mut s, peer, t)
+            if let Some(cid) = contract_id {
+                contracts::counter(&st, &mut s, peer, cid, t)
+            } else {
+                contracts::propose(&st, &mut s, peer, t)
+            }
         }
         Command::Accept {
             contract_id,
             digest,
         } => contracts::accept(&st, &mut s, peer, contract_id, digest),
+        Command::Decline {
+            contract_id,
+            digest,
+        } => contracts::decline(&st, &mut s, peer, contract_id, digest),
         Command::Status => Ok(json!(s)),
         Command::Close { reason } => {
             ensure!(!reason.trim().is_empty(), "close requires a reason");

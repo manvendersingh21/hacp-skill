@@ -177,3 +177,104 @@ fn simultaneous_conflicting_freezes_cannot_both_succeed() {
         1
     );
 }
+fn accept(r: &std::path::Path, peer: &str, p: &Value) -> Value {
+    ok(
+        r,
+        peer,
+        &[
+            "accept",
+            p["contract"]["contract_id"].as_str().unwrap(),
+            p["pending_digest"].as_str().unwrap(),
+        ],
+    )
+}
+fn amend(r: &std::path::Path, peer: &str, cid: &str, output: &str) -> Value {
+    std::fs::write(r.join("amend.json"),serde_json::to_vec(&serde_json::json!({"inputs":[],"outputs":[output],"acceptance":[format!("test -f {output}")]})).unwrap()).unwrap();
+    ok(r, peer, &["propose", cid, "--terms", "amend.json"])
+}
+#[test]
+fn counter_amendment_stale_submission_and_bounds() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let p = proposal(r, "a", &["a.txt"], &["test -f a.txt"]);
+    let cid = p["contract"]["contract_id"].as_str().unwrap();
+    let q = amend(r, "b", cid, "b.txt");
+    assert!(
+        !call(
+            r,
+            "b",
+            &["accept", cid, p["pending_digest"].as_str().unwrap()]
+        )
+        .status
+        .success()
+    );
+    let frozen = accept(r, "a", &q);
+    let rev = frozen["contract"]["revisions"][0]["digest"]
+        .as_str()
+        .unwrap();
+    let next = amend(r, "a", cid, "c.txt");
+    assert_eq!(next["contract"]["revisions"][0]["digest"], rev);
+    let next = accept(r, "b", &next);
+    assert_eq!(next["contract"]["revisions"].as_array().unwrap().len(), 2);
+    assert!(!call(r, "a", &["submit", cid, rev]).status.success());
+    std::fs::write(r.join("c.txt"), "data").unwrap();
+    let rev = next["contract"]["revisions"][1]["digest"].as_str().unwrap();
+    assert!(!call(r, "b", &["submit", cid, rev]).status.success());
+    let submitted = ok(r, "a", &["submit", cid, rev]);
+    assert_eq!(submitted["contract"]["state"], "verifying");
+    let copy = submitted["artifacts"][0]["record"]["location"]
+        .as_str()
+        .unwrap();
+    std::fs::write(r.join("c.txt"), "changed").unwrap();
+    assert_eq!(std::fs::read_to_string(r.join(copy)).unwrap(), "data");
+    let p = proposal(r, "a", &["z"], &["true"]);
+    let cid = p["contract"]["contract_id"].as_str().unwrap();
+    amend(r, "b", cid, "z1");
+    amend(r, "a", cid, "z2");
+    let end = amend(r, "b", cid, "z3");
+    assert_eq!(end["contract"]["state"], "noagreement");
+}
+#[test]
+fn amendment_collision_preserves_prior_claims_and_amendment_limit() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let a = accept(r, "b", &proposal(r, "a", &["a.txt"], &["true"]));
+    let cid = a["contract"]["contract_id"].as_str().unwrap();
+    let b = accept(r, "a", &proposal(r, "b", &["b.txt"], &["true"]));
+    let bid = b["contract"]["contract_id"].as_str().unwrap();
+    let a2 = amend(r, "a", cid, "b.txt");
+    assert!(
+        !call(
+            r,
+            "b",
+            &["accept", cid, a2["pending_digest"].as_str().unwrap()]
+        )
+        .status
+        .success()
+    );
+    let b2 = amend(r, "b", bid, "a.txt");
+    assert!(
+        !call(
+            r,
+            "a",
+            &["accept", bid, b2["pending_digest"].as_str().unwrap()]
+        )
+        .status
+        .success()
+    );
+    ok(
+        r,
+        "b",
+        &["decline", cid, a2["pending_digest"].as_str().unwrap()],
+    );
+    for n in 0..4 {
+        let p = amend(r, "a", cid, &format!("new{n}.txt"));
+        let e = accept(r, "b", &p);
+        assert_eq!(
+            e["contract"]["state"],
+            if n == 3 { "noagreement" } else { "executing" }
+        );
+    }
+}

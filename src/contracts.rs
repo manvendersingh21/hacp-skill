@@ -18,6 +18,10 @@ pub struct Entry {
     pub pending_terms: Terms,
     pub pending_digest: String,
     pub proposer: String,
+    #[serde(default)]
+    pub artifacts: Vec<crate::artifacts::StoredArtifact>,
+    #[serde(default)]
+    pub submissions: Vec<hacp::v2::Submission>,
 }
 pub fn entry(s: &Snapshot, id: &str) -> Result<Entry> {
     serde_json::from_value(
@@ -93,6 +97,8 @@ pub fn propose(st: &Store, s: &mut Snapshot, peer: &str, t: Terms) -> Result<Val
         pending_terms: t,
         pending_digest: hacp::v2::canon::digest_of(&value)?,
         proposer: peer.into(),
+        artifacts: vec![],
+        submissions: vec![],
     };
     save(s, &e)?;
     notify(s, peer, "contract.proposed", &e)?;
@@ -112,10 +118,27 @@ pub fn accept(st: &Store, s: &mut Snapshot, peer: &str, cid: &str, digest: &str)
     );
     claims(&st.root, s, &e)?;
     let value = serde_json::to_value(&e.pending_terms)?;
-    e.contract.agree(&urn(peer), &value)?;
-    e.contract.freeze(value)?;
+    let outcome = if e.contract.state == ContractState::Amending {
+        e.contract
+            .decide_amendment(&urn(peer), true, Some(value))
+            .map(|_| ())
+    } else {
+        e.contract
+            .agree(&urn(peer), &value)
+            .and_then(|_| e.contract.freeze(value).map(|_| ()))
+    };
+    bounded(&e.contract, outcome)?;
     save(s, &e)?;
-    notify(s, peer, "contract.frozen", &e)?;
+    notify(
+        s,
+        peer,
+        if e.contract.state == ContractState::NoAgreement {
+            "contract.no_agreement"
+        } else {
+            "contract.frozen"
+        },
+        &e,
+    )?;
     st.commit(s)?;
     Ok(json!(e))
 }
@@ -128,4 +151,68 @@ pub fn notify(s: &mut Snapshot, peer: &str, kind: &str, e: &Entry) -> Result<()>
         None,
     )?;
     Ok(())
+}
+
+pub fn bounded(
+    c: &Contract,
+    result: std::result::Result<(), hacp::v2::contract::ContractError>,
+) -> Result<()> {
+    match result {
+        Ok(()) => Ok(()),
+        Err(_) if c.state == ContractState::NoAgreement => Ok(()),
+        Err(e) => Err(e.into()),
+    }
+}
+pub fn counter(st: &Store, s: &mut Snapshot, peer: &str, cid: &str, t: Terms) -> Result<Value> {
+    messages::active(s)?;
+    let mut e = entry(s, cid)?;
+    let amendment = e.contract.state == ContractState::Executing;
+    if amendment {
+        e.contract.propose_amendment(&urn(peer))?;
+    } else {
+        let result = e.contract.counter(&urn(peer));
+        bounded(&e.contract, result)?;
+    }
+    e.pending_terms = t;
+    let value = serde_json::to_value(&e.pending_terms)?;
+    e.pending_digest = hacp::v2::canon::digest_of(&value)?;
+    e.proposer = peer.into();
+    if e.contract.state == ContractState::Amending {
+        e.contract.decide_amendment(&urn(peer), true, Some(value))?;
+    } else if e.contract.state != ContractState::NoAgreement {
+        e.contract.agree(&urn(peer), &value)?;
+    }
+    save(s, &e)?;
+    notify(
+        s,
+        peer,
+        if e.contract.state == ContractState::NoAgreement {
+            "contract.no_agreement"
+        } else if amendment {
+            "contract.amendment.proposed"
+        } else {
+            "contract.countered"
+        },
+        &e,
+    )?;
+    st.commit(s)?;
+    Ok(json!(e))
+}
+pub fn decline(st: &Store, s: &mut Snapshot, peer: &str, cid: &str, digest: &str) -> Result<Value> {
+    messages::active(s)?;
+    let mut e = entry(s, cid)?;
+    ensure!(digest == e.pending_digest, "stale terms digest; poll again");
+    ensure!(
+        peer != e.proposer,
+        "only counterparty can decline the pending proposal"
+    );
+    if e.contract.state == ContractState::Amending {
+        e.contract.decide_amendment(&urn(peer), false, None)?;
+    } else {
+        e.contract.withdraw(&urn(peer))?;
+    }
+    save(s, &e)?;
+    notify(s, peer, "contract.declined", &e)?;
+    st.commit(s)?;
+    Ok(json!(e))
 }
