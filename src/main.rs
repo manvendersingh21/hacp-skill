@@ -1,3 +1,4 @@
+mod messages;
 mod store;
 use anyhow::{Result, ensure};
 use clap::{Parser, Subcommand};
@@ -34,6 +35,21 @@ enum Command {
         owns: Vec<String>,
     },
     Status,
+    Ask {
+        text: String,
+    },
+    Answer {
+        message_id: String,
+        text: String,
+    },
+    Poll {
+        #[arg(long)]
+        all: bool,
+    },
+    Wait {
+        #[arg(long, default_value_t = 180)]
+        timeout: u64,
+    },
     Close {
         #[arg(long)]
         reason: String,
@@ -64,6 +80,13 @@ fn run(cli: &Cli) -> Result<Value> {
         .peer
         .as_deref()
         .ok_or_else(|| anyhow::anyhow!("specify --peer a|b (or HACP_PEER)"))?;
+    match cli.command {
+        Command::Poll { all } => return messages::poll(&cli.project, peer, all, None),
+        Command::Wait { timeout } => {
+            return messages::poll(&cli.project, peer, false, Some(timeout));
+        }
+        _ => {}
+    }
     let st = Store::lock(&cli.project)?;
     if let Command::Start { task, owns } = &cli.command {
         ensure!(peer == "a", "only peer a can start");
@@ -119,7 +142,22 @@ fn run(cli: &Cli) -> Result<Value> {
         return Ok(json!(s));
     }
     authorize(&s, peer)?;
+    if messages::ingest(&st, &mut s, peer)? {
+        st.commit(&s)?;
+    }
     match &cli.command {
+        Command::Ask { text } | Command::Answer { text, .. } => {
+            messages::active(&s)?;
+            let (kind, reply) = match &cli.command {
+                Command::Answer { message_id, .. } => {
+                    ("hacp.skill.answer", Some(message_id.clone()))
+                }
+                _ => ("hacp.skill.ask", None),
+            };
+            let message_id = messages::send(&mut s, peer, kind, json!({"text":text}), reply)?;
+            st.commit(&s)?;
+            Ok(json!({"message_id":message_id}))
+        }
         Command::Status => Ok(json!(s)),
         Command::Close { reason } => {
             ensure!(!reason.trim().is_empty(), "close requires a reason");

@@ -38,3 +38,76 @@ fn session_recovers_and_does_not_restart() {
     ok(root, "b", &["close", "--reason", "done"]);
     assert_eq!(ok(root, "a", &["status"])["session"]["state"], "closed");
 }
+fn pair(root: &std::path::Path) {
+    ok(root, "a", &["start", "write parser"]);
+    ok(root, "b", &["join", "write tests"]);
+}
+#[test]
+fn crossed_questions_answers_history_and_timeout() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let a = ok(r, "a", &["ask", "interface?"])["message_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
+    let b = ok(r, "b", &["ask", "format?"])["message_id"]
+        .as_str()
+        .unwrap()
+        .to_string();
+    assert_eq!(
+        ok(r, "a", &["wait", "--timeout", "0"])["messages"]
+            .as_array()
+            .unwrap()
+            .len(),
+        1
+    );
+    assert_eq!(ok(r, "b", &["poll"])["messages"][0]["message_id"], a);
+    ok(r, "a", &["answer", &b, "json"]);
+    ok(r, "b", &["answer", &a, "parse()"]);
+    assert_eq!(ok(r, "a", &["poll"])["messages"][0]["in_reply_to"], a);
+    assert_eq!(
+        ok(r, "a", &["poll", "--all"])["messages"]
+            .as_array()
+            .unwrap()
+            .len(),
+        2
+    );
+    assert!(!call(r, "a", &["wait", "--timeout", "0"]).status.success());
+    assert_eq!(
+        ok(r, "b", &["poll"])["outstanding_questions"]
+            .as_array()
+            .unwrap()
+            .len(),
+        0
+    );
+}
+#[test]
+fn committed_delivery_recovers_once() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let out = Command::new(env!("CARGO_BIN_EXE_hacp"))
+        .arg("--project")
+        .arg(r)
+        .args(["--peer", "a", "ask", "hello"])
+        .env("HACP_TEST_CRASH", "after_commit")
+        .output()
+        .unwrap();
+    assert_eq!(out.status.code(), Some(86));
+    let first = ok(r, "b", &["poll"]);
+    assert_eq!(first["messages"].as_array().unwrap().len(), 1);
+    let m = &first["messages"][0];
+    std::fs::write(
+        r.join(".hacp/inbox/b/duplicate.json"),
+        serde_json::to_vec(m).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(
+        ok(r, "b", &["poll"])["messages"].as_array().unwrap().len(),
+        0
+    );
+    let s = ok(r, "a", &["status"]);
+    assert_eq!(s["messages"].as_array().unwrap().len(), 1);
+    assert_eq!(s["events"].as_array().unwrap().len(), 3);
+}
