@@ -111,3 +111,69 @@ fn committed_delivery_recovers_once() {
     assert_eq!(s["messages"].as_array().unwrap().len(), 1);
     assert_eq!(s["events"].as_array().unwrap().len(), 3);
 }
+fn proposal(r: &std::path::Path, peer: &str, outputs: &[&str], commands: &[&str]) -> Value {
+    let name = format!("terms-{peer}.json");
+    std::fs::write(
+        r.join(&name),
+        serde_json::to_vec(
+            &serde_json::json!({"inputs":[],"outputs":outputs,"acceptance":commands}),
+        )
+        .unwrap(),
+    )
+    .unwrap();
+    ok(r, peer, &["propose", "--terms", &name])
+}
+#[test]
+fn initial_aliases_and_invalid_ownership() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    std::fs::write(r.join("real"), "x").unwrap();
+    std::fs::hard_link(r.join("real"), r.join("alias")).unwrap();
+    ok(r, "a", &["start", "a", "--owns", "real"]);
+    for p in ["alias", "../outside", ".hacp/session.json", "*.rs", "."] {
+        assert!(
+            !call(r, "b", &["join", "b", "--owns", p]).status.success(),
+            "{p}"
+        );
+    }
+    ok(r, "b", &["join", "b", "--owns", "other"]);
+}
+#[test]
+fn simultaneous_conflicting_freezes_cannot_both_succeed() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let a = proposal(r, "a", &["shared.txt"], &["test -f shared.txt"]);
+    let b = proposal(r, "b", &["shared.txt"], &["test -f shared.txt"]);
+    let spawn = |peer: &str, v: &Value| {
+        Command::new(env!("CARGO_BIN_EXE_hacp"))
+            .arg("--project")
+            .arg(r)
+            .args([
+                "--peer",
+                peer,
+                "--json",
+                "accept",
+                v["contract"]["contract_id"].as_str().unwrap(),
+                v["pending_digest"].as_str().unwrap(),
+            ])
+            .stdout(std::process::Stdio::piped())
+            .spawn()
+            .unwrap()
+    };
+    let p = spawn("b", &a);
+    let q = spawn("a", &b);
+    let p = p.wait_with_output().unwrap();
+    let q = q.wait_with_output().unwrap();
+    assert_ne!(p.status.success(), q.status.success());
+    let state = ok(r, "a", &["status"]);
+    assert_eq!(
+        state["contracts"]
+            .as_object()
+            .unwrap()
+            .values()
+            .filter(|e| e["contract"]["state"] == "executing")
+            .count(),
+        1
+    );
+}

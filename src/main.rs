@@ -1,4 +1,6 @@
+mod contracts;
 mod messages;
+mod paths;
 mod store;
 use anyhow::{Result, ensure};
 use clap::{Parser, Subcommand};
@@ -35,6 +37,15 @@ enum Command {
         owns: Vec<String>,
     },
     Status,
+    Propose {
+        contract_id: Option<String>,
+        #[arg(long)]
+        terms: PathBuf,
+    },
+    Accept {
+        contract_id: String,
+        digest: String,
+    },
     Ask {
         text: String,
     },
@@ -95,6 +106,7 @@ fn run(cli: &Cli) -> Result<Value> {
             "session already exists; inspect status to resume; existing sessions are preserved"
         );
         ensure!(!task.trim().is_empty(), "task must not be empty");
+        let owns = paths::list(&st.root, owns)?;
         let mut s = Snapshot {
             format: 1,
             session: Session::open(&id("s"), &urn("a"), &urn("b"))?,
@@ -124,6 +136,8 @@ fn run(cli: &Cli) -> Result<Value> {
     if let Command::Join { task, owns } = &cli.command {
         ensure!(peer == "b", "only peer b can join");
         ensure!(!task.trim().is_empty(), "task must not be empty");
+        let owns = paths::list(&st.root, owns)?;
+        paths::disjoint(&st.root, &owns, &s.peers["a"].owns)?;
         s.session.accept(&urn(peer))?;
         s.peers.insert(
             peer.into(),
@@ -158,6 +172,15 @@ fn run(cli: &Cli) -> Result<Value> {
             st.commit(&s)?;
             Ok(json!({"message_id":message_id}))
         }
+        Command::Propose { contract_id, terms } => {
+            ensure!(contract_id.is_none(), "counterproposals arrive in M3");
+            let t = contracts::terms(&st.root, terms)?;
+            contracts::propose(&st, &mut s, peer, t)
+        }
+        Command::Accept {
+            contract_id,
+            digest,
+        } => contracts::accept(&st, &mut s, peer, contract_id, digest),
         Command::Status => Ok(json!(s)),
         Command::Close { reason } => {
             ensure!(!reason.trim().is_empty(), "close requires a reason");
