@@ -1,0 +1,24 @@
+[package]
+name = "hacp-skill"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "Two coding agents, one shared project, explicit agreements and cross-verification"
+repository = "https://github.com/manvendersingh21/hacp-skill"
+
+[[bin]]
+name = "hacp"
+path = "src/main.rs"
+
+[dependencies]
+hacp = { version = "1.1.0", git = "https://github.com/manvendersingh21/hacp.git", rev = "f3d30794b2b502f65b7bd28fd666d7e33c888c59" }
+anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+fs2 = "0.4"
+libc = "0.2"
+
+[dev-dependencies]
+tempfile = "3"
