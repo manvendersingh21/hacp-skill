@@ -1,0 +1,46 @@
+{
+  "artifacts": [],
+  "attempts": [],
+  "contract": {
+    "agreed_by": [
+      "urn:hacp:agent:a"
+    ],
+    "agreed_terms_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901",
+    "amendments": 0,
+    "contract_id": "c-8acb63c62c3842b1a6dc3ef05257479d",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet(name: str) -> str: strip surrounding whitespace, return Hello, NAME!, and raise ValueError for empty names",
+      "task_id": "t-134114481fb743448e776e6a509de79d"
+    }
+  },
+  "pending_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [],
+    "outputs": [
+      "greet.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [],
+  "verifications": []
+}

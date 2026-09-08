@@ -1,0 +1,199 @@
+[
+  {
+    "pair": [
+      "claude",
+      "codex"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-claude-codex-bwgyv5jr",
+    "seconds": 131.82,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "claude",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "codex",
+        "exit": 0,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "claude": "2.1.263 (Claude Code)",
+      "codex": "codex-cli 0.153.4"
+    },
+    "contracts": {
+      "c-7cd7a7d1a8cc481fb4f774c40256f10e": "settled",
+      "c-bd06c583fd964f6c9ef7838a3377b42f": "settled"
+    },
+    "session": "closed",
+    "settled": true,
+    "independent_tests_exit": 0
+  },
+  {
+    "pair": [
+      "agy",
+      "claude"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-agy-claude-hxj1fxgb",
+    "seconds": 152.45,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "agy",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "claude",
+        "exit": 0,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "agy": "1.1.27",
+      "claude": "2.1.263 (Claude Code)"
+    },
+    "contracts": {
+      "c-d39e3ac6009b44ebae8d71b4546c5387": "settled",
+      "c-fed9a4278933443d9125769de543e50a": "settled"
+    },
+    "session": "closed",
+    "settled": true,
+    "independent_tests_exit": 0
+  },
+  {
+    "pair": [
+      "claude",
+      "opencode"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-claude-opencode-8q92_r3j",
+    "seconds": 241.37,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "claude",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "opencode",
+        "exit": 0,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "claude": "2.1.263 (Claude Code)",
+      "opencode": "1.18.29"
+    },
+    "contracts": {
+      "c-751f9977297d4b48b24c153fcb558846": "settled",
+      "c-d133a30be8b5461989a33c6ad9af5716": "settled"
+    },
+    "session": "closed",
+    "settled": true,
+    "independent_tests_exit": 0
+  },
+  {
+    "pair": [
+      "codex",
+      "agy"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-codex-agy-4nb2f_sj",
+    "seconds": 607.72,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "codex",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "agy",
+        "exit": 1,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "codex": "codex-cli 0.153.4",
+      "agy": "1.1.27"
+    },
+    "contracts": {
+      "c-8acb63c62c3842b1a6dc3ef05257479d": "proposed"
+    },
+    "session": "closed",
+    "settled": false,
+    "independent_tests_exit": 0
+  },
+  {
+    "pair": [
+      "opencode",
+      "codex"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-opencode-codex-x8sy4dqv",
+    "seconds": 134.22,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "opencode",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "codex",
+        "exit": 0,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "opencode": "1.18.29",
+      "codex": "codex-cli 0.153.4"
+    },
+    "contracts": {
+      "c-5e0ba716897f4ce78cf0cd2b86fe1d05": "settled",
+      "c-c874773e043743fdb921cd40b05994ce": "settled"
+    },
+    "session": "closed",
+    "settled": true,
+    "independent_tests_exit": 0
+  },
+  {
+    "pair": [
+      "agy",
+      "opencode"
+    ],
+    "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-agy-opencode-yxlmzl3z",
+    "seconds": 182.64,
+    "processes": [
+      {
+        "peer": "a",
+        "cli": "agy",
+        "exit": 0,
+        "timeout": false
+      },
+      {
+        "peer": "b",
+        "cli": "opencode",
+        "exit": 0,
+        "timeout": false
+      }
+    ],
+    "versions": {
+      "agy": "1.1.27",
+      "opencode": "1.18.29"
+    },
+    "contracts": {
+      "c-0706661b8500405685c602b4a92168d5": "settled",
+      "c-2ef8338c05164afc81306b3902fdbf9e": "settled"
+    },
+    "session": "closed",
+    "settled": true,
+    "independent_tests_exit": 0
+  }
+]

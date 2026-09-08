@@ -1,0 +1,33 @@
+{
+  "pair": [
+    "claude",
+    "codex"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-claude-codex-bwgyv5jr",
+  "seconds": 131.82,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "claude",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "claude": "2.1.263 (Claude Code)",
+    "codex": "codex-cli 0.153.4"
+  },
+  "contracts": {
+    "c-7cd7a7d1a8cc481fb4f774c40256f10e": "settled",
+    "c-bd06c583fd964f6c9ef7838a3377b42f": "settled"
+  },
+  "session": "closed",
+  "settled": true,
+  "independent_tests_exit": 0
+}

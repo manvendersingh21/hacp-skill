@@ -1,0 +1,9 @@
+test_empty_name_raises_value_error (test_greet.GreetTests) ... ok
+test_normal_names (test_greet.GreetTests) ... ok
+test_surrounding_whitespace_is_stripped (test_greet.GreetTests) ... ok
+test_whitespace_only_names_raise_value_error (test_greet.GreetTests) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

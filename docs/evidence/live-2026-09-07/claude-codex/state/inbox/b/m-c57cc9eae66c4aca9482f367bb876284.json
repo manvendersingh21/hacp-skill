@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-c57cc9eae66c4aca9482f367bb876284",
+  "session_id": "s-c9f1cbdbf93a40eeab5fce897a8d2b6e",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:07:49Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts: greet.py (peer a) implements greet(name) stripping whitespace, returning 'Hello, NAME!', raising ValueError on empty/whitespace names; test_greet.py (peer b) provides 4 unittest cases, all passing via 'python3 -m unittest -v'. No remaining work."
+  }
+}

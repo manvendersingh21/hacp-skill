@@ -1,0 +1,32 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-e833a821d1f44c19aef9b531ab916bc9",
+  "session_id": "s-4af7c9f48ada4d08be140934e85fec98",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "contract.proposed",
+  "timestamp": "2026-09-08T00:12:56Z",
+  "body": {
+    "contract_id": "c-c874773e043743fdb921cd40b05994ce",
+    "next": "review terms and accept digest or counter",
+    "revision": null,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet.py with greet(name)->str plus peer B's task",
+      "task_id": "t-07d77acecf8b418f96e5e25dfb291e89"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [
+        "test_greet.py"
+      ],
+      "outputs": [
+        "greet.py"
+      ]
+    },
+    "terms_digest": "8419a82c5d1fc252de9bb8e8b6e3739ccdf4e62dcac6402305dac85941f86ea0"
+  }
+}

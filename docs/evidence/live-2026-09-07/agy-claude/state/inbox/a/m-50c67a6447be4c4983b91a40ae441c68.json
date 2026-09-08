@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-50c67a6447be4c4983b91a40ae441c68",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:08:14Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts: greet.py (peer a) and test_greet.py (peer b) both pass python3 -m unittest -v. Interface negotiated via ask/answer round trip; no remaining work."
+  }
+}

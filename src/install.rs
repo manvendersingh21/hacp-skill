@@ -147,7 +147,7 @@ pub fn run(cli: Option<&str>, home: Option<&Path>, doctor: bool) -> Result<Value
         .map(|t| Ok(json!({"path":t.path,"status":state(t)?})))
         .collect::<Result<_>>()?;
     let conflicts = files.iter().any(|f| f["status"] == "conflict");
-    let prerequisites = json!({"cargo":version("cargo")?,"hacp":binary("hacp"),"shell":Path::new("/bin/sh").is_file()});
+    let prerequisites = json!({"cargo":version("cargo")?,"hacp":version("hacp")?,"git":version("git")?,"shell":Path::new("/bin/sh").is_file()});
     if doctor {
         return Ok(
             json!({"clis":reports,"files":files,"conflicts":conflicts,"prerequisites":prerequisites,"model_calls":0}),

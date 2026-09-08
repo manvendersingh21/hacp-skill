@@ -1,0 +1,28 @@
+{
+  "claude": {
+    "model": "claude-sonnet-5",
+    "source": "observed assistant.message.model in live JSONL"
+  },
+  "codex": {
+    "model": "gpt-6-astra",
+    "source": "installed config.toml model setting; no model override in harness"
+  },
+  "agy": {
+    "model": "Gemini 3.6 Flash (Medium)",
+    "backend_id": "gemini-3.6-flash-medium",
+    "source": "installed settings.json and selected model override in live CLI log"
+  },
+  "opencode": {
+    "observed": {
+      "providerID": "zai-coding-plan",
+      "modelID": "glm-5.3"
+    },
+    "source": "complete model fields in export of live session ses_f81a80b0effeAk8X2nOjauyYhV"
+  },
+  "hacp": {
+    "version": "0.1.0",
+    "binary_sha256": "5532948ffe2582d3f412a7c06a14f88ea8341c8fe074af79a25303fbb29c56fc",
+    "source_milestone": "3ac45ff",
+    "notes": "All seven live attempts used this M5 binary. Later path-alias and opening-status improvements are covered by deterministic release checks."
+  }
+}

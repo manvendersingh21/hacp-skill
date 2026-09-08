@@ -1,0 +1,30 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-480f1a389c5c407e9fa68f6c726427d7",
+  "session_id": "s-c9f1cbdbf93a40eeab5fce897a8d2b6e",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "contract.frozen",
+  "timestamp": "2026-09-08T00:07:03Z",
+  "body": {
+    "contract_id": "c-bd06c583fd964f6c9ef7838a3377b42f",
+    "next": "owner implements frozen outputs then submits",
+    "revision": "3b8f99a0c9015cb9437be5de3a3f0f29d4bd7a7a26701a2c86b6b4f60a2e3312",
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet.py with greet(name) -> 'Hello, NAME!' stripping whitespace, ValueError on empty/whitespace name",
+      "task_id": "t-4cc1cb431da643e0961c69e151eca10e"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [],
+      "outputs": [
+        "greet.py"
+      ]
+    },
+    "terms_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901"
+  }
+}

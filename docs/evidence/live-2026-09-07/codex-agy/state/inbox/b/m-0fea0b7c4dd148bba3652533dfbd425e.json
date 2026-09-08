@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-0fea0b7c4dd148bba3652533dfbd425e",
+  "session_id": "s-1a50448aa7df452588822d8ec8909ea5",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:12:58Z",
+  "body": {
+    "text": "Are you encountering an operational blocker? I am still waiting on your interface answer and acceptance of c-8acb63c62c3842b1a6dc3ef05257479d; please propose your test contract so I can review and accept. Our session must finish within ten minutes."
+  }
+}

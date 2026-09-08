@@ -1,0 +1,62 @@
+{
+  "artifacts": [],
+  "attempts": [],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-ff1353483d514ddd91486f27a9ac470e",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest -v"
+          ],
+          "inputs": [
+            "greet.py"
+          ],
+          "outputs": [
+            "test_greet.py"
+          ]
+        },
+        "digest": "da278a3c285b6e89691cb6596471c9a73e3703c26db0a42dacb352aea7498a5e",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement test_greet.py",
+      "task_id": "t-5715d6eb927047fc8d1cf2a608ff84cd"
+    }
+  },
+  "pending_digest": "4f3bc23f6a30b48d9ea59800bde6e1ae98b84e8e3e5fa86901d02265bbac4887",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [
+      "greet.py"
+    ],
+    "outputs": [
+      "test_greet.py"
+    ]
+  },
+  "proposer": "b",
+  "submissions": [],
+  "verifications": []
+}

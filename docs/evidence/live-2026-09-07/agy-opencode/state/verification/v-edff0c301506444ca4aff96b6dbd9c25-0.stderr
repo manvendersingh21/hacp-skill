@@ -1,0 +1,13 @@
+test_empty_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok
+test_space_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok
+test_tab_and_newline_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok
+test_another_single_name (test_greet.GreetNormalNameTests) ... ok
+test_name_with_inner_space_preserved (test_greet.GreetNormalNameTests) ... ok
+test_single_name (test_greet.GreetNormalNameTests) ... ok
+test_leading_and_trailing_spaces_stripped (test_greet.GreetWhitespaceTests) ... ok
+test_tabs_and_newlines_stripped (test_greet.GreetWhitespaceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK

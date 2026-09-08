@@ -1,0 +1,74 @@
+[
+  {
+    "path": "agy-claude/a.jsonl",
+    "original_sha256": "23adcf942bc23c5d2afb89b0ae4f7e67de70e125805a1e77f86e13b85b58fb53",
+    "original_bytes": 112461,
+    "retained_events": 119
+  },
+  {
+    "path": "agy-claude/b.jsonl",
+    "original_sha256": "08bc956b35adbc93dc530ffecc7a523eb41fb6da367e7cde6d9a5fb560c11543",
+    "original_bytes": 193320,
+    "retained_events": 79
+  },
+  {
+    "path": "agy-opencode/a.jsonl",
+    "original_sha256": "f70ceefd1c948270ee0ee3aea7c12706c6199cb790ecd1b3c1918330bfab32ae",
+    "original_bytes": 77491,
+    "retained_events": 84
+  },
+  {
+    "path": "agy-opencode/b.jsonl",
+    "original_sha256": "5ea71d29d599c28d04acbce13b02a3bbb5f2f197e23d8d4e3fa595f8828a1466",
+    "original_bytes": 133389,
+    "retained_events": 40
+  },
+  {
+    "path": "claude-codex/a.jsonl",
+    "original_sha256": "60b1797a712a25e848c9954d6c051d7ee51fe3f9dfe4d745c1e5e5cca63ad34a",
+    "original_bytes": 127539,
+    "retained_events": 53
+  },
+  {
+    "path": "claude-codex/b.jsonl",
+    "original_sha256": "14ce6ca096cc2db0223303cc0fa7a3967232f68c02a47c1e93723c8dd9bdd93e",
+    "original_bytes": 129331,
+    "retained_events": 55
+  },
+  {
+    "path": "claude-opencode/a.jsonl",
+    "original_sha256": "1e1cd0b89c34a62171ae90e6f2d27d1b82ecc6cf0db59e8ca85dc2d2346651ca",
+    "original_bytes": 286885,
+    "retained_events": 80
+  },
+  {
+    "path": "claude-opencode/b.jsonl",
+    "original_sha256": "f7265c7e386fc2db9abc3ecab934655df5c10d39045567ea6ee2e9cb1f8d60f0",
+    "original_bytes": 124814,
+    "retained_events": 40
+  },
+  {
+    "path": "codex-agy/a.jsonl",
+    "original_sha256": "ec993f118e378d1866cef459be7f01ba3773b0a74daaa8d99e5e95dd7f517cd2",
+    "original_bytes": 99753,
+    "retained_events": 96
+  },
+  {
+    "path": "codex-agy/b.jsonl",
+    "original_sha256": "c00cbf6a08be7dcb99372768fe6de66b0082c11ab748819d11fb0372cc0ae4ab",
+    "original_bytes": 14743,
+    "retained_events": 35
+  },
+  {
+    "path": "opencode-codex/a.jsonl",
+    "original_sha256": "e9d9ec6b46cbe487f5371401abc67edd13fafd5964d1c9517b047d072d93fd75",
+    "original_bytes": 186205,
+    "retained_events": 41
+  },
+  {
+    "path": "opencode-codex/b.jsonl",
+    "original_sha256": "d92f7a195a3e3d479e3dc15b70e5a9397cb377f73c22e122f4eaebf1d6ecb520",
+    "original_bytes": 71936,
+    "retained_events": 53
+  }
+]

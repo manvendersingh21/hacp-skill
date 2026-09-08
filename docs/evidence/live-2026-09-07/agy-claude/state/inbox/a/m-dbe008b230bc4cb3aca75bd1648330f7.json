@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-dbe008b230bc4cb3aca75bd1648330f7",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:07:23Z",
+  "in_reply_to": "m-e911e9974fcd44e1bfbaa21b1f418338",
+  "body": {
+    "text": "test_greet.py — already agreed and frozen in contract c-fed9a4278933443d9125769de543e50a."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-552d308f89714b01b5480b494e8c11d2",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "submission.delivered",
+  "timestamp": "2026-09-08T00:07:56Z",
+  "body": {
+    "contract_id": "c-fed9a4278933443d9125769de543e50a",
+    "next": "counterparty verifies",
+    "revision": "797701f6428af7820bc21884191398a9b9a646da2967c4ab17cb3fbed282c740",
+    "state": "verifying",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement test_greet.py with unittest tests for greet.greet",
+      "task_id": "t-42130af14dfa4ba2b4e04cb7875b611d"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [
+        "greet.py"
+      ],
+      "outputs": [
+        "test_greet.py"
+      ]
+    },
+    "terms_digest": "4f3bc23f6a30b48d9ea59800bde6e1ae98b84e8e3e5fa86901d02265bbac4887"
+  }
+}

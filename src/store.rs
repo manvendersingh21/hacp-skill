@@ -51,6 +51,7 @@ impl Store {
             bail!(".hacp must not be a symlink");
         }
         fs::create_dir_all(&state)?;
+        File::open(&root)?.sync_all()?;
         let lock = OpenOptions::new()
             .create(true)
             .truncate(false)

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-0ef59a1e4fe747cb83a46811aa4416db",
+  "session_id": "s-4af7c9f48ada4d08be140934e85fec98",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:13:59Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts after counterparty verification. greet.py and test_greet.py are complete; python3 -m unittest -v passes all four tests. No remaining work."
+  }
+}

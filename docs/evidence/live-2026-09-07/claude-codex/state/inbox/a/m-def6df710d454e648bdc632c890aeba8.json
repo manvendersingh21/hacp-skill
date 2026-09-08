@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-def6df710d454e648bdc632c890aeba8",
+  "session_id": "s-c9f1cbdbf93a40eeab5fce897a8d2b6e",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:06:32Z",
+  "body": {
+    "text": "Please confirm the test interface: from greet import greet; greet(name) returns exactly Hello, NAME! after stripping leading/trailing whitespace, preserves interior whitespace and name case, and raises ValueError for empty or all-whitespace strings. I will cover normal names, spaces/tabs/newlines around names, and invalid empty/whitespace names; no exact error-message requirement. Agreed?"
+  }
+}

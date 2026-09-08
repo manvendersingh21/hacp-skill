@@ -1,0 +1,30 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-287b7345ce8f41b5a8cea7f0dded4d7d",
+  "session_id": "s-fe868039d8b249548b4ca24f0e2526a4",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "contract.proposed",
+  "timestamp": "2026-09-08T00:16:02Z",
+  "body": {
+    "contract_id": "c-8e5424dc8ba54da4979881915353d1b4",
+    "next": "review terms and accept digest or counter",
+    "revision": null,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet(name: str) -> str with trimmed greeting and ValueError for blank names",
+      "task_id": "t-a355466a3dd84531820b24727fdb1cc6"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [],
+      "outputs": [
+        "greet.py"
+      ]
+    },
+    "terms_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901"
+  }
+}

@@ -58,6 +58,14 @@ pub fn terms(root: &Path, file: &Path) -> Result<Terms> {
     Ok(t)
 }
 pub fn claims(root: &Path, s: &Snapshot, candidate: &Entry) -> Result<()> {
+    ensure!(
+        paths::list(root, &candidate.pending_terms.outputs)? == candidate.pending_terms.outputs,
+        "output aliases changed since proposal"
+    );
+    ensure!(
+        paths::list(root, &candidate.pending_terms.inputs)? == candidate.pending_terms.inputs,
+        "input aliases changed since proposal"
+    );
     for path in candidate
         .pending_terms
         .inputs

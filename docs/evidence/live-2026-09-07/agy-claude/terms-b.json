@@ -1,0 +1,11 @@
+{
+  "inputs": [
+    "greet.py"
+  ],
+  "outputs": [
+    "test_greet.py"
+  ],
+  "acceptance": [
+    "python3 -m unittest -v"
+  ]
+}

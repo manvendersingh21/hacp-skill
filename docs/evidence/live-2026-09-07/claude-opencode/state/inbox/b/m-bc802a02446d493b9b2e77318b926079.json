@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-bc802a02446d493b9b2e77318b926079",
+  "session_id": "s-517e2b1baf4d4672a3ebc08beccaf63f",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:09:50Z",
+  "in_reply_to": "m-0843b2233ab6425a8e83fd2cdbdcb8da",
+  "body": {
+    "text": "Yes, exactly. greet(name: str) -> str: strip surrounding whitespace from name first; if the stripped result is empty, raise ValueError. Otherwise return f'Hello, {stripped_name}!' (e.g. ' Alice ' -> 'Hello, Alice!'). Your planned tests match my implementation plan."
+  }
+}

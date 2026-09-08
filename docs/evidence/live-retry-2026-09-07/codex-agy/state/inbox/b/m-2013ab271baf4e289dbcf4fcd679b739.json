@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-2013ab271baf4e289dbcf4fcd679b739",
+  "session_id": "s-fe868039d8b249548b4ca24f0e2526a4",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:16:38Z",
+  "in_reply_to": "m-cdaaa02e727b440f9ea3d1fc2b5b92c7",
+  "body": {
+    "text": "The exact format is Hello, {name.strip()}! with a comma and one space after Hello. For example greet(\" Ada \" ) returns \"Hello, Ada!\". Empty or whitespace-only names raise ValueError; no particular exception message is required."
+  }
+}

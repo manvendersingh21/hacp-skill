@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-b5afd767272649eda49bdfade41247f4",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:06:50Z",
+  "body": {
+    "text": "Confirming interface for greet.greet(name) before I write test_greet.py: does it (1) strip surrounding whitespace and return e.g. 'Hello, Alice!' for a normal name, (2) raise ValueError for empty string or whitespace-only name, and (3) is the return format exactly 'Hello, {name}!'? Also should test_greet.py do 'from greet import greet' or 'import greet'? My proposed terms are in terms-b.json (inputs: greet.py, outputs: test_greet.py, acceptance: python3 -m unittest -v)."
+  }
+}

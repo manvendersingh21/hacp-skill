@@ -1,0 +1,32 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-1378088190be48388b6f2fb1bd74bfca",
+  "session_id": "s-4af7c9f48ada4d08be140934e85fec98",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "verification.delivered",
+  "timestamp": "2026-09-08T00:13:49Z",
+  "body": {
+    "contract_id": "c-5e0ba716897f4ce78cf0cd2b86fe1d05",
+    "next": "remain available to verify peer",
+    "revision": "45164d224530cc8832cf80d07d7747b0db1759f5638e0de7bc2df94b5954c906",
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement unittest coverage for greet.greet normal names, surrounding whitespace, and empty or whitespace rejection",
+      "task_id": "t-382a50c4ae1345cc9bbb3528608d8574"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [
+        "greet.py"
+      ],
+      "outputs": [
+        "test_greet.py"
+      ]
+    },
+    "terms_digest": "4f3bc23f6a30b48d9ea59800bde6e1ae98b84e8e3e5fa86901d02265bbac4887"
+  }
+}

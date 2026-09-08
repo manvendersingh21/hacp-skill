@@ -492,3 +492,99 @@ fn forged_envelopes_are_refused_and_fetched_question_remains_actionable() {
         std::fs::remove_file(path).unwrap();
     }
 }
+#[test]
+fn case_aliases_and_symlink_escapes_are_checked_before_freeze() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    std::fs::write(r.join("CaseProbe"), "probe").unwrap();
+    if r.join("caseprobe").exists() {
+        let p = proposal(r, "a", &["Future.txt"], &["true"]);
+        accept(r, "b", &p);
+        let q = proposal(r, "b", &["future.txt"], &["true"]);
+        assert!(
+            !call(
+                r,
+                "a",
+                &[
+                    "accept",
+                    q["contract"]["contract_id"].as_str().unwrap(),
+                    q["pending_digest"].as_str().unwrap()
+                ]
+            )
+            .status
+            .success()
+        );
+    }
+    let q = proposal(r, "a", &["later.txt"], &["true"]);
+    let external = tempfile::NamedTempFile::new().unwrap();
+    std::os::unix::fs::symlink(external.path(), r.join("later.txt")).unwrap();
+    assert!(
+        !call(
+            r,
+            "b",
+            &[
+                "accept",
+                q["contract"]["contract_id"].as_str().unwrap(),
+                q["pending_digest"].as_str().unwrap()
+            ]
+        )
+        .status
+        .success()
+    );
+}
+#[test]
+fn concurrent_questions_preserve_every_message() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let children: Vec<_> = (0..6)
+        .map(|n| {
+            Command::new(env!("CARGO_BIN_EXE_hacp"))
+                .arg("--project")
+                .arg(r)
+                .args([
+                    "--peer",
+                    if n % 2 == 0 { "a" } else { "b" },
+                    "--json",
+                    "ask",
+                    &format!("question-{n}"),
+                ])
+                .stdout(std::process::Stdio::piped())
+                .spawn()
+                .unwrap()
+        })
+        .collect();
+    for c in children {
+        let out = c.wait_with_output().unwrap();
+        assert!(
+            out.status.success(),
+            "{}",
+            String::from_utf8_lossy(&out.stdout)
+        );
+    }
+    assert_eq!(
+        ok(r, "a", &["poll"])["messages"].as_array().unwrap().len(),
+        3
+    );
+    assert_eq!(
+        ok(r, "b", &["poll"])["messages"].as_array().unwrap().len(),
+        3
+    );
+    assert_eq!(
+        ok(r, "a", &["status"])["processed"]
+            .as_array()
+            .unwrap()
+            .len(),
+        6
+    );
+}
+#[test]
+fn opening_can_be_inspected_by_joiner_and_explicitly_ended() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    ok(r, "a", &["start", "task"]);
+    assert_eq!(ok(r, "b", &["status"])["session"]["state"], "opening");
+    ok(r, "a", &["close", "--reason", "peer unavailable"]);
+    assert_eq!(ok(r, "a", &["status"])["session"]["state"], "abandoned");
+}

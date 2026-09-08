@@ -1,0 +1,12 @@
+test_another_normal_name (test_greet.GreetTests) ... ok
+test_empty_name_raises_value_error (test_greet.GreetTests) ... ok
+test_internal_spaces_preserved (test_greet.GreetTests) ... ok
+test_normal_name (test_greet.GreetTests) ... ok
+test_surrounding_whitespace_stripped (test_greet.GreetTests) ... ok
+test_tabs_and_newlines_stripped (test_greet.GreetTests) ... ok
+test_whitespace_only_name_raises_value_error (test_greet.GreetTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK

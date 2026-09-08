@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-4e9c91b250cf4eab8d48139af3122730",
+  "session_id": "s-9a7b1d88edb74b138a2e9f92adcdaf49",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:15:10Z",
+  "body": {
+    "text": "Before I write test_greet.py, please confirm the greet.greet interface: (1) exact module/function name and signature (e.g., greet(name: str) -> str); (2) return format for a normal name, e.g. \"Hello, Alice!\"; (3) is surrounding whitespace stripped before formatting (greet(\"  Alice \") -> \"Hello, Alice!\")?; (4) does it raise ValueError for empty or whitespace-only names (assertRaisesRaises ValueError)? I plan to assert these with python3 -m unittest -v as acceptance."
+  }
+}

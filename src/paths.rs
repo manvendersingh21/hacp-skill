@@ -58,7 +58,7 @@ fn resolve(p: &Path) -> Result<PathBuf> {
 pub fn overlaps(root: &Path, a: &str, b: &str) -> Result<bool> {
     let a = normalize(root, a)?;
     let b = normalize(root, b)?;
-    if a == b {
+    if a == b || (case_insensitive(root)? && a.to_lowercase() == b.to_lowercase()) {
         return Ok(true);
     }
     // Existing hard links have distinct canonical paths but the same file identity.
@@ -93,4 +93,34 @@ pub fn disjoint(root: &Path, left: &[String], right: &[String]) -> Result<()> {
         }
     }
     Ok(())
+}
+
+fn case_insensitive(root: &Path) -> Result<bool> {
+    let device = fs::metadata(root)?.dev();
+    for p in root.ancestors() {
+        if fs::metadata(p)?.dev() != device {
+            break;
+        }
+        let Some(name) = p.file_name().and_then(|x| x.to_str()) else {
+            continue;
+        };
+        let swapped: String = name
+            .chars()
+            .map(|c| {
+                if c.is_ascii_lowercase() {
+                    c.to_ascii_uppercase()
+                } else {
+                    c.to_ascii_lowercase()
+                }
+            })
+            .collect();
+        if swapped == name {
+            continue;
+        }
+        let alternate = p.with_file_name(swapped);
+        return Ok(fs::metadata(alternate).is_ok_and(|m| {
+            m.ino() == fs::metadata(p).map(|m| m.ino()).unwrap_or(0) && m.dev() == device
+        }));
+    }
+    Ok(false)
 }

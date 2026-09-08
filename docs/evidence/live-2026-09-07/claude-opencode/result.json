@@ -1,0 +1,33 @@
+{
+  "pair": [
+    "claude",
+    "opencode"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-claude-opencode-8q92_r3j",
+  "seconds": 241.37,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "claude",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "claude": "2.1.263 (Claude Code)",
+    "opencode": "1.18.29"
+  },
+  "contracts": {
+    "c-751f9977297d4b48b24c153fcb558846": "settled",
+    "c-d133a30be8b5461989a33c6ad9af5716": "settled"
+  },
+  "session": "closed",
+  "settled": true,
+  "independent_tests_exit": 0
+}

@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    {
+      "path": "greet.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:0be78997-b7fe-4a36-af6e-311e760b8c3c",
+        "contract_id": "c-d39e3ac6009b44ebae8d71b4546c5387",
+        "contract_revision": "579c17a598250d9c54c7e507a314566d8708c2edbf12cbacb683c52278b27eb9",
+        "derived_from": [],
+        "digest": "922ec3356999a1ae4ef2841ed6a3ecd5ccf62c833a1230750ede3c8271995681",
+        "location": ".hacp/artifacts/0be78997-b7fe-4a36-af6e-311e760b8c3c.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 263,
+        "task_id": "t-547ccc45bb294d2899d98aa9bf6420cb",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest -v",
+          "duration_ms": 49,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_another_normal_name (test_greet.TestGreet) ... ok\ntest_empty_string_raises_value_error (test_greet.TestGreet) ... ok\ntest_normal_name (test_greet.TestGreet) ... ok\ntest_strips_surrounding_whitespace (test_greet.TestGreet) ... ok\ntest_strips_tabs_and_newlines (test_greet.TestGreet) ... ok\ntest_tabs_and_newlines_only_raises_value_error (test_greet.TestGreet) ... ok\ntest_whitespace_only_raises_value_error (test_greet.TestGreet) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-b570525562d24690ba970dbac11cc92d",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-d39e3ac6009b44ebae8d71b4546c5387",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest -v"
+          ],
+          "inputs": [],
+          "outputs": [
+            "greet.py"
+          ]
+        },
+        "digest": "579c17a598250d9c54c7e507a314566d8708c2edbf12cbacb683c52278b27eb9",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet module",
+      "task_id": "t-547ccc45bb294d2899d98aa9bf6420cb"
+    }
+  },
+  "pending_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [],
+    "outputs": [
+      "greet.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "579c17a598250d9c54c7e507a314566d8708c2edbf12cbacb683c52278b27eb9",
+      "artifacts": [
+        "urn:hacp:artifact:0be78997-b7fe-4a36-af6e-311e760b8c3c"
+      ],
+      "claim": "Implemented greet function in greet.py with string stripping and ValueError on empty string",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "579c17a598250d9c54c7e507a314566d8708c2edbf12cbacb683c52278b27eb9",
+      "artifacts": [
+        "urn:hacp:artifact:0be78997-b7fe-4a36-af6e-311e760b8c3c"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 922ec3356999a1ae4ef2841ed6a3ecd5ccf62c833a1230750ede3c8271995681 and 263 bytes match working file and immutable copy",
+          "name": "before: greet.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest -v\",\"stdout\":\"\",\"stderr\":\"test_another_normal_name (test_greet.TestGreet) ... ok\\ntest_empty_string_raises_value_error (test_greet.TestGreet) ... ok\\ntest_normal_name (test_greet.TestGreet) ... ok\\ntest_strips_surrounding_whitespace (test_greet.TestGreet) ... ok\\ntest_strips_tabs_and_newlines (test_greet.TestGreet) ... ok\\ntest_tabs_and_newlines_only_raises_value_error (test_greet.TestGreet) ... ok\\ntest_whitespace_only_raises_value_error (test_greet.TestGreet) ... ok\\n\\n----------------------------------------------------------------------\\nRan 7 tests in 0.001s\\n\\nOK\\n\",\"duration_ms\":49,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 922ec3356999a1ae4ef2841ed6a3ecd5ccf62c833a1230750ede3c8271995681 and 263 bytes match working file and immutable copy",
+          "name": "after: greet.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-d39e3ac6009b44ebae8d71b4546c5387",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-b570525562d24690ba970dbac11cc92d",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

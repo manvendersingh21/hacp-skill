@@ -218,6 +218,9 @@ fn run(cli: &Cli) -> Result<Value> {
         st.commit(&s)?;
         return Ok(json!(s));
     }
+    if matches!(cli.command, Command::Status) {
+        return Ok(json!(s));
+    }
     authorize(&s, peer)?;
     if messages::ingest(&st, &mut s, peer)? {
         st.commit(&s)?;

@@ -1,0 +1,3 @@
+{
+  "reason": "AGY exited with high-traffic/capacity error; the waiting companion process was stopped after observing that failure. No peer messages or consent were fabricated."
+}

@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    {
+      "path": "greet.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:067ea272-ecc1-446d-ae95-a4b0a50738b0",
+        "contract_id": "c-2ef8338c05164afc81306b3902fdbf9e",
+        "contract_revision": "735585b4c81298002666b7201c0105c5ee9433931fa698886049c19b54f80045",
+        "derived_from": [],
+        "digest": "2fa444827178afa69dfc80710cc8bb746cdef651b990678608cd13f65cf2cee3",
+        "location": ".hacp/artifacts/067ea272-ecc1-446d-ae95-a4b0a50738b0.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 257,
+        "task_id": "t-c29cd457c53a41f989bc0703148b0139",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest -v",
+          "duration_ms": 69,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_empty_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\ntest_space_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\ntest_tab_and_newline_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\ntest_another_single_name (test_greet.GreetNormalNameTests) ... ok\ntest_name_with_inner_space_preserved (test_greet.GreetNormalNameTests) ... ok\ntest_single_name (test_greet.GreetNormalNameTests) ... ok\ntest_leading_and_trailing_spaces_stripped (test_greet.GreetWhitespaceTests) ... ok\ntest_tabs_and_newlines_stripped (test_greet.GreetWhitespaceTests) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-db06e025dcbf400085a9e4e3a999d44f",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-2ef8338c05164afc81306b3902fdbf9e",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest -v"
+          ],
+          "inputs": [],
+          "outputs": [
+            "greet.py"
+          ]
+        },
+        "digest": "735585b4c81298002666b7201c0105c5ee9433931fa698886049c19b54f80045",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet.py",
+      "task_id": "t-c29cd457c53a41f989bc0703148b0139"
+    }
+  },
+  "pending_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [],
+    "outputs": [
+      "greet.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "735585b4c81298002666b7201c0105c5ee9433931fa698886049c19b54f80045",
+      "artifacts": [
+        "urn:hacp:artifact:067ea272-ecc1-446d-ae95-a4b0a50738b0"
+      ],
+      "claim": "Implemented greet(name: str) -> str with whitespace stripping and ValueError on empty/whitespace names",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "735585b4c81298002666b7201c0105c5ee9433931fa698886049c19b54f80045",
+      "artifacts": [
+        "urn:hacp:artifact:067ea272-ecc1-446d-ae95-a4b0a50738b0"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 2fa444827178afa69dfc80710cc8bb746cdef651b990678608cd13f65cf2cee3 and 257 bytes match working file and immutable copy",
+          "name": "before: greet.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest -v\",\"stdout\":\"\",\"stderr\":\"test_empty_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\\ntest_space_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\\ntest_tab_and_newline_only_name_raises_value_error (test_greet.GreetInvalidNameTests) ... ok\\ntest_another_single_name (test_greet.GreetNormalNameTests) ... ok\\ntest_name_with_inner_space_preserved (test_greet.GreetNormalNameTests) ... ok\\ntest_single_name (test_greet.GreetNormalNameTests) ... ok\\ntest_leading_and_trailing_spaces_stripped (test_greet.GreetWhitespaceTests) ... ok\\ntest_tabs_and_newlines_stripped (test_greet.GreetWhitespaceTests) ... ok\\n\\n----------------------------------------------------------------------\\nRan 8 tests in 0.000s\\n\\nOK\\n\",\"duration_ms\":69,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 2fa444827178afa69dfc80710cc8bb746cdef651b990678608cd13f65cf2cee3 and 257 bytes match working file and immutable copy",
+          "name": "after: greet.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-2ef8338c05164afc81306b3902fdbf9e",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-db06e025dcbf400085a9e4e3a999d44f",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

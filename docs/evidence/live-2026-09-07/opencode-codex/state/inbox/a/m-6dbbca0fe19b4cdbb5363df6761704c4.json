@@ -1,0 +1,32 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-6dbbca0fe19b4cdbb5363df6761704c4",
+  "session_id": "s-4af7c9f48ada4d08be140934e85fec98",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "verification.delivered",
+  "timestamp": "2026-09-08T00:13:41Z",
+  "body": {
+    "contract_id": "c-c874773e043743fdb921cd40b05994ce",
+    "next": "remain available to verify peer",
+    "revision": "23bae84a28a4b1f647379242165b099b9195105630e10a0f471ce2d0014e88c5",
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet.py with greet(name)->str plus peer B's task",
+      "task_id": "t-07d77acecf8b418f96e5e25dfb291e89"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [
+        "test_greet.py"
+      ],
+      "outputs": [
+        "greet.py"
+      ]
+    },
+    "terms_digest": "8419a82c5d1fc252de9bb8e8b6e3739ccdf4e62dcac6402305dac85941f86ea0"
+  }
+}

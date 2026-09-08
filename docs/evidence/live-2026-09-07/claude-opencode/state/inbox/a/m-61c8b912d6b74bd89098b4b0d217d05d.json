@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-61c8b912d6b74bd89098b4b0d217d05d",
+  "session_id": "s-517e2b1baf4d4672a3ebc08beccaf63f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:11:45Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts. c-751f (peer a, greet.py): verified by peer b, acceptance python3 -m unittest -v passed 7/7. c-d133a30 (peer b, test_greet.py): verified by peer a, same acceptance passed 7/7. Interface agreed via ask/answer: greet strips whitespace, returns 'Hello, NAME!', raises ValueError on empty/whitespace-only. No remaining work."
+  }
+}

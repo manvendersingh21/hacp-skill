@@ -1,0 +1,33 @@
+{
+  "pair": [
+    "agy",
+    "opencode"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-agy-opencode-yxlmzl3z",
+  "seconds": 182.64,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "agy",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "agy": "1.1.27",
+    "opencode": "1.18.29"
+  },
+  "contracts": {
+    "c-0706661b8500405685c602b4a92168d5": "settled",
+    "c-2ef8338c05164afc81306b3902fdbf9e": "settled"
+  },
+  "session": "closed",
+  "settled": true,
+  "independent_tests_exit": 0
+}

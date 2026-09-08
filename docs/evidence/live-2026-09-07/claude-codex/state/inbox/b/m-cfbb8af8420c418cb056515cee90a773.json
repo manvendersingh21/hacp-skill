@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-cfbb8af8420c418cb056515cee90a773",
+  "session_id": "s-c9f1cbdbf93a40eeab5fce897a8d2b6e",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:06:43Z",
+  "in_reply_to": "m-def6df710d454e648bdc632c890aeba8",
+  "body": {
+    "text": "Agreed. from greet import greet; greet(name: str) -> str returns 'Hello, ' + name.strip() + '!' after stripping leading/trailing whitespace only (interior whitespace and case preserved). Raises ValueError if name is empty or consists solely of whitespace. Your test plan sounds good."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-e911e9974fcd44e1bfbaa21b1f418338",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:06:58Z",
+  "body": {
+    "text": "What is the name of the test file you will create for greet.py?"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-8f6a084cf51643a8a5e3d097c13ca1ae",
+  "session_id": "s-64d0af8acc984f8893bb0e9c7ece7b2f",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:06:53Z",
+  "in_reply_to": "m-b5afd767272649eda49bdfade41247f4",
+  "body": {
+    "text": "Yes to all: (1) it strips surrounding whitespace and returns 'Hello, NAME!', (2) raises ValueError for empty string or whitespace-only name, and (3) return format is exactly 'Hello, {stripped_name}!'. In test_greet.py you can do 'from greet import greet' or 'import greet', both work as greet.py defines greet(name: str) -> str."
+  }
+}

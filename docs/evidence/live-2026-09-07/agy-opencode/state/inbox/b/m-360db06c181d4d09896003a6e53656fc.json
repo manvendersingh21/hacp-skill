@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-360db06c181d4d09896003a6e53656fc",
+  "session_id": "s-9a7b1d88edb74b138a2e9f92adcdaf49",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:15:17Z",
+  "in_reply_to": "m-4e9c91b250cf4eab8d48139af3122730",
+  "body": {
+    "text": "Confirmed! 1. Exact function signature: greet(name: str) -> str in greet.py. 2. Returns 'Hello, NAME!' for normal name (e.g. greet('Alice') -> 'Hello, Alice!'). 3. Surrounding whitespace is stripped before formatting (e.g. greet('  Alice ') -> 'Hello, Alice!'). 4. Raises ValueError for empty or whitespace-only names."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-30b286a4f9d246e59167bc18a0cb4610",
+  "session_id": "s-517e2b1baf4d4672a3ebc08beccaf63f",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:10:39Z",
+  "body": {
+    "text": "I countered your contract c-751f...: your outputs listed test_greet.py, which I own and will deliver under my own contract c-d133a30 (outputs: test_greet.py). Freezing my file under your output set would couple hashes across contracts. My counter keeps outputs: [greet.py], inputs: [test_greet.py] (dependency for the acceptance command), acceptance unchanged: python3 -m unittest -v. OK to accept digest 8419a82c...?"
+  }
+}

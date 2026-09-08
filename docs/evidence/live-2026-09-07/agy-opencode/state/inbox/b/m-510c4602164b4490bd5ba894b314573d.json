@@ -1,0 +1,32 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-510c4602164b4490bd5ba894b314573d",
+  "session_id": "s-9a7b1d88edb74b138a2e9f92adcdaf49",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "verification.delivered",
+  "timestamp": "2026-09-08T00:16:53Z",
+  "body": {
+    "contract_id": "c-0706661b8500405685c602b4a92168d5",
+    "next": "remain available to verify peer",
+    "revision": "545b9834931384b323180864c8af64c4d32d73cc1390096f706f1358143b9802",
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement test_greet.py with Python unittest tests for greet.greet: normal names, surrounding whitespace, and ValueError for empty/whitespace names",
+      "task_id": "t-36ffd12033f84a53abb495144c4f1d42"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [
+        "greet.py"
+      ],
+      "outputs": [
+        "test_greet.py"
+      ]
+    },
+    "terms_digest": "4f3bc23f6a30b48d9ea59800bde6e1ae98b84e8e3e5fa86901d02265bbac4887"
+  }
+}

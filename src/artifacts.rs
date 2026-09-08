@@ -53,13 +53,12 @@ pub fn submit(root: &Path, peer: &str, cid: &str, revision: &str, claim: &str) -
         let location = format!(".hacp/artifacts/{uuid}.bin");
         fs::create_dir_all(root.join(".hacp/artifacts"))?;
         let dest = root.join(&location);
-        let mut file = OpenOptions::new()
-            .write(true)
-            .create_new(true)
-            .open(&dest)?;
+        let tmp = dest.with_extension("tmp");
+        let mut file = OpenOptions::new().write(true).create_new(true).open(&tmp)?;
         file.write_all(&bytes)?;
         file.sync_all()?;
         file.set_permissions(fs::Permissions::from_mode(0o444))?;
+        fs::rename(tmp, &dest)?;
         std::fs::File::open(dest.parent().unwrap())?.sync_all()?;
         let record = Artifact::new(
             &format!("urn:hacp:artifact:{uuid}"),

@@ -1,0 +1,33 @@
+{
+  "pair": [
+    "opencode",
+    "codex"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-opencode-codex-x8sy4dqv",
+  "seconds": 134.22,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "opencode": "1.18.29",
+    "codex": "codex-cli 0.153.4"
+  },
+  "contracts": {
+    "c-5e0ba716897f4ce78cf0cd2b86fe1d05": "settled",
+    "c-c874773e043743fdb921cd40b05994ce": "settled"
+  },
+  "session": "closed",
+  "settled": true,
+  "independent_tests_exit": 0
+}

@@ -1,0 +1,136 @@
+{
+  "artifacts": [
+    {
+      "path": "greet.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:01a9b9c5-e9e5-40b8-9976-cd34d55b9b6d",
+        "contract_id": "c-c874773e043743fdb921cd40b05994ce",
+        "contract_revision": "23bae84a28a4b1f647379242165b099b9195105630e10a0f471ce2d0014e88c5",
+        "derived_from": [],
+        "digest": "78596e5fb1f2e6330803d0b928c78787bf264f9503462ca602ba6b8f01a12477",
+        "location": ".hacp/artifacts/01a9b9c5-e9e5-40b8-9976-cd34d55b9b6d.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 181,
+        "task_id": "t-07d77acecf8b418f96e5e25dfb291e89",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest -v",
+          "duration_ms": 43,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_empty_name_raises_value_error (test_greet.GreetTests) ... ok\ntest_normal_names (test_greet.GreetTests) ... ok\ntest_surrounding_whitespace_is_stripped (test_greet.GreetTests) ... ok\ntest_whitespace_only_names_raise_value_error (test_greet.GreetTests) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-3b98df526c924471baae3ebffedee515",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-c874773e043743fdb921cd40b05994ce",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest -v"
+          ],
+          "inputs": [
+            "test_greet.py"
+          ],
+          "outputs": [
+            "greet.py"
+          ]
+        },
+        "digest": "23bae84a28a4b1f647379242165b099b9195105630e10a0f471ce2d0014e88c5",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet.py with greet(name)->str plus peer B's task",
+      "task_id": "t-07d77acecf8b418f96e5e25dfb291e89"
+    }
+  },
+  "pending_digest": "8419a82c5d1fc252de9bb8e8b6e3739ccdf4e62dcac6402305dac85941f86ea0",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [
+      "test_greet.py"
+    ],
+    "outputs": [
+      "greet.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "23bae84a28a4b1f647379242165b099b9195105630e10a0f471ce2d0014e88c5",
+      "artifacts": [
+        "urn:hacp:artifact:01a9b9c5-e9e5-40b8-9976-cd34d55b9b6d"
+      ],
+      "claim": "Implemented greet.py: greet(name) strips surrounding whitespace, returns Hello, NAME!, raises ValueError on empty/whitespace-only input",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "23bae84a28a4b1f647379242165b099b9195105630e10a0f471ce2d0014e88c5",
+      "artifacts": [
+        "urn:hacp:artifact:01a9b9c5-e9e5-40b8-9976-cd34d55b9b6d"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 78596e5fb1f2e6330803d0b928c78787bf264f9503462ca602ba6b8f01a12477 and 181 bytes match working file and immutable copy",
+          "name": "before: greet.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest -v\",\"stdout\":\"\",\"stderr\":\"test_empty_name_raises_value_error (test_greet.GreetTests) ... ok\\ntest_normal_names (test_greet.GreetTests) ... ok\\ntest_surrounding_whitespace_is_stripped (test_greet.GreetTests) ... ok\\ntest_whitespace_only_names_raise_value_error (test_greet.GreetTests) ... ok\\n\\n----------------------------------------------------------------------\\nRan 4 tests in 0.000s\\n\\nOK\\n\",\"duration_ms\":43,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 78596e5fb1f2e6330803d0b928c78787bf264f9503462ca602ba6b8f01a12477 and 181 bytes match working file and immutable copy",
+          "name": "after: greet.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-c874773e043743fdb921cd40b05994ce",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-3b98df526c924471baae3ebffedee515",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

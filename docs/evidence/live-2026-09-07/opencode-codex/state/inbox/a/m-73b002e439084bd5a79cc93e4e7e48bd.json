@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-73b002e439084bd5a79cc93e4e7e48bd",
+  "session_id": "s-4af7c9f48ada4d08be140934e85fec98",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:12:37Z",
+  "body": {
+    "text": "Please confirm the greet.greet interface: greet(name: str) strips surrounding whitespace and returns 'Hello, NAME!', and raises ValueError for empty or whitespace-only names. I will test normal names, surrounding whitespace including tabs/newlines, and empty/whitespace-only inputs. Do you agree?"
+  }
+}

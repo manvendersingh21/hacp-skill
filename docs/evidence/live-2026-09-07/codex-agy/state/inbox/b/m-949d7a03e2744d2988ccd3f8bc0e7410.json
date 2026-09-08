@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-949d7a03e2744d2988ccd3f8bc0e7410",
+  "session_id": "s-1a50448aa7df452588822d8ec8909ea5",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:18:24Z",
+  "body": {
+    "reason": "Blocked within the user-imposed ten-minute limit: peer b joined but sent no answers, contract acceptance, proposal, or submission despite repeated polling and waits. Peer a proposed c-8acb63c62c3842b1a6dc3ef05257479d with python3 -m unittest -v, but agreement never froze. greet.py was not implemented because implementation requires agreement. Peer b test task has no contract. Neither task settled; no tests, submissions, or cross-verification occurred. Interface ask round trip remained unanswered. Honest incomplete operational outcome; further collaboration is required."
+  }
+}

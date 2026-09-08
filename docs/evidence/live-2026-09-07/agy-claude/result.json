@@ -1,0 +1,33 @@
+{
+  "pair": [
+    "agy",
+    "claude"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-agy-claude-hxj1fxgb",
+  "seconds": 152.45,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "agy",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "claude",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "agy": "1.1.27",
+    "claude": "2.1.263 (Claude Code)"
+  },
+  "contracts": {
+    "c-d39e3ac6009b44ebae8d71b4546c5387": "settled",
+    "c-fed9a4278933443d9125769de543e50a": "settled"
+  },
+  "session": "closed",
+  "settled": true,
+  "independent_tests_exit": 0
+}

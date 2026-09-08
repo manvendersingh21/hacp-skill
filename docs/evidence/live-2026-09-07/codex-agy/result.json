@@ -1,0 +1,32 @@
+{
+  "pair": [
+    "codex",
+    "agy"
+  ],
+  "workspace": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-live-codex-agy-4nb2f_sj",
+  "seconds": 607.72,
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "agy",
+      "exit": 1,
+      "timeout": false
+    }
+  ],
+  "versions": {
+    "codex": "codex-cli 0.153.4",
+    "agy": "1.1.27"
+  },
+  "contracts": {
+    "c-8acb63c62c3842b1a6dc3ef05257479d": "proposed"
+  },
+  "session": "closed",
+  "settled": false,
+  "independent_tests_exit": 0
+}

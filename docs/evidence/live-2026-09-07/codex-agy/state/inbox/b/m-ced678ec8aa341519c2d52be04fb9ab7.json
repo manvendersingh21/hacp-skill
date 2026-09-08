@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-ced678ec8aa341519c2d52be04fb9ab7",
+  "session_id": "s-1a50448aa7df452588822d8ec8909ea5",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:09:50Z",
+  "body": {
+    "text": "I will export greet(name: str) -> str from greet.py, preserve case and internal whitespace, strip surrounding whitespace, return Hello, NAME!, and raise ValueError for empty/whitespace-only names. Can you confirm this interface and your test file ownership? Both contracts should use python3 -m unittest -v."
+  }
+}
