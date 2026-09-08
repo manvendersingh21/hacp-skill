@@ -1,0 +1,8 @@
+{
+  "models": {
+    "codex": "gpt-6-astra",
+    "agy": "Gemini 3.6 Flash (Medium)"
+  },
+  "source_commit": "37fdf2dfe321ee61af30a16ff70f864d14787ace",
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

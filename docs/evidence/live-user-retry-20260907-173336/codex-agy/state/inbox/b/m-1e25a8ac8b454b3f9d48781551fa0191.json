@@ -1,0 +1,30 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-1e25a8ac8b454b3f9d48781551fa0191",
+  "session_id": "s-429f1382f2334fc2a325b56742ead230",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "submission.delivered",
+  "timestamp": "2026-09-08T00:35:16Z",
+  "body": {
+    "contract_id": "c-839e33d3493e4d928a592f6e65e30834",
+    "next": "counterparty verifies",
+    "revision": "fe1ee4b7b4652b742a8a8bed81b6d1e238827a6d0fafc71debb265c7f6766a27",
+    "state": "verifying",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet(name: str) -> str; strip surrounding whitespace, return Hello, NAME!, and raise ValueError for empty names.",
+      "task_id": "t-20b090863912414e873d92fb40e2bc5d"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest -v"
+      ],
+      "inputs": [],
+      "outputs": [
+        "greet.py"
+      ]
+    },
+    "terms_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901"
+  }
+}

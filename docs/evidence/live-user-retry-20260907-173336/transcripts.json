@@ -1,0 +1,14 @@
+[
+  {
+    "path": "codex-agy/a.jsonl",
+    "original_sha256": "68b9a07cd3b2cad0619ee3edffac11b450dc90912e50a3214da1da887a60f23a",
+    "original_bytes": 74367,
+    "retained_events": 64
+  },
+  {
+    "path": "codex-agy/b.jsonl",
+    "original_sha256": "da969d3c83db0f5bdd8d3226e9be1edf0e5edd071ced604a45bc38e5fc5b8e92",
+    "original_bytes": 87554,
+    "retained_events": 82
+  }
+]

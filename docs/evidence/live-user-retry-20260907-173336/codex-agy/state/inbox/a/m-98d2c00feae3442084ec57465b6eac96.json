@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-98d2c00feae3442084ec57465b6eac96",
+  "session_id": "s-429f1382f2334fc2a325b56742ead230",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:34:10Z",
+  "body": {
+    "text": "What signature and exception behavior will greet.greet have?"
+  }
+}

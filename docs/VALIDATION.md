@@ -39,20 +39,23 @@ Each agent received one initial task with its native skill invocation. Every sub
 | Claude Code | Codex | Both contracts settled | 132 s |
 | AGY | Claude Code | Both contracts settled | 152 s |
 | Claude Code | OpenCode | Both contracts settled | 241 s |
-| Codex | AGY | **Incomplete: AGY model capacity failure** | 608 s |
+| Codex | AGY | Both contracts settled on user-requested retry | 155 s |
 | OpenCode | Codex | Both contracts settled | 134 s |
 | AGY | OpenCode | Both contracts settled | 183 s |
 
-All four CLIs were launched in both starter and joiner roles. Five of six distinct pairings completed. **Codex–AGY is not counted as a live pass.** AGY's default `Gemini 3.6 Flash (Medium)` returned HTTP 503/no capacity. In the first attempt it exited after joining; Codex waited, reported the unresolved proposal, and explicitly closed the session. In one fresh retry both contracts froze, but AGY again exited with a high-traffic error. The waiting Codex process was then stopped; the retry remains active with unresolved work and no fabricated consent.
+All four CLIs completed collaborations in both starter and joiner roles. **All six distinct pairings now have a successful live run.** The user-requested Codex–AGY retry completed in 155.46 seconds with the same configured models: both agents exited 0, both contracts settled through counterparty verification, the session closed, and all three independently rerun tests passed. This run used the released v0.1.0 binary at `37fdf2d`.
+
+The two earlier Codex–AGY attempts remain recorded as failures. AGY's default `Gemini 3.6 Flash (Medium)` returned HTTP 503/no capacity. In the first attempt it exited after joining; Codex waited, reported the unresolved proposal, and explicitly closed the session. In one fresh retry both contracts froze, but AGY again exited with a high-traffic error. The waiting Codex process was then stopped; the retry remains active with unresolved work and no fabricated consent.
 
 The failed attempts' independent `unittest` command exited 0 while finding no tests. That exit status is not treated as evidence of completed work. Settlement and actual artifacts are required for a pass.
 
+- [Successful Codex–AGY retry](evidence/live-user-retry-20260907-173336/results.json), [its final log](evidence/live-user-retry-20260907-173336/codex-agy/state/log.md), and [model/binary fingerprint](evidence/live-user-retry-20260907-173336/environment.json)
 - [Initial six-pair results](evidence/live-2026-09-07/results.json)
 - [Codex–AGY retry result](evidence/live-retry-2026-09-07/results.json) and [why its companion was stopped](evidence/live-retry-2026-09-07/codex-agy/cancellation.json)
 - [Versions, models, and live binary fingerprint](evidence/models.json)
 - [Example final log](evidence/live-2026-09-07/claude-codex/state/log.md)
 
-Models: Claude Sonnet 5, Codex's configured GPT-6 Astra, AGY's configured Gemini 3.6 Flash (Medium), and OpenCode's observed GLM-5.3 via `zai-coding-plan`. No model defaults were changed. Live runs used the M5 binary at milestone `3ac45ff`; later path-alias, atomic artifact publication, prerequisite-reporting, and opening-status improvements are covered by deterministic release checks.
+Models: Claude Sonnet 5, Codex's configured GPT-6 Astra, AGY's configured Gemini 3.6 Flash (Medium), and OpenCode's observed GLM-5.3 via `zai-coding-plan`. No model defaults were changed. The original seven attempts used the M5 binary at milestone `3ac45ff`. The successful user-requested Codex–AGY retry used the released v0.1.0 binary at `37fdf2d`, including the later path-alias, atomic artifact publication, prerequisite-reporting, and opening-status improvements. Its exact binary hash is recorded with that run.
 
 Each pairing directory retains initial briefs, CLI command/output transcripts, the authoritative snapshot, its final readable log, frozen contracts, artifact copies, measurements, independent test output, and live event timestamps. Published transcripts omit reasoning and unrelated host initialization; their original stream hashes are in `transcripts.json`. Original streams are retained locally outside the public repository.
 

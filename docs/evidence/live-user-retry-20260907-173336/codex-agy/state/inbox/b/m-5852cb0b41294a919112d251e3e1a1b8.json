@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-5852cb0b41294a919112d251e3e1a1b8",
+  "session_id": "s-429f1382f2334fc2a325b56742ead230",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T00:34:15Z",
+  "body": {
+    "text": "Please confirm the interface: greet(name: str) -> str in greet.py strips surrounding whitespace, preserves internal whitespace and case, returns Hello, NAME!, and raises ValueError for empty or whitespace-only strings. Are your tests aligned, with python3 -m unittest -v as acceptance?"
+  }
+}

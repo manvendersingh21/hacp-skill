@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-877c5d363de447c3b48b2f993578e129",
+  "session_id": "s-429f1382f2334fc2a325b56742ead230",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T00:35:49Z",
+  "body": {
+    "reason": "Both contracts settled with counterparty acceptance: peer a implemented greet.py; peer b implemented test_greet.py. Both cross-verifications passed python3 -m unittest -v (3 tests), and artifact hashes matched. Interface ask/answer completed; no remaining work."
+  }
+}

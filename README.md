@@ -26,7 +26,7 @@ Restart the CLIs after installation. `hacp install` without `--cli` selects all 
 | AGY | `/hacp` | `~/.gemini/config/skills/hacp` |
 | OpenCode | `/hacp` | Reuses an identical discoverable skill, otherwise `~/.config/opencode/skills/hacp`; wrapper in `~/.config/opencode/commands/hacp.md` |
 
-**Live validation:** five of six distinct CLI pairings completed. Codex–AGY encountered AGY model-capacity failures in both attempts; it is not counted as a pass. Full outcomes are linked below.
+**Live validation:** all six distinct CLI pairings have completed successfully. Codex–AGY passed on a later retry with the same models after two earlier AGY capacity failures. Full outcomes, including those failures, are linked below.
 
 OpenCode honors `XDG_CONFIG_HOME`. AGY's path follows the bundled guide in version 1.1.27. See [discovery and validation evidence](docs/VALIDATION.md) for tested versions and actual outcomes. Prebuilt binaries and `install.sh` are deferred to v0.2.
 

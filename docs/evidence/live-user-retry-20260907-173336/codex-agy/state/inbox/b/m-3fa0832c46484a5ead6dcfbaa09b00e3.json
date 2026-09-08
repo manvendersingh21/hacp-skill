@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-3fa0832c46484a5ead6dcfbaa09b00e3",
+  "session_id": "s-429f1382f2334fc2a325b56742ead230",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T00:34:24Z",
+  "in_reply_to": "m-98d2c00feae3442084ec57465b6eac96",
+  "body": {
+    "text": "The signature is greet(name: str) -> str, importable as from greet import greet. It uses name.strip(), preserves internal whitespace and case, returns f\"Hello, {name}!\" using the stripped name, and raises ValueError when the stripped name is empty. Exception message is unspecified; non-string inputs are outside the interface. Acceptance is python3 -m unittest -v."
+  }
+}

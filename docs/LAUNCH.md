@@ -28,4 +28,4 @@ The interesting part is the boundary between “the agent says it is done” and
 
 The local state is a single atomic snapshot with recoverable inbox, contract, and readable-log projections. No daemon. It supports exactly two peers on one local filesystem and relies on cooperative agents. It does not sandbox acceptance commands or prevent someone with filesystem access from editing state.
 
-All six distinct CLI pairings were scheduled as opt-in live tests; the validation document reports actual results, including service failures. Deterministic CI doesn't need model accounts. Feedback on the protocol binding, recovery design, and practical usefulness is welcome.
+All six distinct CLI pairings have completed opt-in live tests. Codex–AGY succeeded on a later retry with the same models; the validation document retains the earlier service failures. Deterministic CI doesn't need model accounts. Feedback on the protocol binding, recovery design, and practical usefulness is welcome.

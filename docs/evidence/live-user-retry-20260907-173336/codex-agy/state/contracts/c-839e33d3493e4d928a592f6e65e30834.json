@@ -1,0 +1,132 @@
+{
+  "artifacts": [
+    {
+      "path": "greet.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:52c7c63a-ff29-4fcc-a7a7-cccf14dd7dd7",
+        "contract_id": "c-839e33d3493e4d928a592f6e65e30834",
+        "contract_revision": "fe1ee4b7b4652b742a8a8bed81b6d1e238827a6d0fafc71debb265c7f6766a27",
+        "derived_from": [],
+        "digest": "8ddbf1770b3aa51a6ef71d503b9e010115cb59afeff54025316b3c7af253d015",
+        "location": ".hacp/artifacts/52c7c63a-ff29-4fcc-a7a7-cccf14dd7dd7.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 236,
+        "task_id": "t-20b090863912414e873d92fb40e2bc5d",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest -v",
+          "duration_ms": 45,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_empty_and_whitespace_names (test_greet.TestGreet) ... ok\ntest_normal_names (test_greet.TestGreet) ... ok\ntest_surrounding_whitespace (test_greet.TestGreet) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-408e8acea5c448528ab7e004a7021451",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-839e33d3493e4d928a592f6e65e30834",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest -v"
+          ],
+          "inputs": [],
+          "outputs": [
+            "greet.py"
+          ]
+        },
+        "digest": "fe1ee4b7b4652b742a8a8bed81b6d1e238827a6d0fafc71debb265c7f6766a27",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement greet(name: str) -> str; strip surrounding whitespace, return Hello, NAME!, and raise ValueError for empty names.",
+      "task_id": "t-20b090863912414e873d92fb40e2bc5d"
+    }
+  },
+  "pending_digest": "7e2de9aaa54624b25dc0ae3ab76eddd5df7c011380c571331e42f72c9fedf901",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest -v"
+    ],
+    "inputs": [],
+    "outputs": [
+      "greet.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "fe1ee4b7b4652b742a8a8bed81b6d1e238827a6d0fafc71debb265c7f6766a27",
+      "artifacts": [
+        "urn:hacp:artifact:52c7c63a-ff29-4fcc-a7a7-cccf14dd7dd7"
+      ],
+      "claim": "Implemented typed greet(name) with surrounding whitespace stripped, case and internal whitespace preserved, formatted greeting, and ValueError for blank names. python3 -m unittest -v passed all 3 tests.",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "fe1ee4b7b4652b742a8a8bed81b6d1e238827a6d0fafc71debb265c7f6766a27",
+      "artifacts": [
+        "urn:hacp:artifact:52c7c63a-ff29-4fcc-a7a7-cccf14dd7dd7"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 8ddbf1770b3aa51a6ef71d503b9e010115cb59afeff54025316b3c7af253d015 and 236 bytes match working file and immutable copy",
+          "name": "before: greet.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest -v\",\"stdout\":\"\",\"stderr\":\"test_empty_and_whitespace_names (test_greet.TestGreet) ... ok\\ntest_normal_names (test_greet.TestGreet) ... ok\\ntest_surrounding_whitespace (test_greet.TestGreet) ... ok\\n\\n----------------------------------------------------------------------\\nRan 3 tests in 0.000s\\n\\nOK\\n\",\"duration_ms\":45,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 8ddbf1770b3aa51a6ef71d503b9e010115cb59afeff54025316b3c7af253d015 and 236 bytes match working file and immutable copy",
+          "name": "after: greet.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-839e33d3493e4d928a592f6e65e30834",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-408e8acea5c448528ab7e004a7021451",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

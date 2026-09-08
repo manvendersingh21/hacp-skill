@@ -1,0 +1,8 @@
+test_empty_and_whitespace_names (test_greet.TestGreet) ... ok
+test_normal_names (test_greet.TestGreet) ... ok
+test_surrounding_whitespace (test_greet.TestGreet) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
