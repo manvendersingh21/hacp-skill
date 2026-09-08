@@ -1,0 +1,123 @@
+{
+  "remote_commit": "de8649464d9cae0827aae87e77c78e478e609c79",
+  "clean_checkout": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/checkout",
+  "isolated_install": "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install",
+  "steps": [
+    {
+      "command": [
+        "git",
+        "clone",
+        "https://github.com/manvendersingh21/hacp-skill",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/checkout"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "install",
+        "--git",
+        "https://github.com/manvendersingh21/hacp-skill",
+        "--locked",
+        "--root",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "install",
+        "--cli",
+        "all",
+        "--home",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/home"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "install",
+        "--cli",
+        "all",
+        "--home",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/home"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--project",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/smoke",
+        "--peer",
+        "a",
+        "start",
+        "GitHub installation smoke",
+        "--owns",
+        "a.txt"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--project",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/smoke",
+        "--peer",
+        "b",
+        "join",
+        "counterparty smoke",
+        "--owns",
+        "b.txt"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--project",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/smoke",
+        "--peer",
+        "a",
+        "ask",
+        "GitHub install works?"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--project",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/smoke",
+        "--peer",
+        "b",
+        "answer",
+        "m-bb0af0508a0443818b33fd835ec65d83",
+        "Confirmed"
+      ],
+      "exit": 0
+    },
+    {
+      "command": [
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/install/bin/hacp",
+        "--project",
+        "/var/folders/hq/zpl375q54lg2hgznhzqtm0sw0000gn/T/hacp-github-release-diz071aw/smoke",
+        "--peer",
+        "a",
+        "close",
+        "--reason",
+        "fresh GitHub install passed"
+      ],
+      "exit": 0
+    }
+  ]
+}
