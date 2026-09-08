@@ -34,6 +34,10 @@ pub fn normalize(root: &Path, raw: &str) -> Result<String> {
     );
     if let Ok(meta) = fs::metadata(&resolved) {
         ensure!(meta.is_file(), "path must be a regular file: {raw}");
+        ensure!(
+            meta.nlink() < 2 || !aliases_state(root, &meta)?,
+            "path aliases protected .hacp state: {raw}"
+        );
     }
     Ok(relative
         .to_str()
@@ -121,6 +125,26 @@ fn case_insensitive(root: &Path) -> Result<bool> {
         return Ok(fs::metadata(alternate).is_ok_and(|m| {
             m.ino() == fs::metadata(p).map(|m| m.ino()).unwrap_or(0) && m.dev() == device
         }));
+    }
+    Ok(false)
+}
+
+fn aliases_state(root: &Path, subject: &fs::Metadata) -> Result<bool> {
+    let state = root.join(".hacp");
+    if !state.exists() {
+        return Ok(false);
+    }
+    let mut pending = vec![state];
+    while let Some(dir) = pending.pop() {
+        for e in fs::read_dir(dir)? {
+            let e = e?;
+            let meta = fs::symlink_metadata(e.path())?;
+            if meta.is_dir() {
+                pending.push(e.path());
+            } else if meta.is_file() && meta.dev() == subject.dev() && meta.ino() == subject.ino() {
+                return Ok(true);
+            }
+        }
     }
     Ok(false)
 }

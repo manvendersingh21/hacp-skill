@@ -1,7 +1,7 @@
     Checking hacp-skill v0.1.0 (/Users/manubaba/Documents/hacp-skill)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.76s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.61s
    Compiling hacp-skill v0.1.0 (/Users/manubaba/Documents/hacp-skill)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.80s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.72s
      Running unittests src/main.rs (/Users/manubaba/Documents/hacp-skill/target/debug/deps/hacp-d50eb1944660204e)
 
 running 0 tests
@@ -10,26 +10,27 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
      Running tests/cli.rs (/Users/manubaba/Documents/hacp-skill/target/debug/deps/cli-4f053e85d34c2435)
 
-running 18 tests
+running 19 tests
 test committed_delivery_recovers_once ... ok
 test crash_before_commit_and_after_delivery_has_one_or_no_effect ... ok
+test hard_links_to_protected_state_are_refused ... ok
 test forged_envelopes_are_refused_and_fetched_question_remains_actionable ... ok
 test initial_aliases_and_invalid_ownership ... ok
 test opening_can_be_inspected_by_joiner_and_explicitly_ended ... ok
-test session_recovers_and_does_not_restart ... ok
 test case_aliases_and_symlink_escapes_are_checked_before_freeze ... ok
+test session_recovers_and_does_not_restart ... ok
 test advisory_lock_timeout_and_process_release ... ok
-test install_preflights_all_destinations_and_is_idempotent ... ok
 test crossed_questions_answers_history_and_timeout ... ok
 test concurrent_questions_preserve_every_message ... ok
+test install_preflights_all_destinations_and_is_idempotent ... ok
 test simultaneous_conflicting_freezes_cannot_both_succeed ... ok
 test interrupted_verification_requires_explicit_retry ... ok
 test changed_missing_and_command_modified_artifacts_request_rework ... ok
 test counter_amendment_stale_submission_and_bounds ... ok
 test verification_rework_repair_and_self_refusal ... ok
-test verification_timeout_kills_descendants_and_releases_metadata_lock ... ok
 test amendment_collision_preserves_prior_claims_and_amendment_limit ... ok
+test verification_timeout_kills_descendants_and_releases_metadata_lock ... ok
 
-test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.95s
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.30s
 
 Shared hacp skill structure valid.

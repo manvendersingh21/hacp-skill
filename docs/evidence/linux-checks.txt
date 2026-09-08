@@ -1,9 +1,9 @@
 info: downloading component rustfmt
 info: downloading component clippy
     Checking hacp-skill v0.1.0 (/work)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.32s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.26s
    Compiling hacp-skill v0.1.0 (/work)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.91s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.02s
      Running unittests src/main.rs (target/debug/deps/hacp-4d31c1ecf3e771df)
 
 running 0 tests
@@ -12,7 +12,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
      Running tests/cli.rs (target/debug/deps/cli-6b77a743d4731da2)
 
-running 18 tests
+running 19 tests
 test amendment_collision_preserves_prior_claims_and_amendment_limit ... ok
 test case_aliases_and_symlink_escapes_are_checked_before_freeze ... ok
 test changed_missing_and_command_modified_artifacts_request_rework ... ok
@@ -22,6 +22,7 @@ test counter_amendment_stale_submission_and_bounds ... ok
 test crash_before_commit_and_after_delivery_has_one_or_no_effect ... ok
 test crossed_questions_answers_history_and_timeout ... ok
 test forged_envelopes_are_refused_and_fetched_question_remains_actionable ... ok
+test hard_links_to_protected_state_are_refused ... ok
 test initial_aliases_and_invalid_ownership ... ok
 test install_preflights_all_destinations_and_is_idempotent ... ok
 test interrupted_verification_requires_explicit_retry ... ok
@@ -32,6 +33,6 @@ test verification_rework_repair_and_self_refusal ... ok
 test advisory_lock_timeout_and_process_release ... ok
 test verification_timeout_kills_descendants_and_releases_metadata_lock ... ok
 
-test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.68s
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.71s
 
 Shared hacp skill structure valid.

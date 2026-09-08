@@ -4,9 +4,9 @@ The package was built independently from HIVE. No HIVE run is used as evidence.
 
 ## Deterministic checks
 
-Formatting, Clippy with warnings denied, all 18 integration tests, and separate skill structural validation passed on macOS and Linux (Rust 1.98.0). Linux was tested in the official Rust container; GitHub Actions also runs macOS and Ubuntu. See [macOS output](evidence/macos-checks.txt) and [Linux output](evidence/linux-checks.txt).
+Formatting, Clippy with warnings denied, all 19 integration tests, and separate skill structural validation passed on macOS and Linux (Rust 1.98.0). Linux was tested in the official Rust container; GitHub Actions also runs macOS and Ubuntu; [latest release checks](https://github.com/manvendersingh21/hacp-skill/actions/workflows/ci.yml) include the final protected-hard-link regression. See [macOS output](evidence/macos-checks.txt) and [Linux output](evidence/linux-checks.txt).
 
-Tests cover session recovery, explicit closure, questions/answers, crossed questions, concurrent writers, duplicate and forged envelopes, fetched message recovery, wait timeouts, metadata lock timeout/release, crashes before commit/after commit/after delivery, initial ownership and filesystem aliases, simultaneous conflicting freezes, counters, stale digests, amendment collisions, negotiation/amendment bounds, immutable submissions, self-verification refusal, failed checks followed by repair, missing/changed artifacts, command-group timeouts, interrupted verification, and conflict-safe idempotent installation.
+Tests cover session recovery, explicit closure, questions/answers, crossed questions, concurrent writers, duplicate and forged envelopes, fetched message recovery, wait timeouts, metadata lock timeout/release, crashes before commit/after commit/after delivery, initial ownership and filesystem aliases (including hard links to protected state), simultaneous conflicting freezes, counters, stale digests, amendment collisions, negotiation/amendment bounds, immutable submissions, self-verification refusal, failed checks followed by repair, missing/changed artifacts, command-group timeouts, interrupted verification, and conflict-safe idempotent installation.
 
 ```sh
 cargo fmt --check

@@ -588,3 +588,19 @@ fn opening_can_be_inspected_by_joiner_and_explicitly_ended() {
     ok(r, "a", &["close", "--reason", "peer unavailable"]);
     assert_eq!(ok(r, "a", &["status"])["session"]["state"], "abandoned");
 }
+#[test]
+fn hard_links_to_protected_state_are_refused() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    // The lock file is never replaced, so this alias survives projection recovery.
+    std::fs::hard_link(r.join(".hacp/lock"), r.join("looks-like-output.txt")).unwrap();
+    std::fs::write(
+        r.join("terms.json"),
+        r#"{"inputs":[],"outputs":["looks-like-output.txt"],"acceptance":["true"]}"#,
+    )
+    .unwrap();
+    let out = call(r, "a", &["propose", "--terms", "terms.json"]);
+    assert!(!out.status.success());
+    assert!(String::from_utf8_lossy(&out.stdout).contains("protected .hacp"));
+}
