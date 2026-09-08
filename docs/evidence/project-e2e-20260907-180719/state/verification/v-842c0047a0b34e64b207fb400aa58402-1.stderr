@@ -1,0 +1,21 @@
+test_add_task_creates_parent_dir_and_task (test_tasks.TestTaskPocket) ... ok
+test_blank_title_error (test_tasks.TestTaskPocket) ... ok
+test_direct_storage_validation (test_tasks.TestTaskPocket) ... ok
+test_done_idempotence (test_tasks.TestTaskPocket) ... ok
+test_duplicate_ids_and_invalid_next_id_in_db (test_tasks.TestTaskPocket) ... ok
+test_fresh_cli_process_persistence (test_tasks.TestTaskPocket) ... ok
+test_id_increment_and_non_reuse (test_tasks.TestTaskPocket) ... ok
+test_invalid_db_shape_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok
+test_list_open_and_all (test_tasks.TestTaskPocket) ... ok
+test_malformed_id_error (test_tasks.TestTaskPocket) ... ok
+test_malformed_json_db_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok
+test_missing_db_complete_error (test_tasks.TestTaskPocket) ... ok
+test_missing_db_list_returns_empty_array (test_tasks.TestTaskPocket) ... ok
+test_missing_id_error (test_tasks.TestTaskPocket) ... ok
+test_os_replace_failure_cleanup (test_tasks.TestTaskPocket) ... ok
+test_untrimmed_title_in_db_byte_unchanged (test_tasks.TestTaskPocket) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.791s
+
+OK

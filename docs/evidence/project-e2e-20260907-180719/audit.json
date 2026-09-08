@@ -1,0 +1,73 @@
+{
+  "checks": {
+    "both_contracts_settled": true,
+    "session_closed": true,
+    "all_questions_answered": true,
+    "bilateral_question_roundtrip": true,
+    "cross_verification": true,
+    "all_output_files_after_both_freezes": true,
+    "observed_all_four_outputs": true,
+    "all_artifact_hashes_and_sizes_match": true,
+    "independent_12_tests_passed": true
+  },
+  "passed": true,
+  "question_count": 5,
+  "answer_count": 5,
+  "artifact_count": 4,
+  "artifacts": [
+    {
+      "path": "task_store.py",
+      "copy_hash_matches": true,
+      "working_hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "README.md",
+      "copy_hash_matches": true,
+      "working_hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "task_cli.py",
+      "copy_hash_matches": true,
+      "working_hash_matches": true,
+      "size_matches": true
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "copy_hash_matches": true,
+      "working_hash_matches": true,
+      "size_matches": true
+    }
+  ],
+  "file_observations": [
+    {
+      "seconds": 84.212,
+      "first_file_seen": "task_cli.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 87.347,
+      "first_file_seen": "tests/test_tasks.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 88.604,
+      "first_file_seen": "README.md",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 121.317,
+      "first_file_seen": "task_store.py",
+      "owner": "a",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    }
+  ]
+}

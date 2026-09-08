@@ -1,0 +1,212 @@
+{
+  "artifacts": [
+    {
+      "path": "README.md",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:4e960004-85ca-49d2-8a38-70589c3e388e",
+        "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+        "contract_revision": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+        "derived_from": [],
+        "digest": "81469c7cb76d192c5a86d05a99042204c35e17465cff7f4d76d6903f0b4aa131",
+        "location": ".hacp/artifacts/4e960004-85ca-49d2-8a38-70589c3e388e.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 929,
+        "task_id": "t-0dd64eb977df4b18973f8bfe8c2852c4",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "task_cli.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:16dc7ae7-3c1f-4f71-8fd3-8a38ffa3a749",
+        "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+        "contract_revision": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+        "derived_from": [],
+        "digest": "a2275c33f94a4b942d7e9430a9a8ace74fbb055b9a72c8efd2f2d95e7c3b7dc6",
+        "location": ".hacp/artifacts/16dc7ae7-3c1f-4f71-8fd3-8a38ffa3a749.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2683,
+        "task_id": "t-0dd64eb977df4b18973f8bfe8c2852c4",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:3094fe3a-7ee6-4a83-b68f-5c43a8976422",
+        "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+        "contract_revision": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+        "derived_from": [],
+        "digest": "4685c99c0c6241ad328544dcb3dae92728036469ffccecdcbfa73be07a847ee3",
+        "location": ".hacp/artifacts/3094fe3a-7ee6-4a83-b68f-5c43a8976422.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 7282,
+        "task_id": "t-0dd64eb977df4b18973f8bfe8c2852c4",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+          "duration_ms": 73,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        {
+          "command": "python3 -m unittest discover -s tests -v",
+          "duration_ms": 860,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_add_task_creates_parent_dir_and_task (test_tasks.TestTaskPocket) ... ok\ntest_blank_title_error (test_tasks.TestTaskPocket) ... ok\ntest_direct_storage_validation (test_tasks.TestTaskPocket) ... ok\ntest_done_idempotence (test_tasks.TestTaskPocket) ... ok\ntest_duplicate_ids_and_invalid_next_id_in_db (test_tasks.TestTaskPocket) ... ok\ntest_fresh_cli_process_persistence (test_tasks.TestTaskPocket) ... ok\ntest_id_increment_and_non_reuse (test_tasks.TestTaskPocket) ... ok\ntest_invalid_db_shape_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\ntest_list_open_and_all (test_tasks.TestTaskPocket) ... ok\ntest_malformed_id_error (test_tasks.TestTaskPocket) ... ok\ntest_malformed_json_db_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\ntest_missing_db_complete_error (test_tasks.TestTaskPocket) ... ok\ntest_missing_db_list_returns_empty_array (test_tasks.TestTaskPocket) ... ok\ntest_missing_id_error (test_tasks.TestTaskPocket) ... ok\ntest_os_replace_failure_cleanup (test_tasks.TestTaskPocket) ... ok\ntest_untrimmed_title_in_db_byte_unchanged (test_tasks.TestTaskPocket) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.791s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-842c0047a0b34e64b207fb400aa58402",
+      "peer": "a",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+            "python3 -m unittest discover -s tests -v"
+          ],
+          "inputs": [
+            "task_store.py"
+          ],
+          "outputs": [
+            "README.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ]
+        },
+        "digest": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 1,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement Task Pocket CLI, tests, and README per SPEC.md",
+      "task_id": "t-0dd64eb977df4b18973f8bfe8c2852c4"
+    }
+  },
+  "pending_digest": "fe4f01c7214f8cb39feb337dfef4a1f8bc1231b994ec1049fae698eb53ce5baa",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+      "python3 -m unittest discover -s tests -v"
+    ],
+    "inputs": [
+      "task_store.py"
+    ],
+    "outputs": [
+      "README.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ]
+  },
+  "proposer": "b",
+  "submissions": [
+    {
+      "against_revision": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+      "artifacts": [
+        "urn:hacp:artifact:4e960004-85ca-49d2-8a38-70589c3e388e",
+        "urn:hacp:artifact:16dc7ae7-3c1f-4f71-8fd3-8a38ffa3a749",
+        "urn:hacp:artifact:3094fe3a-7ee6-4a83-b68f-5c43a8976422"
+      ],
+      "claim": "Implemented Task Pocket CLI in task_cli.py, 16 unittest tests in tests/test_tasks.py, and documentation in README.md per SPEC.md.",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "95e3ab9b98a98d97b005f731c56be21b392dfcf87b3eea262649999ce18eedb1",
+      "artifacts": [
+        "urn:hacp:artifact:4e960004-85ca-49d2-8a38-70589c3e388e",
+        "urn:hacp:artifact:16dc7ae7-3c1f-4f71-8fd3-8a38ffa3a749",
+        "urn:hacp:artifact:3094fe3a-7ee6-4a83-b68f-5c43a8976422"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 81469c7cb76d192c5a86d05a99042204c35e17465cff7f4d76d6903f0b4aa131 and 929 bytes match working file and immutable copy",
+          "name": "before: README.md",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 a2275c33f94a4b942d7e9430a9a8ace74fbb055b9a72c8efd2f2d95e7c3b7dc6 and 2683 bytes match working file and immutable copy",
+          "name": "before: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 4685c99c0c6241ad328544dcb3dae92728036469ffccecdcbfa73be07a847ee3 and 7282 bytes match working file and immutable copy",
+          "name": "before: tests/test_tasks.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -c \\\"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\\\"\",\"stdout\":\"\",\"stderr\":\"\",\"duration_ms\":73,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest discover -s tests -v\",\"stdout\":\"\",\"stderr\":\"test_add_task_creates_parent_dir_and_task (test_tasks.TestTaskPocket) ... ok\\ntest_blank_title_error (test_tasks.TestTaskPocket) ... ok\\ntest_direct_storage_validation (test_tasks.TestTaskPocket) ... ok\\ntest_done_idempotence (test_tasks.TestTaskPocket) ... ok\\ntest_duplicate_ids_and_invalid_next_id_in_db (test_tasks.TestTaskPocket) ... ok\\ntest_fresh_cli_process_persistence (test_tasks.TestTaskPocket) ... ok\\ntest_id_increment_and_non_reuse (test_tasks.TestTaskPocket) ... ok\\ntest_invalid_db_shape_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\\ntest_list_open_and_all (test_tasks.TestTaskPocket) ... ok\\ntest_malformed_id_error (test_tasks.TestTaskPocket) ... ok\\ntest_malformed_json_db_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\\ntest_missing_db_complete_error (test_tasks.TestTaskPocket) ... ok\\ntest_missing_db_list_returns_empty_array (test_tasks.TestTaskPocket) ... ok\\ntest_missing_id_error (test_tasks.TestTaskPocket) ... ok\\ntest_os_replace_failure_cleanup (test_tasks.TestTaskPocket) ... ok\\ntest_untrimmed_title_in_db_byte_unchanged (test_tasks.TestTaskPocket) ... ok\\n\\n----------------------------------------------------------------------\\nRan 16 tests in 0.791s\\n\\nOK\\n\",\"duration_ms\":860,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest discover -s tests -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 81469c7cb76d192c5a86d05a99042204c35e17465cff7f4d76d6903f0b4aa131 and 929 bytes match working file and immutable copy",
+          "name": "after: README.md",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 a2275c33f94a4b942d7e9430a9a8ace74fbb055b9a72c8efd2f2d95e7c3b7dc6 and 2683 bytes match working file and immutable copy",
+          "name": "after: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 4685c99c0c6241ad328544dcb3dae92728036469ffccecdcbfa73be07a847ee3 and 7282 bytes match working file and immutable copy",
+          "name": "after: tests/test_tasks.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-842c0047a0b34e64b207fb400aa58402",
+      "verifier": "urn:hacp:agent:a"
+    }
+  ]
+}

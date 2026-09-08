@@ -1,0 +1,25 @@
+{
+  "seconds": 220.88,
+  "project": "/Users/manubaba/Documents/hacp-task-demo-20260907-180719",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "agy",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "session": "closed",
+  "contracts": {
+    "c-5116556face84674ac469ee92cc32349": "settled",
+    "c-5e11f659abc2496ea0553a9ea4804b57": "settled"
+  },
+  "settled": true,
+  "peer_tests_exit": 0
+}

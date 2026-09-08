@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-597ae1ca22d8404aaffdc553669a6421",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "contract.countered",
+  "timestamp": "2026-09-08T01:08:17Z",
+  "body": {
+    "contract_id": "c-5e11f659abc2496ea0553a9ea4804b57",
+    "next": "review terms and accept digest or counter",
+    "revision": null,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement Task Pocket CLI, tests, and README per SPEC.md",
+      "task_id": "t-0dd64eb977df4b18973f8bfe8c2852c4"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+        "python3 -m unittest discover -s tests -v"
+      ],
+      "inputs": [
+        "task_store.py"
+      ],
+      "outputs": [
+        "README.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ]
+    },
+    "terms_digest": "fe4f01c7214f8cb39feb337dfef4a1f8bc1231b994ec1049fae698eb53ce5baa"
+  }
+}

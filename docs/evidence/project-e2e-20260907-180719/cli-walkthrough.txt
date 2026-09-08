@@ -1,0 +1,12 @@
+$ python3 task_cli.py --db SCRATCH/tasks.json 'add' 'Review HACP log'
+{"id": 1, "title": "Review HACP log", "done": false}
+$ python3 task_cli.py --db SCRATCH/tasks.json 'add' 'Ship small project'
+{"id": 2, "title": "Ship small project", "done": false}
+$ python3 task_cli.py --db SCRATCH/tasks.json 'list'
+[{"id": 1, "title": "Review HACP log", "done": false}, {"id": 2, "title": "Ship small project", "done": false}]
+$ python3 task_cli.py --db SCRATCH/tasks.json 'done' '1'
+{"id": 1, "title": "Review HACP log", "done": true}
+$ python3 task_cli.py --db SCRATCH/tasks.json 'list'
+[{"id": 2, "title": "Ship small project", "done": false}]
+$ python3 task_cli.py --db SCRATCH/tasks.json 'list' '--all'
+[{"id": 1, "title": "Review HACP log", "done": true}, {"id": 2, "title": "Ship small project", "done": false}]

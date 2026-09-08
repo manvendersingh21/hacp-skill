@@ -1,0 +1,14 @@
+{
+  "project": "/Users/manubaba/Documents/hacp-task-demo-20260907-180719",
+  "started_utc": "2026-09-08T01:07:19.823549Z",
+  "models": {
+    "codex": "gpt-6-astra",
+    "agy": "Gemini 3.6 Flash (Medium)"
+  },
+  "versions": {
+    "hacp": "hacp-skill 0.1.0",
+    "codex": "codex-cli 0.153.4",
+    "agy": "1.1.27"
+  },
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-c74f55ed4fba451989ba4ea89ee825ac",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:09:51Z",
+  "body": {
+    "text": "Initial integrated acceptance passed all 12 tests. Review requests before your submission: remove ImportError fallback that hides a broken storage import; strengthen tests to assert failure stdout empty/no traceback and unchanged bytes on add/done with malformed or invalid DB; add direct storage bool/duplicate-ID/next_id validation and os.replace failure preservation coverage. Please confirm these additions and notify when ready. README examples could use ./tasks.json as directly runnable local path."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d5e018b6f38e439aa3457a48e02114a7",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "submission.delivered",
+  "timestamp": "2026-09-08T01:10:30Z",
+  "body": {
+    "contract_id": "c-5116556face84674ac469ee92cc32349",
+    "next": "counterparty verifies",
+    "revision": "339d1c0d2dd782e428e61695539fed1394f1e9ea70803fd205ea18c8a9dd4cd2",
+    "state": "verifying",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement the task storage module in task_store.py per SPEC.md",
+      "task_id": "t-6f2ad9ea28e04763bea385554af228d3"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+        "python3 -m unittest discover -s tests -v"
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ],
+      "outputs": [
+        "task_store.py"
+      ]
+    },
+    "terms_digest": "045197724c38c583f2b2f9c33acd3db4e61f8bbfe42d72779478e4f584d34b3b"
+  }
+}

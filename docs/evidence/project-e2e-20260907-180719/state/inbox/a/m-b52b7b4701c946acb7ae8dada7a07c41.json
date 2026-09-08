@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-b52b7b4701c946acb7ae8dada7a07c41",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T01:10:41Z",
+  "body": {
+    "reason": "Both contracts c-5116556face84674ac469ee92cc32349 and c-5e11f659abc2496ea0553a9ea4804b57 have been fully implemented, submitted, verified, and settled with 16 passing unit tests."
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "artifacts": [
+    {
+      "path": "task_store.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:0aa6642f-5444-4337-a155-827359b79f7e",
+        "contract_id": "c-5116556face84674ac469ee92cc32349",
+        "contract_revision": "339d1c0d2dd782e428e61695539fed1394f1e9ea70803fd205ea18c8a9dd4cd2",
+        "derived_from": [],
+        "digest": "220d359866970b657c25a5add2ea24829851176f853296deb8eb37a3e92b5615",
+        "location": ".hacp/artifacts/0aa6642f-5444-4337-a155-827359b79f7e.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 4548,
+        "task_id": "t-6f2ad9ea28e04763bea385554af228d3",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+          "duration_ms": 68,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        {
+          "command": "python3 -m unittest discover -s tests -v",
+          "duration_ms": 763,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_add_task_creates_parent_dir_and_task (test_tasks.TestTaskPocket) ... ok\ntest_blank_title_error (test_tasks.TestTaskPocket) ... ok\ntest_direct_storage_validation (test_tasks.TestTaskPocket) ... ok\ntest_done_idempotence (test_tasks.TestTaskPocket) ... ok\ntest_duplicate_ids_and_invalid_next_id_in_db (test_tasks.TestTaskPocket) ... ok\ntest_fresh_cli_process_persistence (test_tasks.TestTaskPocket) ... ok\ntest_id_increment_and_non_reuse (test_tasks.TestTaskPocket) ... ok\ntest_invalid_db_shape_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\ntest_list_open_and_all (test_tasks.TestTaskPocket) ... ok\ntest_malformed_id_error (test_tasks.TestTaskPocket) ... ok\ntest_malformed_json_db_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\ntest_missing_db_complete_error (test_tasks.TestTaskPocket) ... ok\ntest_missing_db_list_returns_empty_array (test_tasks.TestTaskPocket) ... ok\ntest_missing_id_error (test_tasks.TestTaskPocket) ... ok\ntest_os_replace_failure_cleanup (test_tasks.TestTaskPocket) ... ok\ntest_untrimmed_title_in_db_byte_unchanged (test_tasks.TestTaskPocket) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.687s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-e8ee901537634953a69cdf9d8590b3b0",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-5116556face84674ac469ee92cc32349",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+            "python3 -m unittest discover -s tests -v"
+          ],
+          "inputs": [
+            "SPEC.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ],
+          "outputs": [
+            "task_store.py"
+          ]
+        },
+        "digest": "339d1c0d2dd782e428e61695539fed1394f1e9ea70803fd205ea18c8a9dd4cd2",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement the task storage module in task_store.py per SPEC.md",
+      "task_id": "t-6f2ad9ea28e04763bea385554af228d3"
+    }
+  },
+  "pending_digest": "045197724c38c583f2b2f9c33acd3db4e61f8bbfe42d72779478e4f584d34b3b",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+      "python3 -m unittest discover -s tests -v"
+    ],
+    "inputs": [
+      "SPEC.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ],
+    "outputs": [
+      "task_store.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "339d1c0d2dd782e428e61695539fed1394f1e9ea70803fd205ea18c8a9dd4cd2",
+      "artifacts": [
+        "urn:hacp:artifact:0aa6642f-5444-4337-a155-827359b79f7e"
+      ],
+      "claim": "Complete task_store.py implements agreed storage API, strict task/database validation, monotonic IDs, idempotent completion, and atomic JSON persistence. Nonzero discovery guard and all 16 integrated unittest tests passed locally.",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "339d1c0d2dd782e428e61695539fed1394f1e9ea70803fd205ea18c8a9dd4cd2",
+      "artifacts": [
+        "urn:hacp:artifact:0aa6642f-5444-4337-a155-827359b79f7e"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 220d359866970b657c25a5add2ea24829851176f853296deb8eb37a3e92b5615 and 4548 bytes match working file and immutable copy",
+          "name": "before: task_store.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -c \\\"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\\\"\",\"stdout\":\"\",\"stderr\":\"\",\"duration_ms\":68,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() > 0, 'No tests discovered'\"",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest discover -s tests -v\",\"stdout\":\"\",\"stderr\":\"test_add_task_creates_parent_dir_and_task (test_tasks.TestTaskPocket) ... ok\\ntest_blank_title_error (test_tasks.TestTaskPocket) ... ok\\ntest_direct_storage_validation (test_tasks.TestTaskPocket) ... ok\\ntest_done_idempotence (test_tasks.TestTaskPocket) ... ok\\ntest_duplicate_ids_and_invalid_next_id_in_db (test_tasks.TestTaskPocket) ... ok\\ntest_fresh_cli_process_persistence (test_tasks.TestTaskPocket) ... ok\\ntest_id_increment_and_non_reuse (test_tasks.TestTaskPocket) ... ok\\ntest_invalid_db_shape_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\\ntest_list_open_and_all (test_tasks.TestTaskPocket) ... ok\\ntest_malformed_id_error (test_tasks.TestTaskPocket) ... ok\\ntest_malformed_json_db_byte_unchanged_across_subcommands (test_tasks.TestTaskPocket) ... ok\\ntest_missing_db_complete_error (test_tasks.TestTaskPocket) ... ok\\ntest_missing_db_list_returns_empty_array (test_tasks.TestTaskPocket) ... ok\\ntest_missing_id_error (test_tasks.TestTaskPocket) ... ok\\ntest_os_replace_failure_cleanup (test_tasks.TestTaskPocket) ... ok\\ntest_untrimmed_title_in_db_byte_unchanged (test_tasks.TestTaskPocket) ... ok\\n\\n----------------------------------------------------------------------\\nRan 16 tests in 0.687s\\n\\nOK\\n\",\"duration_ms\":763,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest discover -s tests -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 220d359866970b657c25a5add2ea24829851176f853296deb8eb37a3e92b5615 and 4548 bytes match working file and immutable copy",
+          "name": "after: task_store.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-5116556face84674ac469ee92cc32349",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-e8ee901537634953a69cdf9d8590b3b0",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

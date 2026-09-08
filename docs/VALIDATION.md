@@ -69,6 +69,10 @@ python3 scripts/live.py --run-live --pair claude-codex --out /tmp/hacp-one-pair
 
 The harness uses each CLI's installed default model and per-process unattended permissions. It never alters personal host settings. It allows two collaborations at a time and bounds each run. Account access and model service capacity remain external prerequisites.
 
+## Complete small-project test
+
+A separate Codex–AGY run built a usable JSON-backed task CLI in 221 seconds. Both contracts settled, all five questions were answered, all four artifact hashes matched, and the 16 peer tests plus 12 independent CLI tests passed on macOS and Linux. See the [full small-project test report](PROJECT-E2E.md) for the runnable project and evidence.
+
 ## Recording
 
 [Open the standalone player](demo.html) locally in a browser, or download [the asciicast](demo.cast). It contains 115.54 seconds of actual live event-monitor capture at clearly labeled **2× playback**, followed by the real final log, for **74.77 seconds total**. [Unaccelerated event timestamps](evidence/live-2026-09-07/claude-codex/events.cast) and CLI transcripts are retained. It is a live lifecycle monitor recording, not a scripted imitation of agent output.

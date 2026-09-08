@@ -1,0 +1,204 @@
+[
+  {
+    "seconds": 16.121,
+    "event_id": "e-995dcfda70e64e318e420a6833606975",
+    "peer": "a",
+    "action": "start"
+  },
+  {
+    "seconds": 22.293,
+    "event_id": "e-08161273b3a443129932e1e1c429c782",
+    "peer": "b",
+    "action": "join"
+  },
+  {
+    "seconds": 26.874,
+    "event_id": "e-df6d09f8c2db4a4f899d7f624ae05270",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 28.327,
+    "event_id": "e-1949bbc7be6d42f7b6659cd322d195c7",
+    "peer": "b",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 33.225,
+    "event_id": "e-7f4b88bdaba747fd945c12c4e02b4995",
+    "peer": "b",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 37.074,
+    "event_id": "e-ae998296b3ea4b8c9ff74c1e0909d1e2",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 47.21,
+    "event_id": "e-61a4a7b5bcc947d98c44d5751538248e",
+    "peer": "a",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 47.413,
+    "event_id": "e-5a9304a6b5344dbfbb59387d233527d5",
+    "peer": "a",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 57.222,
+    "event_id": "e-53ec5aa7631d43d5a11255898c3f82cd",
+    "peer": "b",
+    "action": "contract.countered"
+  },
+  {
+    "seconds": 61.288,
+    "event_id": "e-b3d3e60f926f4e618ec6fa0d2ae574fe",
+    "peer": "b",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 64.712,
+    "event_id": "e-11bbf03cb01f4535a16f7d679ef92762",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 66.574,
+    "event_id": "e-2c628d85ff4b4d8d81dceafda0cbbc53",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 72.417,
+    "event_id": "e-2d0538bbe36e4879be337c045e1a408a",
+    "peer": "a",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 84.212,
+    "first_file_seen": "task_cli.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 87.347,
+    "first_file_seen": "tests/test_tasks.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 88.604,
+    "first_file_seen": "README.md",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 121.317,
+    "first_file_seen": "task_store.py",
+    "owner": "a",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 132.1,
+    "event_id": "e-b16b53d3d28145059c3da8b76f9edf6c",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 146.822,
+    "event_id": "e-cf8fe8dcefd949c8a7aa360a56c945d6",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 151.817,
+    "event_id": "e-f2b7761356fa4e7f9161fb74da33a9f0",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 168.683,
+    "event_id": "e-6c17fb329c0d49bfb73870e0cf807e04",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 174.922,
+    "event_id": "e-f57cbbb25cb14f31bbe9b46bb863c8de",
+    "peer": "b",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 174.922,
+    "event_id": "e-5deb399510824ab5b17c93483202f211",
+    "peer": "b",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 190.822,
+    "event_id": "e-d8fb9801c1584455b28e28c3cacd149f",
+    "peer": "a",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 190.822,
+    "event_id": "e-9d24bfc0b37e4e0b8dab675f7166cf4b",
+    "peer": "a",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 191.439,
+    "event_id": "e-ac901cda0f454a21a4b076653dcbc88d",
+    "peer": "a",
+    "action": "verification started"
+  },
+  {
+    "seconds": 193.508,
+    "event_id": "e-d7a82d100ff34ba79ec7b06e3ffcc4c6",
+    "peer": "a",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 193.508,
+    "event_id": "e-98ad44ee0d614584baa415713568ac43",
+    "peer": "a",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 195.172,
+    "event_id": "e-6383651c4b23457f9891d1a9e44b3290",
+    "peer": "b",
+    "action": "verification started"
+  },
+  {
+    "seconds": 196.95,
+    "event_id": "e-1fe89204962e4aa2844acfc4b6f44db9",
+    "peer": "b",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 196.95,
+    "event_id": "e-103821f24f564f66b0010c641ef4e700",
+    "peer": "b",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 202.167,
+    "event_id": "e-835000a1f47c42558181909c4922d771",
+    "peer": "b",
+    "action": "session.close"
+  },
+  {
+    "seconds": 202.167,
+    "event_id": "e-a4478b5c66184ba3b6b29003e8772025",
+    "peer": "b",
+    "action": "close"
+  }
+]

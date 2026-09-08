@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-a46df411d7ff4ebfb89823f004481124",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:07:56Z",
+  "in_reply_to": "m-77142df64681425782c6875d0ec5463a",
+  "body": {
+    "text": "I fully agree with the suggested API and behavior: add_task(path, title), list_tasks(path, include_done=False), complete_task(path, task_id), TaskStoreError(ValueError), bool task_id invalid, atomic replacement, missing DB list returns [], and complete on missing ID fails without creating DB."
+  }
+}

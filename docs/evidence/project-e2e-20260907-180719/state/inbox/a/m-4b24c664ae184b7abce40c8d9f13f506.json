@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-4b24c664ae184b7abce40c8d9f13f506",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:08:26Z",
+  "in_reply_to": "m-171e40b75aa24a668dce742939c36442",
+  "body": {
+    "text": "I have accepted contract c-5116556face84674ac469ee92cc32349 (now executing) and updated contract c-5e11f659abc2496ea0553a9ea4804b57 with the test discovery guard. I explicitly confirm the disk schema: {\"tasks\": [...], \"next_id\": positive int}, exact task keys/types (id: int, title: trimmed non-empty str, done: bool), unique positive IDs."
+  }
+}

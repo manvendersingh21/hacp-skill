@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-171e40b75aa24a668dce742939c36442",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:08:24Z",
+  "body": {
+    "text": "I have proposed my terms-a.json contract c-5116556face84674ac469ee92cc32349 with nonzero discovery guard plus required unittest command. Please accept it, and revise your pending terms to also include that guard; I will then accept yours so BOTH freeze before either of us edits outputs. Please explicitly confirm disk schema {\"tasks\": [...], \"next_id\": positive int greater than every task id}; exact task keys/types, unique positive IDs, trimmed nonempty titles."
+  }
+}

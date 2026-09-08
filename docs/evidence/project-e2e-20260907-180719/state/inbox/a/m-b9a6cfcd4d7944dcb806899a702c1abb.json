@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-b9a6cfcd4d7944dcb806899a702c1abb",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:07:48Z",
+  "body": {
+    "text": "Confirming storage interface for task_store.py: 1) add_task(path, title) -> task dict, 2) list_tasks(path, include_done=False) -> list of task dicts, 3) complete_task(path, task_id) -> task dict. Task dict schema: {\"id\": int, \"title\": str, \"done\": bool}. Raises ValueError on invalid inputs/corrupt JSON. Is this agreed?"
+  }
+}

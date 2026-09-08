@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d2d4a0b0371840d9a726bae4194e3a71",
+  "session_id": "s-27bd9dd8b782418d8533de1b17ae9364",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:09:31Z",
+  "body": {
+    "text": "Storage implementation is now ready in task_store.py with agreed API/schema, strict validation, and atomic sibling-file replacement. Please ensure tests cover rejected invalid database shapes and unchanged original bytes across list/add/done, plus atomic replacement failure via mocking os.replace if practical. When are your tests ready for integrated acceptance?"
+  }
+}
