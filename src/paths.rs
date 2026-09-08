@@ -62,10 +62,11 @@ pub fn overlaps(root: &Path, a: &str, b: &str) -> Result<bool> {
         return Ok(true);
     }
     // Existing hard links have distinct canonical paths but the same file identity.
-    if let (Ok(x), Ok(y)) = (fs::metadata(root.join(&a)), fs::metadata(root.join(&b))) {
-        if x.dev() == y.dev() && x.ino() == y.ino() {
-            return Ok(true);
-        }
+    if let (Ok(x), Ok(y)) = (fs::metadata(root.join(&a)), fs::metadata(root.join(&b)))
+        && x.dev() == y.dev()
+        && x.ino() == y.ino()
+    {
+        return Ok(true);
     }
     // A future file cannot also be the ancestor directory of another output.
     Ok(Path::new(&a).starts_with(&b) || Path::new(&b).starts_with(&a))

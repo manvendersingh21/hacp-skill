@@ -126,7 +126,18 @@ pub fn view(s: &Snapshot, peer: &str, all: bool) -> Value {
                 })
         })
         .collect();
-    json!({"peer":peer,"session_state":s.session.state,"messages":messages,"outstanding_questions":questions,"contracts":s.contracts})
+    let actions:Vec<_>=s.contracts.values().filter_map(|v| {
+        let e:crate::contracts::Entry=serde_json::from_value(v.clone()).ok()?;
+        use hacp::v2::ContractState::*;
+        let action=match e.contract.state {
+            Proposed|Countered|Amending if e.proposer!=peer=>"review and accept pending digest or counter",
+            Verifying if e.contract.task.owner!=urn(peer)=>"verify pending submission",
+            Executing if e.contract.task.owner==urn(peer) && e.contract.rework_scope.is_some()=>"repair and resubmit",
+            _=>return None,
+        };
+        Some(json!({"contract_id":e.contract.contract_id,"action":action,"pending_digest":e.pending_digest,"revision":e.contract.frozen_digest()}))
+    }).collect();
+    json!({"contract_actions":actions,"peer":peer,"session_state":s.session.state,"messages":messages,"outstanding_questions":questions,"contracts":s.contracts})
 }
 pub fn poll(root: &Path, peer: &str, all: bool, timeout: Option<u64>) -> Result<Value> {
     let start = Instant::now();
@@ -136,7 +147,13 @@ pub fn poll(root: &Path, peer: &str, all: bool, timeout: Option<u64>) -> Result<
         authorize(&s, peer)?;
         ingest(&st, &mut s, peer)?;
         let result = view(&s, peer, all);
-        let ready = !result["messages"].as_array().unwrap().is_empty();
+        let ready = !result["messages"].as_array().unwrap().is_empty()
+            || result["outstanding_questions"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .any(|q| q["to"] == urn(peer))
+            || !result["contract_actions"].as_array().unwrap().is_empty();
         if ready || timeout.is_none() {
             for m in &s.messages {
                 if m.to == urn(peer) {

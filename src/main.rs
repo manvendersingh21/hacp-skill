@@ -1,5 +1,6 @@
 mod artifacts;
 mod contracts;
+mod install;
 mod messages;
 mod paths;
 mod store;
@@ -39,6 +40,18 @@ enum Command {
         owns: Vec<String>,
     },
     Status,
+    Install {
+        #[arg(long,value_parser=["claude","codex","agy","opencode","all"])]
+        cli: Option<String>,
+        #[arg(long)]
+        home: Option<PathBuf>,
+    },
+    Doctor {
+        #[arg(long,value_parser=["claude","codex","agy","opencode","all"])]
+        cli: Option<String>,
+        #[arg(long)]
+        home: Option<PathBuf>,
+    },
     Verify {
         contract_id: String,
         #[arg(long, default_value_t = 300)]
@@ -106,6 +119,15 @@ fn main() {
     }
 }
 fn run(cli: &Cli) -> Result<Value> {
+    match &cli.command {
+        Command::Install { cli, home } => {
+            return install::run(cli.as_deref(), home.as_deref(), false);
+        }
+        Command::Doctor { cli, home } => {
+            return install::run(cli.as_deref(), home.as_deref(), true);
+        }
+        _ => (),
+    }
     let peer = cli
         .peer
         .as_deref()
@@ -232,7 +254,18 @@ fn run(cli: &Cli) -> Result<Value> {
         Command::Status => Ok(json!(s)),
         Command::Close { reason } => {
             ensure!(!reason.trim().is_empty(), "close requires a reason");
-            s.session.close(&urn(peer), reason)?;
+            if s.session.state == hacp::v2::SessionState::Opening {
+                s.session.abandon(reason)?;
+            } else {
+                s.session.close(&urn(peer), reason)?;
+            }
+            messages::send(
+                &mut s,
+                peer,
+                "session.close",
+                json!({"reason":reason}),
+                None,
+            )?;
             event(&mut s, peer, "close", json!({"reason":reason}));
             st.commit(&s)?;
             Ok(json!(s.session))

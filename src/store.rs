@@ -87,18 +87,19 @@ impl Store {
                 &serde_json::to_vec_pretty(&s)?,
             )?;
         }
-        self.project(&s)?;
+        self.project(&s, false)?;
         Ok(s)
     }
     pub fn commit(&self, s: &Snapshot) -> Result<()> {
+        failpoint("before_commit");
         atomic(
             &self.root.join(".hacp/session.json"),
             &serde_json::to_vec_pretty(s)?,
         )?;
         failpoint("after_commit");
-        self.project(s)
+        self.project(s, true)
     }
-    fn project(&self, s: &Snapshot) -> Result<()> {
+    fn project(&self, s: &Snapshot, crash: bool) -> Result<()> {
         let state = self.root.join(".hacp");
         for (key, c) in &s.contracts {
             atomic(
@@ -116,10 +117,17 @@ impl Store {
                 &serde_json::to_vec_pretty(m)?,
             )?;
         }
-        failpoint("after_delivery");
+        if crash {
+            failpoint("after_delivery");
+        }
         let mut log = String::from("HACP collaboration log\n\n");
         for e in &s.events {
-            log.push_str(&format!("{}\n", serde_json::to_string(e)?));
+            if let Some(rendered) = e["rendered"].as_str() {
+                log.push_str(rendered);
+                log.push_str("\n\n");
+            } else {
+                log.push_str(&format!("{}\n", serde_json::to_string(e)?));
+            }
         }
         atomic(&state.join("log.md"), log.as_bytes())
     }
@@ -142,7 +150,16 @@ pub fn atomic(path: &Path, bytes: &[u8]) -> Result<()> {
     result
 }
 pub fn event(s: &mut Snapshot, peer: &str, action: &str, detail: Value) {
-    s.events.push(json!({"id":id("e"), "time":hacp::v2::canon::canonical_now(), "peer":peer, "action":action, "detail":detail}));
+    let eid = id("e");
+    let time = hacp::v2::canon::canonical_now();
+    let mut rendered = format!("{time} | Peer {peer} | {action}\nEvent {eid}\n");
+    let readable = serde_json::to_string_pretty(&detail).expect("JSON value serializes");
+    for line in readable.lines() {
+        rendered.push_str("    ");
+        rendered.push_str(line);
+        rendered.push('\n');
+    }
+    s.events.push(json!({"id":eid,"time":time,"peer":peer,"action":action,"detail":detail,"rendered":rendered}));
 }
 pub fn authorize(s: &Snapshot, peer: &str) -> Result<()> {
     s.session.authorize_author(&urn(peer))?;

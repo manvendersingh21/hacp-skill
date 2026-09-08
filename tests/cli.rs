@@ -400,3 +400,95 @@ fn advisory_lock_timeout_and_process_release() {
     drop(file);
     ok(r, "a", &["status"]);
 }
+#[test]
+fn install_preflights_all_destinations_and_is_idempotent() {
+    let home = tempfile::tempdir().unwrap();
+    let r = home.path();
+    let conflict = r.join(".gemini/config/skills/hacp/SKILL.md");
+    std::fs::create_dir_all(conflict.parent().unwrap()).unwrap();
+    std::fs::write(&conflict, "user skill").unwrap();
+    let run = |cmd: &str| {
+        Command::new(env!("CARGO_BIN_EXE_hacp"))
+            .args(["--json", cmd, "--cli", "all", "--home"])
+            .arg(r)
+            .output()
+            .unwrap()
+    };
+    let doc = run("doctor");
+    assert!(doc.status.success());
+    let doc: Value = serde_json::from_slice(&doc.stdout).unwrap();
+    assert_eq!(doc["conflicts"], true);
+    assert_eq!(doc["model_calls"], 0);
+    assert!(!run("install").status.success());
+    assert!(!r.join(".agents").exists());
+    assert_eq!(std::fs::read_to_string(&conflict).unwrap(), "user skill");
+    std::fs::remove_file(conflict).unwrap();
+    assert!(run("install").status.success());
+    assert!(run("install").status.success());
+    for p in [
+        ".agents/skills/hacp/SKILL.md",
+        ".claude/skills/hacp/SKILL.md",
+        ".gemini/config/skills/hacp/SKILL.md",
+        ".config/opencode/commands/hacp.md",
+    ] {
+        assert!(r.join(p).is_file(), "{p}");
+    }
+    assert!(
+        !r.join(".config/opencode/skills/hacp").exists(),
+        "reuse identical discoverable skill"
+    );
+}
+#[test]
+fn crash_before_commit_and_after_delivery_has_one_or_no_effect() {
+    for point in ["before_commit", "after_delivery"] {
+        let dir = tempfile::tempdir().unwrap();
+        let r = dir.path();
+        pair(r);
+        let out = Command::new(env!("CARGO_BIN_EXE_hacp"))
+            .arg("--project")
+            .arg(r)
+            .args(["--peer", "a", "ask", "unique question"])
+            .env("HACP_TEST_CRASH", point)
+            .output()
+            .unwrap();
+        assert_eq!(out.status.code(), Some(86));
+        let s = ok(r, "b", &["poll"]);
+        let count = if point == "before_commit" { 0 } else { 1 };
+        assert_eq!(s["messages"].as_array().unwrap().len(), count);
+        let log = std::fs::read_to_string(r.join(".hacp/log.md")).unwrap();
+        assert_eq!(log.matches("unique question").count(), count);
+        ok(r, "a", &["status"]);
+        assert_eq!(
+            std::fs::read_to_string(r.join(".hacp/log.md")).unwrap(),
+            log
+        );
+    }
+}
+#[test]
+fn forged_envelopes_are_refused_and_fetched_question_remains_actionable() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    ok(r, "a", &["ask", "question"]);
+    let p = ok(r, "b", &["poll"]);
+    assert_eq!(
+        ok(r, "b", &["wait", "--timeout", "0"])["outstanding_questions"]
+            .as_array()
+            .unwrap()
+            .len(),
+        1
+    );
+    for field in ["from", "to", "session_id", "protocol"] {
+        let mut m = p["messages"][0].clone();
+        m["message_id"] = serde_json::json!("m-000000000000000000");
+        m[field] = serde_json::json!(if field == "from" || field == "to" {
+            "urn:hacp:agent:outsider"
+        } else {
+            "wrong"
+        });
+        let path = r.join(".hacp/inbox/b/forged.json");
+        std::fs::write(&path, serde_json::to_vec(&m).unwrap()).unwrap();
+        assert!(!call(r, "b", &["poll"]).status.success(), "{field}");
+        std::fs::remove_file(path).unwrap();
+    }
+}

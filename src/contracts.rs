@@ -58,6 +58,31 @@ pub fn terms(root: &Path, file: &Path) -> Result<Terms> {
     Ok(t)
 }
 pub fn claims(root: &Path, s: &Snapshot, candidate: &Entry) -> Result<()> {
+    for path in candidate
+        .pending_terms
+        .inputs
+        .iter()
+        .chain(&candidate.pending_terms.outputs)
+    {
+        ensure!(
+            paths::normalize(root, path)? == *path,
+            "filesystem alias changed since proposal: {path}; counter with reviewed paths"
+        );
+    }
+    for (peer, registration) in &s.peers {
+        if urn(peer) == candidate.contract.task.owner {
+            continue;
+        }
+        let has_frozen = s.contracts.values().any(|v| {
+            v["contract"]["task"]["owner"] == urn(peer)
+                && v["contract"]["revisions"]
+                    .as_array()
+                    .is_some_and(|r| !r.is_empty())
+        });
+        if !has_frozen {
+            paths::disjoint(root, &candidate.pending_terms.outputs, &registration.owns)?;
+        }
+    }
     for (id, v) in &s.contracts {
         if id == &candidate.contract.contract_id {
             continue;
@@ -66,11 +91,10 @@ pub fn claims(root: &Path, s: &Snapshot, candidate: &Entry) -> Result<()> {
         if matches!(
             e.contract.state,
             ContractState::Executing | ContractState::Amending | ContractState::Verifying
-        ) {
-            if let Some(r) = e.contract.revisions.last() {
-                let t: Terms = serde_json::from_value(r.content.clone())?;
-                paths::disjoint(root, &candidate.pending_terms.outputs, &t.outputs)?;
-            }
+        ) && let Some(r) = e.contract.revisions.last()
+        {
+            let t: Terms = serde_json::from_value(r.content.clone())?;
+            paths::disjoint(root, &candidate.pending_terms.outputs, &t.outputs)?;
         }
     }
     Ok(())

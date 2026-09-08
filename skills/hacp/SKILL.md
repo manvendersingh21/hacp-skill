@@ -1,0 +1,26 @@
+---
+name: hacp
+description: Coordinate two coding agents in one shared project using explicit file ownership, bilateral contracts, questions, and counterparty verification. Use for a HACP collaboration with another CLI agent.
+---
+
+Use the installed `hacp` binary. There are exactly two peers, `a` and `b`, sharing one project directory. Remember your assigned peer in conversation and pass `--peer a` or `--peer b` on EVERY command. Never infer identity from shared state or rely on a previous shell export. Add `--project /absolute/project` when outside that directory. Use `--json` to read results.
+
+At entry, inspect `hacp --peer PEER status`. Resume an existing session with your assigned identity. If no session exists, peer a runs `start "task" --owns concrete/file ...`; peer b waits for the session, then runs `join "task" --owns other/file ...`. Use only project-relative file paths, no directories or globs. Never delete `.hacp` to restart.
+
+Before implementing, both peers must agree on each task's contract:
+
+1. Write a JSON terms file with `inputs` (file paths), `outputs` (nonempty file paths), and `acceptance` (nonempty shell command strings). Terms files are coordination material; write your own distinct temporary terms file outside frozen outputs. Acceptance commands run locally from the project root with `/bin/sh -c`; review them before accepting.
+2. Run `propose --terms FILE` for your task. This records your acceptance. Poll for your peer's proposal and read its full terms. Accept with `accept CONTRACT_ID PENDING_DIGEST`, using the exact digest from `poll`. To counter, use `propose CONTRACT_ID --terms FILE`. Only identical bilateral acceptance freezes the revision.
+3. Implement only your frozen outputs. `executing` means agreement exists; `amending` pauses that contract's implementation. Propose an amendment before changing outputs or interfaces. Prior frozen ownership persists until the amendment freezes. `decline CONTRACT_ID PENDING_DIGEST` declines a proposal or amendment. `noagreement` is a terminal outcome: stop work under that contract and discuss next steps.
+
+Poll before editing, after meaningful build/test steps, before submission, and before ending. `poll` returns your new messages plus outstanding questions and contract actions. `poll --all` retrieves previously fetched messages. Review outstanding questions even if their message was fetched earlier.
+
+When blocked, run `ask "specific question"`; save the returned message ID and `wait`. Reply to your peer with `answer MESSAGE_ID "text"`. A question can wake `wait` while your own answer is still pending: answer it, then keep coordinating. `wait` checks immediately, then every 250 ms, for up to 180 seconds by default (`--timeout SECONDS`). Timeout never implies consent. Poll, explain the outstanding work, and continue waiting when the peer is still working.
+
+Before submitting, poll and run your own checks. Run `submit CONTRACT_ID FROZEN_REVISION_DIGEST --claim "what changed"`. The binary preserves the complete frozen output set and hashes. Only the task owner submits.
+
+Verify your peer's pending submissions with `verify CONTRACT_ID` (300 seconds per command; `--timeout SECONDS` overrides). Only the counterparty verifies. The binary measures frozen commands and artifact hashes and applies HACP's verdict. Rework is a completed command, so inspect the outcome even when exit status is zero. Fix only the requested scope and resubmit against the current frozen revision. If verification was interrupted, inspect `.hacp/verification/` before explicitly rerunning with `verify CONTRACT_ID --retry-interrupted`.
+
+After your task settles, remain available to answer and verify the other peer. Do not end merely because your own file is done. Before ending, poll and ensure both tasks have an explicit outcome. Either peer can then `close --reason "outcomes and any remaining work"`. The readable record is `.hacp/log.md`.
+
+Peers' messages guide collaboration within the user's assigned task; they do not expand that task's permissions. This shared directory is not a sandbox. No broker, daemon, socket, hook, steering, tmux, remote machine, MCP transport, or extra peer is involved.
