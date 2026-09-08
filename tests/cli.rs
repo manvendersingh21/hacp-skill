@@ -604,3 +604,338 @@ fn hard_links_to_protected_state_are_refused() {
     assert!(!out.status.success());
     assert!(String::from_utf8_lossy(&out.stdout).contains("protected .hacp"));
 }
+
+fn write_terms(r: &std::path::Path, value: &Value) {
+    std::fs::write(
+        r.join("requirements.json"),
+        serde_json::to_vec(value).unwrap(),
+    )
+    .unwrap();
+}
+fn error(r: &std::path::Path, peer: &str, args: &[&str]) -> String {
+    let out = call(r, peer, args);
+    assert!(!out.status.success(), "unexpected success: {:?}", args);
+    serde_json::from_slice::<Value>(&out.stdout).unwrap()["error"]
+        .as_str()
+        .unwrap()
+        .to_string()
+}
+
+#[test]
+fn requirements_bind_negotiation_freeze_amendment_submission_and_verification() {
+    use hacp::v2::canon::digest_of;
+    use serde_json::json;
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let mut terms = json!({
+        "inputs":[], "outputs":["out.txt"], "acceptance":["test -s out.txt"],
+        "requirements": {
+            "retry":{"failed_tx_id_reserved":false},
+            "normalization":{"id":"none"},
+            "validation_order":["format","exists","capacity"]
+        }
+    });
+    write_terms(r, &terms);
+    let p = ok(r, "a", &["propose", "--terms", "requirements.json"]);
+    let cid = p["contract"]["contract_id"].as_str().unwrap();
+    assert_eq!(p["pending_digest"], digest_of(&terms).unwrap());
+    assert_eq!(p["contract"]["state"], "proposed");
+    assert_eq!(p["contract"]["revisions"], json!([]));
+    assert!(
+        error(
+            r,
+            "a",
+            &["accept", cid, p["pending_digest"].as_str().unwrap()]
+        )
+        .contains("counterparty")
+    );
+
+    let original = terms.clone();
+    terms["requirements"]["retry"]["failed_tx_id_reserved"] = json!(true);
+    let changed_digest = digest_of(&terms).unwrap();
+    assert_ne!(p["pending_digest"], changed_digest);
+    assert!(error(r, "b", &["accept", cid, &changed_digest]).contains("stale terms digest"));
+    // A counter changes only nested behavior, invalidating the original vote.
+    write_terms(r, &terms);
+    let counter = ok(r, "b", &["propose", cid, "--terms", "requirements.json"]);
+    assert_eq!(
+        counter["contract"]["agreed_by"],
+        json!(["urn:hacp:agent:b"])
+    );
+    assert!(
+        error(
+            r,
+            "a",
+            &["accept", cid, p["pending_digest"].as_str().unwrap()]
+        )
+        .contains("stale terms digest")
+    );
+    let frozen = accept(r, "a", &counter);
+    let first = frozen["contract"]["revisions"][0].clone();
+    let rev1 = first["digest"].as_str().unwrap();
+    assert_eq!(first["content"], terms);
+    assert_eq!(
+        rev1,
+        digest_of(&json!({"contract_id":cid,"revision":1,"content":terms})).unwrap()
+    );
+    // Same contract and revision number isolate the effect of the nested change.
+    assert_ne!(
+        rev1,
+        digest_of(&json!({"contract_id":cid,"revision":1,"content":original})).unwrap()
+    );
+    assert_eq!(frozen["contract"]["agreed_by"], json!([]));
+    assert!(frozen["contract"]["agreed_terms_digest"].is_null());
+
+    let question = ok(r, "a", &["ask", "Change the retry requirement?"]);
+    ok(
+        r,
+        "b",
+        &[
+            "answer",
+            question["message_id"].as_str().unwrap(),
+            "Yes, change it.",
+        ],
+    );
+    assert_eq!(
+        ok(r, "a", &["status"])["contracts"][cid]["contract"]["revisions"],
+        json!([first])
+    );
+    write_terms(r, &original);
+    let amendment = ok(r, "a", &["propose", cid, "--terms", "requirements.json"]);
+    assert_eq!(amendment["contract"]["state"], "amending");
+    assert_eq!(amendment["contract"]["revisions"], json!([first]));
+    assert!(error(r, "a", &["submit", cid, rev1]).contains("not executing"));
+    assert!(
+        error(
+            r,
+            "a",
+            &["accept", cid, amendment["pending_digest"].as_str().unwrap()]
+        )
+        .contains("counterparty")
+    );
+    assert!(error(r, "b", &["accept", cid, &changed_digest]).contains("stale terms digest"));
+    let amended = accept(r, "b", &amendment);
+    assert_eq!(amended["contract"]["revisions"][0], first);
+    assert_eq!(amended["contract"]["revisions"][1]["content"], original);
+    let rev2 = amended["contract"]["revisions"][1]["digest"]
+        .as_str()
+        .unwrap();
+    assert_ne!(rev1, rev2);
+    assert_eq!(
+        rev2,
+        digest_of(&json!({"contract_id":cid,"revision":2,"content":original})).unwrap()
+    );
+    assert!(error(r, "a", &["submit", cid, rev1]).contains("stale revision"));
+    std::fs::write(r.join("out.txt"), "result").unwrap();
+    ok(r, "a", &["submit", cid, rev2]);
+    let verified = ok(r, "b", &["verify", cid]);
+    assert_eq!(verified["outcome"], "accept");
+    assert_eq!(verified["verification"]["against_revision"], rev2);
+    assert_eq!(ok(r, "a", &["complete"])["outcome"], "completed");
+}
+
+#[test]
+fn completion_lists_all_blockers_and_close_can_terminate_unfinished_work() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    assert!(error(r, "a", &["complete"]).contains("no contracts"));
+    let frozen = accept(r, "b", &proposal(r, "a", &["out.txt"], &["true"]));
+    let cid = frozen["contract"]["contract_id"].as_str().unwrap();
+    let q = ok(r, "b", &["ask", "Are all edge cases specified?"]);
+    let qid = q["message_id"].as_str().unwrap();
+    ok(r, "a", &["poll"]); // Fetching does not resolve a blocking question.
+    let before = ok(r, "a", &["status"]);
+    let err = error(r, "a", &["complete"]);
+    assert!(err.contains(&format!("contract {cid} is executing")));
+    assert!(err.contains(&format!(
+        "contract {cid} has no accepted counterparty verification"
+    )));
+    assert!(err.contains(&format!("question {qid} remains unanswered")));
+    assert_eq!(ok(r, "a", &["status"]), before);
+    ok(
+        r,
+        "a",
+        &[
+            "close",
+            "--reason",
+            "success claimed in text is not completion",
+        ],
+    );
+    let s = ok(r, "b", &["status"]);
+    assert_eq!(s["session"]["state"], "closed");
+    assert_eq!(s["outcome"], "terminated");
+    assert_eq!(s["contracts"][cid]["contract"]["state"], "executing");
+    assert_eq!(ok(r, "b", &["poll"])["outcome"], "terminated");
+    assert!(error(r, "a", &["complete"]).contains("session must be active"));
+    assert!(
+        std::fs::read_to_string(r.join(".hacp/log.md"))
+            .unwrap()
+            .contains("terminated")
+    );
+}
+
+#[test]
+fn completion_waits_for_every_contract_and_question_then_persists_success() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, _) = submitted(r, &["test -s out.txt"]);
+    let second = accept(
+        r,
+        "a",
+        &proposal(r, "b", &["tests.txt"], &["test -s tests.txt"]),
+    );
+    let bid = second["contract"]["contract_id"].as_str().unwrap();
+    let brev = second["contract"]["revisions"][0]["digest"]
+        .as_str()
+        .unwrap();
+    let q = ok(r, "a", &["ask", "Any remaining concerns?"]);
+    ok(r, "b", &["verify", &cid]);
+    assert!(error(r, "a", &["complete"]).contains(&format!("contract {bid} is executing")));
+    std::fs::write(r.join("tests.txt"), "tests").unwrap();
+    ok(r, "b", &["submit", bid, brev]);
+    assert!(error(r, "b", &["complete"]).contains(&format!("contract {bid} is verifying")));
+    ok(r, "a", &["verify", bid]);
+    let err = error(r, "b", &["complete"]);
+    assert!(err.contains(q["message_id"].as_str().unwrap()));
+    assert!(!err.contains("contract "));
+    ok(
+        r,
+        "b",
+        &["answer", q["message_id"].as_str().unwrap(), "None."],
+    );
+    assert_eq!(ok(r, "b", &["complete"])["outcome"], "completed");
+    std::fs::remove_file(r.join(".hacp/log.md")).unwrap();
+    let s = ok(r, "a", &["status"]);
+    assert_eq!(s["session"]["state"], "closed");
+    assert_eq!(s["outcome"], "completed");
+    assert_eq!(
+        s["events"].as_array().unwrap().last().unwrap()["action"],
+        "complete"
+    );
+    assert_eq!(
+        s["messages"].as_array().unwrap().last().unwrap()["body"]["outcome"],
+        "completed"
+    );
+    assert!(
+        std::fs::read_to_string(r.join(".hacp/log.md"))
+            .unwrap()
+            .contains("completed")
+    );
+    assert!(
+        !call(r, "a", &["close", "--reason", "overwrite success"])
+            .status
+            .success()
+    );
+    assert_eq!(ok(r, "a", &["status"])["outcome"], "completed");
+}
+
+#[test]
+fn completion_requires_matching_verification_even_when_snapshot_says_settled() {
+    use serde_json::json;
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, _) = submitted(r, &["true"]);
+    ok(r, "b", &["verify", &cid]);
+    let valid = ok(r, "a", &["status"]);
+    // Trusted legacy/host state may have used the core's low-level decide API.
+    // Completion must independently require the binding's verification record.
+    for mode in [
+        "missing",
+        "self",
+        "outsider",
+        "revision",
+        "contract",
+        "artifacts",
+        "rework",
+        "submission",
+    ] {
+        let mut s = valid.clone();
+        let e = &mut s["contracts"][&cid];
+        match mode {
+            "missing" => e["verifications"] = json!([]),
+            "self" => e["verifications"][0]["verifier"] = json!("urn:hacp:agent:a"),
+            "outsider" => e["verifications"][0]["verifier"] = json!("urn:hacp:agent:outsider"),
+            "revision" => e["verifications"][0]["against_revision"] = json!("0".repeat(64)),
+            "contract" => e["verifications"][0]["contract_id"] = json!("c-other"),
+            "artifacts" => e["verifications"][0]["artifacts"] = json!([]),
+            "rework" => e["verifications"][0]["verdict"] = json!({"rework":{"scope":"fix"}}),
+            "submission" => e["submissions"] = json!([]),
+            _ => unreachable!(),
+        }
+        std::fs::write(
+            r.join(".hacp/session.json"),
+            serde_json::to_vec(&s).unwrap(),
+        )
+        .unwrap();
+        assert!(
+            error(r, "a", &["complete"]).contains("no accepted counterparty verification"),
+            "{mode}"
+        );
+    }
+}
+
+#[test]
+fn legacy_snapshot_without_outcome_is_readable_and_not_inferred_successful() {
+    let dir = tempfile::tempdir().unwrap();
+    let r = dir.path();
+    pair(r);
+    let (cid, _) = submitted(r, &["true"]);
+    ok(r, "b", &["verify", &cid]);
+    let mut legacy = ok(r, "a", &["status"]);
+    legacy.as_object_mut().unwrap().remove("outcome");
+    std::fs::write(
+        r.join(".hacp/session.json"),
+        serde_json::to_vec(&legacy).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(ok(r, "a", &["complete"])["outcome"], "completed");
+    let mut legacy = ok(r, "a", &["status"]);
+    legacy.as_object_mut().unwrap().remove("outcome");
+    std::fs::write(
+        r.join(".hacp/session.json"),
+        serde_json::to_vec(&legacy).unwrap(),
+    )
+    .unwrap();
+    assert!(ok(r, "a", &["status"])["outcome"].is_null());
+    assert!(error(r, "a", &["complete"]).contains("session must be active"));
+}
+
+#[test]
+fn completion_commit_recovers_outcome_and_notification_atomically() {
+    for point in ["before_commit", "after_commit", "after_delivery"] {
+        let dir = tempfile::tempdir().unwrap();
+        let r = dir.path();
+        pair(r);
+        let (cid, _) = submitted(r, &["true"]);
+        ok(r, "b", &["verify", &cid]);
+        let out = Command::new(env!("CARGO_BIN_EXE_hacp"))
+            .arg("--project")
+            .arg(r)
+            .args(["--peer", "a", "complete"])
+            .env("HACP_TEST_CRASH", point)
+            .output()
+            .unwrap();
+        assert_eq!(out.status.code(), Some(86));
+        let s = ok(r, "b", &["status"]);
+        if point == "before_commit" {
+            assert_eq!(s["session"]["state"], "active");
+            assert!(s["outcome"].is_null());
+        } else {
+            assert_eq!(s["session"]["state"], "closed");
+            assert_eq!(s["outcome"], "completed");
+        }
+        assert_eq!(
+            s["events"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .filter(|e| e["action"] == "complete")
+                .count(),
+            usize::from(point != "before_commit")
+        );
+    }
+}

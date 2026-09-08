@@ -27,6 +27,15 @@ pub struct Snapshot {
     pub fetched: BTreeMap<String, BTreeSet<String>>,
     pub contracts: BTreeMap<String, Value>,
     pub events: Vec<Value>,
+    /// Binding outcome; absent in legacy snapshots (never infer success from a reason).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub outcome: Option<Outcome>,
+}
+#[derive(Clone, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Outcome {
+    Completed,
+    Terminated,
 }
 pub fn urn(peer: &str) -> String {
     format!("urn:hacp:agent:{peer}")

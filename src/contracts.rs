@@ -11,6 +11,9 @@ pub struct Terms {
     pub inputs: Vec<String>,
     pub outputs: Vec<String>,
     pub acceptance: Vec<String>,
+    /// Material negotiated behavior, bound by the core canonical revision digest.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub requirements: Option<Value>,
 }
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Entry {
@@ -253,4 +256,35 @@ pub fn decline(st: &Store, s: &mut Snapshot, peer: &str, cid: &str, digest: &str
     notify(s, peer, "contract.declined", &e)?;
     st.commit(s)?;
     Ok(json!(e))
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn legacy_terms_round_trip_without_changing_content_or_digest() {
+        let value = json!({"inputs":[],"outputs":["out.txt"],"acceptance":["true"]});
+        let terms: Terms = serde_json::from_value(value.clone()).unwrap();
+        assert!(terms.requirements.is_none());
+        let restored = serde_json::to_value(terms).unwrap();
+        assert_eq!(restored, value);
+        assert_eq!(
+            hacp::v2::canon::digest_of(&restored).unwrap(),
+            hacp::v2::canon::digest_of(&value).unwrap()
+        );
+    }
+
+    #[test]
+    fn structured_requirements_preserve_json_but_top_level_remains_strict() {
+        let mut value = json!({
+            "inputs":[], "outputs":["out.txt"], "acceptance":["true"],
+            "requirements": {"retry":{"reserved":false}, "order":["format","exists"],
+                "extensions":{"arbitrary":[null,3,"literal",true]}}
+        });
+        let terms: Terms = serde_json::from_value(value.clone()).unwrap();
+        assert_eq!(serde_json::to_value(terms).unwrap(), value);
+        value["unrecognized"] = json!(true);
+        assert!(serde_json::from_value::<Terms>(value).is_err());
+    }
 }
