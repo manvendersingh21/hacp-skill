@@ -1,4 +1,5 @@
 mod artifacts;
+mod completion;
 mod contracts;
 mod install;
 mod messages;
@@ -93,6 +94,9 @@ enum Command {
         #[arg(long, default_value_t = 180)]
         timeout: u64,
     },
+    /// Successfully finish settled, verified work with no unanswered questions.
+    Complete,
+    /// Terminate a session, including unfinished or abandoned work.
     Close {
         #[arg(long)]
         reason: String,
@@ -185,6 +189,7 @@ fn run(cli: &Cli) -> Result<Value> {
             fetched: Default::default(),
             contracts: Default::default(),
             events: vec![],
+            outcome: None,
         };
         event(
             &mut s,
@@ -255,6 +260,7 @@ fn run(cli: &Cli) -> Result<Value> {
             digest,
         } => contracts::decline(&st, &mut s, peer, contract_id, digest),
         Command::Status => Ok(json!(s)),
+        Command::Complete => completion::complete(&st, &mut s, peer),
         Command::Close { reason } => {
             ensure!(!reason.trim().is_empty(), "close requires a reason");
             if s.session.state == hacp::v2::SessionState::Opening {
@@ -262,14 +268,20 @@ fn run(cli: &Cli) -> Result<Value> {
             } else {
                 s.session.close(&urn(peer), reason)?;
             }
+            s.outcome = Some(Outcome::Terminated);
             messages::send(
                 &mut s,
                 peer,
                 "session.close",
-                json!({"reason":reason}),
+                json!({"reason":reason,"outcome":"terminated"}),
                 None,
             )?;
-            event(&mut s, peer, "close", json!({"reason":reason}));
+            event(
+                &mut s,
+                peer,
+                "close",
+                json!({"reason":reason,"outcome":"terminated"}),
+            );
             st.commit(&s)?;
             Ok(json!(s.session))
         }

@@ -15,11 +15,31 @@ HACP permits application-defined kind strings. This binding uses:
 | `contract.proposed`, `contract.countered`, `contract.amendment.proposed` | Contract ID, task, terms, digest, revision, state, next action | Durable notification of an already committed transition. |
 | `contract.frozen`, `contract.no_agreement`, `contract.declined` | Same | Agreement, exhausted bounds, or refusal. `contract.declined` is an application extension. |
 | `submission.delivered`, `verification.delivered` | Same | The snapshot holds artifact and measured verification records. |
-| `session.close` | `{ "reason": "..." }` | Explicit ending. |
+| `session.close` | `{ "reason": "...", "outcome": "completed" \| "terminated" }` | Binding outcome from `complete` or `close`; legacy notifications omit `outcome`. |
 
 Envelopes must pass HACP shape/canonical checks, session membership and ID checks, and recipient checks. Incoming inbox files are read only for the requesting peer. Duplicate message IDs have no further effect, even if their bodies differ. An answer must address the original question author and cannot replace an earlier answer.
 
 Unknown kinds are valid, recoverable messages. Incoming lifecycle notifications never drive contract transitions: command handlers perform transitions under the authoritative lock and then emit notifications. Writing an envelope cannot forge bilateral acceptance. Peer flags and files still rely on trusted access to the local project, not cryptographic authentication.
+
+## Terms and completion
+
+The binding's strict terms object requires `inputs`, `outputs`, and `acceptance`, and optionally accepts `requirements` as structured JSON. Unknown top-level fields remain errors; nested requirements may use arbitrary keys and values allowed by core canonicalization, including ordered arrays. HACP/2.0 permits integer numbers only. Omitted or top-level null `requirements` is treated as absent; nested null values are preserved. No coding schema is added to core HACP.
+
+`ask`/`answer` = deliberation; `requirements` in frozen terms = binding agreement. Agents must promote resolved correctness-relevant decisions before acceptance. The existing core content digest covers the full serialized terms and the unchanged revision preimage is `{contract_id, revision, content}`. Proposal, counter, freeze, and amendment all use that content. Changes to frozen requirements use bilateral amendment; messages never mutate a revision. Submission and verification remain bound to the current frozen revision.
+
+`complete` checks under the metadata lock that the session is active, at least one contract exists, every recorded contract is `settled`, and its latest verification is a valid `accept` by the counterparty matching the latest submission's artifact set, contract ID, and current frozen revision. All unanswered `hacp.skill.ask` messages block completion, even if fetched; only a validated linked answer resolves them. There is no optional-contract or nonblocking-question flag. Failed checks list the exact blockers and do not close the session. Incoming lifecycle messages cannot establish completion.
+
+On success, `complete` calls core `Session::close`, sets snapshot `outcome: completed`, and commits a `complete` event and close notification together. `close --reason TEXT` retains generic termination semantics, setting `outcome: terminated` and a `close` event without requiring settled work. Opening sessions still become `abandoned` through `close`; active sessions become `closed` through either operation. Terminal outcomes cannot be overwritten through these commands.
+
+Completion acknowledgment has no structural representation in the current binding. This patch enforces the objectively checkable subset; explicit bilateral acknowledgment enforcement is deferred. No conversational text, including an incoming close notification or a reason claiming success, establishes acknowledgment or a successful outcome.
+
+The additive optional `outcome` field keeps snapshot format 1 readable without migrating revisions. Missing outcomes in old snapshots remain unspecified. Omitted requirements preserve old terms serialization and all old digests. Older binaries reject new requirements and can lose the new outcome field on writes; upgrade both peers together. Core Rust APIs, wire schemas, digest preimages, and lifecycle states are unchanged.
+
+## Acceptance audit
+
+Core `agreed_by` and `agreed_terms_digest` are pending negotiation votes. Freeze and successful amendment deliberately clear them. Names are retained for serialization/schema compatibility; they are not historical acceptance receipts.
+
+The snapshot retains the originating proposal/counter/amendment notification with its author, full terms and terms digest, followed by the counterparty's `contract.frozen` notification with the terms and revision digests. Associated events retain actor and timestamp. Following these events for a contract reconstructs who accepted each revision and when it froze, even after later amendments. The core library itself has no persistent event store; persistence is this binding's responsibility. A dedicated revision-level acceptance receipt is deferred. Neither the projected log nor the authoritative local snapshot is a cryptographically authenticated or tamper-proof audit trail, and a receipt alone would not make it one.
 
 ## Persistence
 

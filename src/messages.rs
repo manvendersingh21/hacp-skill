@@ -107,6 +107,17 @@ pub fn ingest(st: &Store, s: &mut Snapshot, peer: &str) -> Result<bool> {
     }
     Ok(s.messages.len() != before)
 }
+pub fn outstanding_questions(s: &Snapshot) -> Vec<&Envelope> {
+    s.messages
+        .iter()
+        .filter(|m| {
+            m.kind == "hacp.skill.ask"
+                && !s.messages.iter().any(|a| {
+                    a.kind == "hacp.skill.answer" && a.in_reply_to.as_ref() == Some(&m.message_id)
+                })
+        })
+        .collect()
+}
 pub fn view(s: &Snapshot, peer: &str, all: bool) -> Value {
     let fetched = s.fetched.get(peer);
     let messages: Vec<_> = s
@@ -116,16 +127,7 @@ pub fn view(s: &Snapshot, peer: &str, all: bool) -> Value {
             m.to == urn(peer) && (all || !fetched.is_some_and(|f| f.contains(&m.message_id)))
         })
         .collect();
-    let questions: Vec<_> = s
-        .messages
-        .iter()
-        .filter(|m| {
-            m.kind == "hacp.skill.ask"
-                && !s.messages.iter().any(|a| {
-                    a.kind == "hacp.skill.answer" && a.in_reply_to.as_ref() == Some(&m.message_id)
-                })
-        })
-        .collect();
+    let questions = outstanding_questions(s);
     let actions:Vec<_>=s.contracts.values().filter_map(|v| {
         let e:crate::contracts::Entry=serde_json::from_value(v.clone()).ok()?;
         use hacp::v2::ContractState::*;
@@ -137,7 +139,7 @@ pub fn view(s: &Snapshot, peer: &str, all: bool) -> Value {
         };
         Some(json!({"contract_id":e.contract.contract_id,"action":action,"pending_digest":e.pending_digest,"revision":e.contract.frozen_digest()}))
     }).collect();
-    json!({"contract_actions":actions,"peer":peer,"session_state":s.session.state,"messages":messages,"outstanding_questions":questions,"contracts":s.contracts})
+    json!({"contract_actions":actions,"peer":peer,"session_state":s.session.state,"outcome":s.outcome,"messages":messages,"outstanding_questions":questions,"contracts":s.contracts})
 }
 pub fn poll(root: &Path, peer: &str, all: bool, timeout: Option<u64>) -> Result<Value> {
     let start = Instant::now();

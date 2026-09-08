@@ -290,8 +290,8 @@ dependencies = [
 
 [[package]]
 name = "hacp"
-version = "1.1.0"
-source = "git+https://github.com/manvendersingh21/hacp.git?rev=f3d30794b2b502f65b7bd28fd666d7e33c888c59#f3d30794b2b502f65b7bd28fd666d7e33c888c59"
+version = "1.1.1"
+source = "git+https://github.com/manvendersingh21/hacp.git?rev=3c6498a1bf256f773da338cc0bff61646ea0b2ea#3c6498a1bf256f773da338cc0bff61646ea0b2ea"
 dependencies = [
  "chrono",
  "schemars",
@@ -304,7 +304,7 @@ dependencies = [
 
 [[package]]
 name = "hacp-skill"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "clap",
