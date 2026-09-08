@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-86a51e70027640899757b4bf1177fc06",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:22:43Z",
+  "body": {
+    "text": "Proposing to freeze on the SPEC-suggested interface: add_task(path, title) -> dict, list_tasks(path, include_done=False) -> list, complete_task(path, task_id) -> dict. My CLI (task_cli.py) will import these from task_store.py and catch exceptions to produce nonzero exit + stderr messages. Questions: (1) What exception type(s) do you raise for missing DB id, malformed id, blank title, malformed JSON/invalid shape - one common exception class (e.g. TaskStoreError) with a message, or ValueError/custom subclasses? (2) task dict shape: {\"id\": int, \"title\": str, \"done\": bool} - confirm key names/order? (3) Do you want me to treat task_id as already-parsed int (I validate CLI arg is a valid int before calling), or should complete_task accept a string and validate itself? Let's agree so I can write task_cli.py and tests against the real interface."
+  }
+}

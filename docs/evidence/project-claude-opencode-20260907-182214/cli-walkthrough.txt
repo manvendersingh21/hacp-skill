@@ -1,0 +1,17 @@
+$ python3 task_cli.py --db SCRATCH/tasks.json add 'Review HACP log'
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+$ python3 task_cli.py --db SCRATCH/tasks.json add 'Ship small project'
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+$ python3 task_cli.py --db SCRATCH/tasks.json list
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+$ python3 task_cli.py --db SCRATCH/tasks.json done 1
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+$ python3 task_cli.py --db SCRATCH/tasks.json list
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+$ python3 task_cli.py --db SCRATCH/tasks.json list --all
+/Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory

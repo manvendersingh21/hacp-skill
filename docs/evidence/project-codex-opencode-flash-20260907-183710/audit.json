@@ -1,0 +1,132 @@
+{
+  "checks": {
+    "both_processes_successful": true,
+    "both_contracts_settled": true,
+    "session_closed": true,
+    "all_questions_answered": true,
+    "bilateral_question_roundtrip": true,
+    "cross_verification": true,
+    "all_output_files_after_both_freezes": true,
+    "observed_all_four_outputs": true,
+    "all_artifacts_intact": true,
+    "spec_unchanged": true,
+    "peer_tests_passed_nonzero": true,
+    "independent_12_tests_passed": true
+  },
+  "passed": true,
+  "peer_test_count": 15,
+  "question_count": 6,
+  "answer_count": 6,
+  "artifact_count": 7,
+  "artifacts": [
+    {
+      "path": "task_store.py",
+      "artifact_id": "urn:hacp:artifact:cf1ae0bd-0ca1-4ce3-b491-b394d07610c3",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "README.md",
+      "artifact_id": "urn:hacp:artifact:138b2e9f-7859-48e4-a8e0-0bd0c2ca05f7",
+      "latest_submission": false,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": null,
+      "working_size_matches": null,
+      "revision_exists": true
+    },
+    {
+      "path": "task_cli.py",
+      "artifact_id": "urn:hacp:artifact:68e6ddee-a90d-42be-913b-cb52edbcea1b",
+      "latest_submission": false,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": null,
+      "working_size_matches": null,
+      "revision_exists": true
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "artifact_id": "urn:hacp:artifact:2c9967ce-fdaa-4ec1-bc01-1f1062c22aa5",
+      "latest_submission": false,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": null,
+      "working_size_matches": null,
+      "revision_exists": true
+    },
+    {
+      "path": "README.md",
+      "artifact_id": "urn:hacp:artifact:431cfdd1-5ff6-4bb1-a817-ca45c9e682f2",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "task_cli.py",
+      "artifact_id": "urn:hacp:artifact:a8453604-e4ba-42b3-9ea6-67d1b00b8162",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "artifact_id": "urn:hacp:artifact:dd892f96-e556-4869-b5ef-7e053d8246b0",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    }
+  ],
+  "file_observations": [
+    {
+      "seconds": 158.289,
+      "first_file_seen": "task_store.py",
+      "owner": "a",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 167.97,
+      "first_file_seen": "task_cli.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 186.837,
+      "first_file_seen": "tests/test_tasks.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 200.607,
+      "first_file_seen": "README.md",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    }
+  ],
+  "verification_verdicts": [
+    "accept",
+    {
+      "rework": {
+        "scope": "before: README.md: artifact changed: README.md; before: tests/test_tasks.py: artifact changed: tests/test_tasks.py; after: README.md: artifact changed: README.md; after: tests/test_tasks.py: artifact changed: tests/test_tasks.py"
+      }
+    },
+    "accept"
+  ]
+}

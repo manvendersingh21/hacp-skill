@@ -1,0 +1,139 @@
+test_add_trims_title_and_returns_task (__main__.TaskCLI) ... FAIL
+test_blank_titles_refused_without_mutation (__main__.TaskCLI) ... FAIL
+test_completion_is_idempotent (__main__.TaskCLI) ... FAIL
+test_corrupt_json_never_overwritten (__main__.TaskCLI) ... ok
+test_ids_not_reused_after_all_completed (__main__.TaskCLI) ... FAIL
+test_invalid_database_shape_never_overwritten (__main__.TaskCLI) ... ok
+test_malformed_ids_refused_without_mutation (__main__.TaskCLI) ... FAIL
+test_missing_database_lists_empty (__main__.TaskCLI) ... FAIL
+test_nested_parent_directories (__main__.TaskCLI) ... FAIL
+test_persistence_filtering_and_sorted_ids (__main__.TaskCLI) ... FAIL
+test_unicode_and_quotes_roundtrip (__main__.TaskCLI) ... FAIL
+test_unknown_task_refused_without_mutation (__main__.TaskCLI) ... FAIL
+
+======================================================================
+FAIL: test_add_trims_title_and_returns_task (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 17, in test_add_trims_title_and_returns_task
+    def test_add_trims_title_and_returns_task(self):self.assertEqual(self.call('add','  Write tests  '),{'id':1,'title':'Write tests','done':False})
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_blank_titles_refused_without_mutation (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 30, in test_blank_titles_refused_without_mutation
+    self.seed();before=self.db.read_bytes()
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_completion_is_idempotent (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 26, in test_completion_is_idempotent
+    self.seed();first=self.call('done',1);self.assertTrue(first['done']);self.assertEqual(self.call('done',1),first)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_ids_not_reused_after_all_completed (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 28, in test_ids_not_reused_after_all_completed
+    self.seed();self.call('done',1);self.assertEqual(self.call('add','Next')['id'],2)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_malformed_ids_refused_without_mutation (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 36, in test_malformed_ids_refused_without_mutation
+    self.seed();before=self.db.read_bytes()
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_missing_database_lists_empty (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 16, in test_missing_database_lists_empty
+    def test_missing_database_lists_empty(self):self.assertEqual(self.call('list'),[])
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_nested_parent_directories (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 21, in test_nested_parent_directories
+    self.db=self.db.parent/'new'/'nested'/'tasks.json';self.assertEqual(self.seed()['id'],1);self.assertTrue(self.db.is_file());self.assertEqual(len(self.call('list')),1)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_persistence_filtering_and_sorted_ids (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 23, in test_persistence_filtering_and_sorted_ids
+    self.call('add','One');self.call('add','Two');self.call('done',1)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unicode_and_quotes_roundtrip (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 19, in test_unicode_and_quotes_roundtrip
+    title='Read "café" ☕';self.assertEqual(self.call('add',title)['title'],title);self.assertEqual(self.call('list')[0]['title'],title)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+======================================================================
+FAIL: test_unknown_task_refused_without_mutation (__main__.TaskCLI)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 34, in test_unknown_task_refused_without_mutation
+    self.seed();before=self.db.read_bytes();self.call('done',999,success=False);self.assertEqual(self.db.read_bytes(),before)
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 15, in seed
+    def seed(self):return self.call('add','First task')
+  File "/Users/manubaba/Documents/hacp-skill/scripts/audit_task_project.py", line 11, in call
+    self.assertEqual(p.returncode,0,p.stderr);self.assertEqual(p.stderr,'',p.stderr)
+AssertionError: 2 != 0 : /Library/Developer/CommandLineTools/usr/bin/python3: can't open file '/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214/task_cli.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.343s
+
+FAILED (failures=10)

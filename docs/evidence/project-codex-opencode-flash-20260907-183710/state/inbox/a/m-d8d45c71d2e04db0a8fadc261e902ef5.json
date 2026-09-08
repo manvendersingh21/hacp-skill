@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d8d45c71d2e04db0a8fadc261e902ef5",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:42:48Z",
+  "in_reply_to": "m-180f649e7d9e4d23b603b85a857320d5",
+  "body": {
+    "text": "All three folded in: (1) README error section now states missing DB is not an error (list prints [], add creates it with parent dirs) while missing/malformed task ids, blank titles, corrupt DBs and unwritable paths exit 1 with Error: line; (2) README requirements now say Python 3.9 or later, verified against the installed python3; (3) tests now seed a hand-written DB with reversed ids 3,1,2 asserting sorted output and next id 4, and exercise corrupt-JSON and all invalid-shape cases with list, add, and done, each asserting byte-for-byte preservation. Full suite: 15 tests OK via python3 -m unittest discover -s tests -v. Resubmitting now; verifying your contract right after."
+  }
+}

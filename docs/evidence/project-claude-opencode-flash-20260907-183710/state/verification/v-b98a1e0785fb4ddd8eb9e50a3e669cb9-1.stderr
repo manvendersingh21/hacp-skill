@@ -1,0 +1,21 @@
+test_add_assigns_increasing_ids (test_tasks.TaskCliTestCase) ... ok
+test_add_blank_title_fails (test_tasks.TaskCliTestCase) ... ok
+test_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok
+test_add_prints_created_task_as_json (test_tasks.TaskCliTestCase) ... ok
+test_add_whitespace_title_fails (test_tasks.TaskCliTestCase) ... ok
+test_data_persists_across_processes (test_tasks.TaskCliTestCase) ... ok
+test_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok
+test_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok
+test_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok
+test_done_prints_completed_task_as_json (test_tasks.TaskCliTestCase) ... ok
+test_invalid_db_shape_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok
+test_list_missing_db_prints_empty_array (test_tasks.TaskCliTestCase) ... ok
+test_list_output_is_json_array_of_task_dicts (test_tasks.TaskCliTestCase) ... ok
+test_list_sorted_by_id_and_hides_done (test_tasks.TaskCliTestCase) ... ok
+test_malformed_json_db_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok
+test_successful_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.205s
+
+OK

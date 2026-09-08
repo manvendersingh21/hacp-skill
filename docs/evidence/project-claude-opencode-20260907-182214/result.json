@@ -1,0 +1,26 @@
+{
+  "pair": [
+    "claude",
+    "opencode"
+  ],
+  "seconds": 84.02,
+  "project": "/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "claude",
+      "exit": -9,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 1,
+      "timeout": false
+    }
+  ],
+  "session": "opening",
+  "contracts": {},
+  "settled": false,
+  "peer_tests_exit": 1
+}

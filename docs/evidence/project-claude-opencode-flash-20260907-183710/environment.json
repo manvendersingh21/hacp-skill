@@ -1,0 +1,28 @@
+{
+  "pair": [
+    "claude",
+    "opencode"
+  ],
+  "model_overrides": {
+    "opencode": "zai-coding-plan/glm-5.3-flash"
+  },
+  "project": "/Users/manubaba/Documents/hacp-task-claude-opencode-flash-20260907-183710",
+  "started_utc": "2026-09-08T01:44:50.596196Z",
+  "models": {
+    "claude": "claude-sonnet-5",
+    "opencode": {
+      "modelID": "glm-5.3-flash",
+      "providerID": "zai-coding-plan"
+    }
+  },
+  "model_sources": {
+    "claude": "observed assistant.message.model",
+    "opencode": "observed native session export"
+  },
+  "versions": {
+    "hacp": "hacp-skill 0.1.0",
+    "claude": "2.1.263 (Claude Code)",
+    "opencode": "1.18.29"
+  },
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

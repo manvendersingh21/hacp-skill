@@ -1,0 +1,25 @@
+{
+  "pair": [
+    "codex",
+    "opencode"
+  ],
+  "project": "/Users/manubaba/Documents/hacp-task-codex-opencode-20260907-182214",
+  "started_utc": "2026-09-08T01:26:54.166885Z",
+  "models": {
+    "codex": "gpt-6-astra",
+    "opencode": {
+      "providerID": "alibaba",
+      "modelID": "qwen3.8-flash"
+    }
+  },
+  "model_sources": {
+    "codex": "installed configuration",
+    "opencode": "observed native session export; see opencode-model-observation.json"
+  },
+  "versions": {
+    "hacp": "hacp-skill 0.1.0",
+    "codex": "codex-cli 0.153.4",
+    "opencode": "1.18.29"
+  },
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

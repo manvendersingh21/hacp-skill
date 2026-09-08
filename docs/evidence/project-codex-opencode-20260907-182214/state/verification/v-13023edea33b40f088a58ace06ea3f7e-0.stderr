@@ -1,0 +1,26 @@
+test_add_appends_after_shuffled_tasks_and_next_id_advances (test_tasks.TaskCliTest) ... ok
+test_add_creates_missing_parent_directories (test_tasks.TaskCliTest) ... ok
+test_add_prints_created_task_json (test_tasks.TaskCliTest) ... ok
+test_blank_title_fails_cleanly (test_tasks.TaskCliTest) ... ok
+test_data_persists_across_processes (test_tasks.TaskCliTest) ... ok
+test_done_is_idempotent (test_tasks.TaskCliTest) ... ok
+test_done_prints_completed_task_json (test_tasks.TaskCliTest) ... ok
+test_failed_atomic_write_keeps_original_db_and_no_temp (test_tasks.TaskCliTest) ... ok
+test_ids_are_never_reused (test_tasks.TaskCliTest) ... ok
+test_invalid_nested_schema_fails_and_bytes_unchanged (test_tasks.TaskCliTest) ... ok
+test_invalid_schema_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest) ... ok
+test_invalid_utf8_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest) ... ok
+test_list_excludes_done_and_all_includes (test_tasks.TaskCliTest) ... ok
+test_list_missing_db_prints_empty_array (test_tasks.TaskCliTest) ... ok
+test_list_sorted_by_id (test_tasks.TaskCliTest) ... ok
+test_list_sorts_regardless_of_on_disk_order (test_tasks.TaskCliTest) ... ok
+test_malformed_id_fails_cleanly (test_tasks.TaskCliTest) ... ok
+test_malformed_json_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest) ... ok
+test_missing_db_flag_is_usage_error (test_tasks.TaskCliTest) ... ok
+test_missing_id_fails_without_traceback_and_keeps_db (test_tasks.TaskCliTest) ... ok
+test_successful_stdout_contains_only_json (test_tasks.TaskCliTest) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.703s
+
+OK

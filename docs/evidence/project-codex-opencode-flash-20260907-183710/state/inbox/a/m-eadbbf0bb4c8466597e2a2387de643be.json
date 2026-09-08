@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-eadbbf0bb4c8466597e2a2387de643be",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T01:44:25Z",
+  "body": {
+    "reason": "Both contracts settled: peer a's c-67d94473 (task_store.py) verified accept with all checks passing; peer b's c-e6af139a (task_cli.py, tests/test_tasks.py, README.md) settled after one honest rework round (post-submission edits detected), resubmitted with 15 passing unittest cases plus >=8 discovery guard. All interface questions answered; no outstanding work."
+  }
+}

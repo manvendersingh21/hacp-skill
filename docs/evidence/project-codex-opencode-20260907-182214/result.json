@@ -1,0 +1,31 @@
+{
+  "pair": [
+    "codex",
+    "opencode"
+  ],
+  "seconds": 512.25,
+  "project": "/Users/manubaba/Documents/hacp-task-codex-opencode-20260907-182214",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "codex",
+      "exit": -15,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false,
+      "native_error": "HTTP 403 Alibaba free quota exhausted"
+    }
+  ],
+  "session": "active",
+  "contracts": {
+    "c-45e512a86e0047a2993c1d1b55a84ea4": "executing",
+    "c-76b9b30c366d47c58500fbb229036e8c": "settled"
+  },
+  "settled": false,
+  "peer_tests_exit": 0,
+  "evidence_recovery": "Harness snapshot copy encountered a transient inbox .tmp file disappearing after companion cancellation. After processes stopped, copied authoritative state and reran peer tests. No HACP state was modified."
+}

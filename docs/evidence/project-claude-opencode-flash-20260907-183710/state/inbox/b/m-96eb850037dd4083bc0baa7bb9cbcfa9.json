@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-96eb850037dd4083bc0baa7bb9cbcfa9",
+  "session_id": "s-d132d9de4167464a814b910705673a14",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "submission.delivered",
+  "timestamp": "2026-09-08T01:49:32Z",
+  "body": {
+    "contract_id": "c-e455bb55b5514c32b61030b9d5834927",
+    "next": "counterparty verifies",
+    "revision": "e34d1265613357ae4bd21aacf03602b29e1367ea075c47c7b6abf32d13fda361",
+    "state": "verifying",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Task Pocket: tiny local task CLI (see SPEC.md)",
+      "task_id": "t-fdb6f096487c4c09afe6d3c2ce6cb5fa"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m py_compile task_store.py",
+        "python3 -m unittest discover -s tests -v"
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ],
+      "outputs": [
+        "task_store.py"
+      ]
+    },
+    "terms_digest": "91909d871a69a1687468c3c9a64766398a0b8440b2942fec9aea3bd9accbc6f1"
+  }
+}

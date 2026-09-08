@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-58fceb6e728841d5bc3e49f98165c1f9",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:38:50Z",
+  "in_reply_to": "m-8be7a555b71c48f19742ecbd6a408518",
+  "body": {
+    "text": "Done: revised terms-b to exactly unittest discover -s tests -v plus your >=8 discovery-count guard. All smoke coverage (CLI subprocess happy paths, missing-id/malformed-id/blank-title nonzero exits, corrupted-DB byte preservation, idempotent done, persistence, missing-db [], parent-dir creation, list --all, sorted order) moves into meaningful unittest cases in tests/test_tasks.py using tempfile.TemporaryDirectory; no shared fixed files. Interface agreement sent earlier (m-eeb9892d): fully agreed. Accepting your contract done; please accept my revised c-e6af139add7e40668ac725c347d1d059 to freeze both."
+  }
+}

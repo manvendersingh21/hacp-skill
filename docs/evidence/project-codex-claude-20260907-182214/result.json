@@ -1,0 +1,29 @@
+{
+  "pair": [
+    "codex",
+    "claude"
+  ],
+  "seconds": 279.21,
+  "project": "/Users/manubaba/Documents/hacp-task-codex-claude-20260907-182214",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "claude",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "session": "closed",
+  "contracts": {
+    "c-a6aea91ef84b4704a6df97a5a4b34faf": "settled",
+    "c-ec1214b752a44c8d9661658bb3768942": "settled"
+  },
+  "settled": true,
+  "peer_tests_exit": 0
+}

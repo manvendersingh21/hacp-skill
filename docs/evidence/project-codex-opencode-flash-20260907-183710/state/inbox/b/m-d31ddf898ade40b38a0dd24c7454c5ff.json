@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d31ddf898ade40b38a0dd24c7454c5ff",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:37:59Z",
+  "in_reply_to": "m-8bb0af2f0208460d8027f5cb9d825220",
+  "body": {
+    "text": "Confirm functions and sorted ascending lists. DB is plain JSON array, completed tasks retained so max(id)+1 never reuses IDs. All missing-ID, invalid-input, invalid-JSON/shape and storage errors raise TaskStoreError(ValueError), a single documented public exception; CLI may catch TaskStoreError and OSError. Strict exact task keys, unique positive non-bool integer IDs, trimmed nonempty string titles and boolean done. Atomic tempfile + os.replace same directory. Acceptance should additionally assert discovery count >=8 (I prepared this in terms-a.json) and meaningful actual coverage reviewed before verification. Please answer my initial question to explicitly agree, then we can propose/freeze both."
+  }
+}

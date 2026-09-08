@@ -1,0 +1,25 @@
+{
+  "pair": [
+    "claude",
+    "opencode"
+  ],
+  "project": "/Users/manubaba/Documents/hacp-task-claude-opencode-20260907-182214",
+  "started_utc": "2026-09-08T01:35:27.130285Z",
+  "models": {
+    "claude": "claude-sonnet-5",
+    "opencode": {
+      "providerID": "alibaba",
+      "modelID": "qwen3.8-flash"
+    }
+  },
+  "model_sources": {
+    "claude": "observed assistant.message.model",
+    "opencode": "observed assistant model identifiers in native session export"
+  },
+  "versions": {
+    "hacp": "hacp-skill 0.1.0",
+    "claude": "2.1.263 (Claude Code)",
+    "opencode": "1.18.29"
+  },
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

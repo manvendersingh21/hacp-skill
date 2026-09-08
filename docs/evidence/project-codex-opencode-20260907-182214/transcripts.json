@@ -1,0 +1,14 @@
+[
+  {
+    "path": "a.jsonl",
+    "original_sha256": "a7615af69cd16e698486f84e8437cbfa4e1e3abb315410538366406d3b23a7a4",
+    "original_bytes": 146137,
+    "retained_events": 98
+  },
+  {
+    "path": "b.jsonl",
+    "original_sha256": "1e13708938212f4eed46a034ad4cccf1c56416628ab757cb95e3ebbf16bb4c55",
+    "original_bytes": 215463,
+    "retained_events": 61
+  }
+]

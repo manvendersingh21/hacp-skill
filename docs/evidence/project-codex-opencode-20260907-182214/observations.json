@@ -1,0 +1,186 @@
+[
+  {
+    "seconds": 26.386,
+    "event_id": "e-229bb69786db45f29f1fae41178c7b72",
+    "peer": "a",
+    "action": "start"
+  },
+  {
+    "seconds": 30.872,
+    "event_id": "e-1c48012b122040d09e4eff4fcf382f47",
+    "peer": "b",
+    "action": "join"
+  },
+  {
+    "seconds": 47.404,
+    "event_id": "e-fe29e2c69af743eb84834232df35f52e",
+    "peer": "b",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 70.996,
+    "event_id": "e-bce18424a55447bba13665d640212dab",
+    "peer": "a",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 71.096,
+    "event_id": "e-4d29cbc7aee8491383f438f2aa09de4b",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 71.304,
+    "event_id": "e-fe0c1d1cc8084500a7d4853319b056d4",
+    "peer": "a",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 102.53,
+    "event_id": "e-b74d003ae6264c50929609103a9db39f",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 105.232,
+    "event_id": "e-719c5729def245f08a81a7428216eabe",
+    "peer": "b",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 105.754,
+    "event_id": "e-57511cc7cfdf4ccab8998d897c11c1c6",
+    "peer": "b",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 116.603,
+    "event_id": "e-4356d993431642a8bb405cc0774ec7b6",
+    "peer": "a",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 141.894,
+    "first_file_seen": "task_cli.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 157.282,
+    "first_file_seen": "tests/test_tasks.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 161.665,
+    "first_file_seen": "task_store.py",
+    "owner": "a",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 167.395,
+    "first_file_seen": "README.md",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 173.411,
+    "event_id": "e-39094d4044b7427bab6de8688497d252",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 195.874,
+    "event_id": "e-046bbdc2149f46e1aa9e9bbc224446f3",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 198.161,
+    "event_id": "e-ba2e9f6061344679b36bd9db461ea64a",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 203.585,
+    "event_id": "e-89b818527b7046799e708266f5882704",
+    "peer": "b",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 203.585,
+    "event_id": "e-d22ff4a180014d33919a27e57f0c7020",
+    "peer": "b",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 222.071,
+    "event_id": "e-9bdf834074b44fee8114e3b015200c02",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 238.542,
+    "event_id": "e-2289f2bca2c24882b6c942acd1926086",
+    "peer": "a",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 238.542,
+    "event_id": "e-d6bb387a870441aaa24c15ee4dc0b210",
+    "peer": "a",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 314.867,
+    "event_id": "e-653beee1c4f3431cb73fbbe92a527f1f",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 388.031,
+    "event_id": "e-42f958af949349179314d32fe3a73a74",
+    "peer": "b",
+    "action": "verification started"
+  },
+  {
+    "seconds": 391.045,
+    "event_id": "e-279113e1c69d477abc0380421ba14651",
+    "peer": "b",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 391.045,
+    "event_id": "e-a7a013cd8bfc4ede8fb8f42fee4c8314",
+    "peer": "b",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 433.489,
+    "event_id": "e-4f6391a7d93a44cc8dfb03d507fe00ec",
+    "peer": "a",
+    "action": "verification started"
+  },
+  {
+    "seconds": 433.701,
+    "event_id": "e-38e2de4612dc4797a103b214fbf50a21",
+    "peer": "a",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 433.701,
+    "event_id": "e-f47bffaaef354b1990dca66c7124a833",
+    "peer": "a",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 447.077,
+    "event_id": "e-0460ef9e5f204b3cb0b92d25748138db",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  }
+]

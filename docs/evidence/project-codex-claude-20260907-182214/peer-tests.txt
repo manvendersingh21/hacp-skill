@@ -1,0 +1,25 @@
+test_add_blank_title_fails (test_tasks.TestCliAdd) ... ok
+test_add_creates_parent_dirs (test_tasks.TestCliAdd) ... ok
+test_add_increments_id (test_tasks.TestCliAdd) ... ok
+test_add_returns_task_json (test_tasks.TestCliAdd) ... ok
+test_add_whitespace_title_fails (test_tasks.TestCliAdd) ... ok
+test_done_idempotent (test_tasks.TestCliDone) ... ok
+test_done_malformed_id_fails (test_tasks.TestCliDone) ... ok
+test_done_marks_task (test_tasks.TestCliDone) ... ok
+test_done_missing_id_fails (test_tasks.TestCliDone) ... ok
+test_list_all_includes_done (test_tasks.TestCliList) ... ok
+test_list_default_excludes_done (test_tasks.TestCliList) ... ok
+test_list_sorted_by_id (test_tasks.TestCliList) ... ok
+test_missing_db_lists_empty (test_tasks.TestCliList) ... ok
+test_stdout_only_json_on_success (test_tasks.TestCliList) ... ok
+test_invalid_shape_db_fails_and_unchanged (test_tasks.TestPersistenceAndCorruption) ... ok
+test_malformed_json_db_fails_and_unchanged (test_tasks.TestPersistenceAndCorruption) ... ok
+test_persistence_across_processes (test_tasks.TestPersistenceAndCorruption) ... ok
+test_atomic_write_failure_preserves_original (test_tasks.TestTaskStoreEdgeCases) ... ok
+test_complete_task_rejects_bool (test_tasks.TestTaskStoreEdgeCases) ... ok
+test_complete_task_rejects_nonpositive (test_tasks.TestTaskStoreEdgeCases) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.887s
+
+OK

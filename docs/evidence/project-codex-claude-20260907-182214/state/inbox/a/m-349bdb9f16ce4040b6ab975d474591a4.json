@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-349bdb9f16ce4040b6ab975d474591a4",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T01:26:36Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts: c-ec1214b752a44c8d9661658bb3768942 (task_store.py, peer a) and c-a6aea91ef84b4704a6df97a5a4b34faf (task_cli.py, tests/test_tasks.py, README.md, peer b). Full suite passes 20/20 tests plus the >=12 meaningful-test guard on both sides. No outstanding questions or unresolved work."
+  }
+}

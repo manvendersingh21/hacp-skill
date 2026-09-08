@@ -1,0 +1,9 @@
+{
+  "session_id": "ses_f815fe4daffeQ3ALDVgLG8xCA2",
+  "models": [
+    {
+      "providerID": "alibaba",
+      "modelID": "qwen3.8-flash"
+    }
+  ]
+}

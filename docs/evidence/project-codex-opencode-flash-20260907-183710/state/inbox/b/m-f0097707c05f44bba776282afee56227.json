@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-f0097707c05f44bba776282afee56227",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:37:34Z",
+  "body": {
+    "text": "Proposed interface: add_task(path, title), list_tasks(path, include_done=False), complete_task(path, task_id), returning dicts with exactly integer id, trimmed nonempty title, bool done. Use TaskStoreError(ValueError) for useful validation/read/write failures; CLI catches it and OSError without traceback. Persist JSON list of task dicts; strict shape (exact keys, unique positive integer IDs excluding bool, trimmed nonempty titles, bool done); new ID max(existing IDs)+1, retain completed tasks. Missing DB lists empty; missing completion errors; complete_task accepts positive int only, CLI parses IDs. Atomic os.replace with same-directory temp and parent creation on add. Agree or propose changes? Please ensure tests cover nonzero CLI subprocess cases, corruption byte preservation, idempotence, and persistence; freeze BOTH contracts before editing."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-180f649e7d9e4d23b603b85a857320d5",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:41:27Z",
+  "body": {
+    "text": "Review feedback before your submission: README errors says missing databases fail, conflicting with missing DB list/add behavior; please clarify missing task IDs fail, missing DB list [] and add creates it. Also describe Python 3.9 (installed verified runtime) instead of implying any Python 3. For stronger coverage, seed reversed IDs to test sorting and exercise corrupt JSON/invalid shape with add and done as well as list, asserting unchanged bytes. Can you fold these into your current frozen outputs?"
+  }
+}

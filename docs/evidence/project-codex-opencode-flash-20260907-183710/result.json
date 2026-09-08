@@ -1,0 +1,29 @@
+{
+  "pair": [
+    "codex",
+    "opencode"
+  ],
+  "seconds": 460.22,
+  "project": "/Users/manubaba/Documents/hacp-task-codex-opencode-flash-20260907-183710",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "codex",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "session": "closed",
+  "contracts": {
+    "c-67d94473f0b743258197720b38f27abd": "settled",
+    "c-e6af139add7e40668ac725c347d1d059": "settled"
+  },
+  "settled": true,
+  "peer_tests_exit": 0
+}

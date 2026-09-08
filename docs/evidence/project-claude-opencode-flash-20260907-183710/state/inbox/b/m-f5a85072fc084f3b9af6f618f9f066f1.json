@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-f5a85072fc084f3b9af6f618f9f066f1",
+  "session_id": "s-d132d9de4167464a814b910705673a14",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "session.close",
+  "timestamp": "2026-09-08T01:49:48Z",
+  "body": {
+    "reason": "Both contracts settled with accept verdicts: c-e455bb55b5514c32b61030b9d5834927 (task_store.py, peer a) and c-9c17013d9b734fe29f24e511da3c656d (task_cli.py/tests/README.md, peer b). All acceptance commands pass (py_compile clean, 16/16 unittest tests OK). No outstanding questions or unresolved failures."
+  }
+}

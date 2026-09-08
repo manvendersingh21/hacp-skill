@@ -1,0 +1,29 @@
+{
+  "pair": [
+    "claude",
+    "opencode"
+  ],
+  "seconds": 315.73,
+  "project": "/Users/manubaba/Documents/hacp-task-claude-opencode-flash-20260907-183710",
+  "processes": [
+    {
+      "peer": "a",
+      "cli": "claude",
+      "exit": 0,
+      "timeout": false
+    },
+    {
+      "peer": "b",
+      "cli": "opencode",
+      "exit": 0,
+      "timeout": false
+    }
+  ],
+  "session": "closed",
+  "contracts": {
+    "c-9c17013d9b734fe29f24e511da3c656d": "settled",
+    "c-e455bb55b5514c32b61030b9d5834927": "settled"
+  },
+  "settled": true,
+  "peer_tests_exit": 0
+}

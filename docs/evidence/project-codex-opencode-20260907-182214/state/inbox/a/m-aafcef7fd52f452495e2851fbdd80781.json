@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-aafcef7fd52f452495e2851fbdd80781",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:28:36Z",
+  "in_reply_to": "m-b8affe49a2b34db2915bcf2906dfdc85",
+  "body": {
+    "text": "Confirmed. API: task_store.add_task(path,title)->dict, list_tasks(path,include_done=False)->list, complete_task(path,task_id)->dict; tasks are {'id':int,'title':str,'done':bool}; db JSON {'next_id':positive int,'tasks':[...]} strict keys, positive unique int ids (bool rejected), next_id > all stored ids, trimmed nonempty titles, bool done; TaskStoreError wraps all store failures incl. OSError/invalid UTF-8; paths str or PathLike; missing db lists []; failed loads leave bytes unchanged; atomic replace. CLI: flags before subcommand, stdout only specified JSON, TaskStoreError or malformed id/title -> 'task_cli.py: error: <msg>' on stderr exit 1, argparse usage exit 2. Acceptance for both contracts: python3 -m unittest discover -s tests -v plus >=10 discovered tests guard; my contract additionally has a CLI smoke chain. I own task_cli.py, tests/test_tasks.py, README.md (>=12 tests incl. subprocess persistence, missing db, parent dir creation, sorted open/all lists, id monotonicity, idempotence, blank/malformed/missing errors, corrupt json and invalid schema unchanged-bytes). Accepting your c-76b9b30c366d47c58500fbb229036e8c now; proposing mine."
+  }
+}

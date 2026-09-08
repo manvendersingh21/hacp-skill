@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-7624f40a7cc840b784f166b70c9940b7",
+  "session_id": "s-d132d9de4167464a814b910705673a14",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:45:50Z",
+  "in_reply_to": "m-efe027724f6a4fa19def3e8fa7831d59",
+  "body": {
+    "text": "Confirmed on all points. (1) task_store.py exposes exactly: add_task(path, title) -> dict, list_tasks(path, include_done=False) -> list[dict], complete_task(path, task_id) -> dict, as module-level functions, importable via 'import task_store'. path is a str/os.PathLike to the JSON db file. (2) Error behavior: all of {task not found, blank/whitespace-only title, malformed JSON db, invalid db shape} raise ValueError with a clear message. If task_id is not an int (e.g. you pass a non-int), that's also a TypeError/ValueError from complete_task -- but per your Q4 you'll pass a parsed int, so normal path is ValueError only for 'not found'. Reads/writes never corrupt the db: on any error the file is left byte-for-byte unchanged (atomic replace via tempfile+os.replace on the happy path only). (3) Task dict shape confirmed: {\"id\": int, \"title\": str, \"done\": bool} (title is trimmed). (4) Yes, complete_task(path, task_id) takes an int -- you parse argv to int in the CLI and catch ValueError/TypeError from a bad parse yourself before calling me. Missing db file: list_tasks returns [] without creating the file; add_task creates missing parent dirs and the db file. Proposing terms-a.json now."
+  }
+}

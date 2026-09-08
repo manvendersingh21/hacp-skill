@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "session": {
+    "session_id": "s-9ce1aab6af7a409f8467fe20b620489d",
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "observers": {},
+    "state": "opening",
+    "declared": {},
+    "close_reason": null
+  },
+  "peers": {
+    "a": {
+      "task": "Task Pocket: dependency-free Python3 task tracker (SPEC.md)",
+      "owns": [
+        "task_store.py"
+      ]
+    }
+  },
+  "processed": [],
+  "messages": [],
+  "fetched": {},
+  "contracts": {},
+  "events": [
+    {
+      "action": "start",
+      "detail": {
+        "files": [
+          "task_store.py"
+        ],
+        "next": "peer b joins",
+        "task": "Task Pocket: dependency-free Python3 task tracker (SPEC.md)"
+      },
+      "id": "e-00a896dca2be4ecbb7834f3984a497c0",
+      "peer": "a",
+      "rendered": "2026-09-08T01:35:33Z | Peer a | start\nEvent e-00a896dca2be4ecbb7834f3984a497c0\n    {\n      \"files\": [\n        \"task_store.py\"\n      ],\n      \"next\": \"peer b joins\",\n      \"task\": \"Task Pocket: dependency-free Python3 task tracker (SPEC.md)\"\n    }\n",
+      "time": "2026-09-08T01:35:33Z"
+    }
+  ]
+}

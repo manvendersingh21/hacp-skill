@@ -1,0 +1,196 @@
+{
+  "artifacts": [
+    {
+      "path": "README.md",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:6e011fae-3856-4dce-a5f3-ceb70345bb38",
+        "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+        "contract_revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+        "derived_from": [],
+        "digest": "3b4bbbec182bffc817bf8a5fd4fe5a8575afa977ff26df241814ccab8b3c829f",
+        "location": ".hacp/artifacts/6e011fae-3856-4dce-a5f3-ceb70345bb38.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2349,
+        "task_id": "t-36a1f143e6c74d389c52296b42cbd00b",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "task_cli.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:2c266773-b935-49d9-99b1-dbb002156973",
+        "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+        "contract_revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+        "derived_from": [],
+        "digest": "22c4e3fa099d3e80ab4d7a35296fca3f4f188a2c5b803377766742a921bfd955",
+        "location": ".hacp/artifacts/2c266773-b935-49d9-99b1-dbb002156973.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2153,
+        "task_id": "t-36a1f143e6c74d389c52296b42cbd00b",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:3b9ebc40-bd13-4d15-aa7c-0721bdefd711",
+        "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+        "contract_revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+        "derived_from": [],
+        "digest": "174bf77b12a5b0cc6a7b7106f9cb6694d3ce8a628fbefbcc75ea7170d889c8ca",
+        "location": ".hacp/artifacts/3b9ebc40-bd13-4d15-aa7c-0721bdefd711.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 6524,
+        "task_id": "t-36a1f143e6c74d389c52296b42cbd00b",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [],
+      "id": "v-2ecdbb132fcc43bfb294d015c81a9a51",
+      "peer": "a",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest discover -s tests -v",
+            "python3 -c \"import unittest,sys; s=unittest.defaultTestLoader.discover('tests'); n=s.countTestCases(); print('discovered %d tests' % n); sys.exit(0 if n >= 10 else 1)\"",
+            "d=$(mktemp -d); db=\"$d/sub/t.json\"; o=$(python3 task_cli.py --db \"$db\" add \"  Hello  \") && echo \"$o\" | grep -q '\"id\": 1' && echo \"$o\" | grep -q '\"title\": \"Hello\"' && echo \"$o\" | grep -q '\"done\": false' && python3 task_cli.py --db \"$db\" add \"Second\" >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 1 ] && [ \"$(python3 task_cli.py --db \"$db\" list --all | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && ! python3 task_cli.py --db \"$db\" done 99 2>/dev/null && ! python3 task_cli.py --db \"$db\" done abc 2>/dev/null && ! python3 task_cli.py --db \"$db\" add \"   \" 2>/dev/null && o2=$(python3 task_cli.py --db \"$db\" add Third) && echo \"$o2\" | grep -q '\"id\": 3' && rm -rf \"$d\""
+          ],
+          "inputs": [
+            "SPEC.md",
+            "task_store.py"
+          ],
+          "outputs": [
+            "README.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ]
+        },
+        "digest": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+        "number": 1
+      }
+    ],
+    "rework_scope": "before: README.md: artifact changed: README.md; before: tests/test_tasks.py: artifact changed: tests/test_tasks.py; after: README.md: artifact changed: README.md; after: tests/test_tasks.py: artifact changed: tests/test_tasks.py",
+    "rounds": 0,
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement Task Pocket CLI, tests, and README",
+      "task_id": "t-36a1f143e6c74d389c52296b42cbd00b"
+    }
+  },
+  "pending_digest": "6d6a053c2c525bbef45e939d8f5819aed005042395c73baf7e08963858d492dd",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest discover -s tests -v",
+      "python3 -c \"import unittest,sys; s=unittest.defaultTestLoader.discover('tests'); n=s.countTestCases(); print('discovered %d tests' % n); sys.exit(0 if n >= 10 else 1)\"",
+      "d=$(mktemp -d); db=\"$d/sub/t.json\"; o=$(python3 task_cli.py --db \"$db\" add \"  Hello  \") && echo \"$o\" | grep -q '\"id\": 1' && echo \"$o\" | grep -q '\"title\": \"Hello\"' && echo \"$o\" | grep -q '\"done\": false' && python3 task_cli.py --db \"$db\" add \"Second\" >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 1 ] && [ \"$(python3 task_cli.py --db \"$db\" list --all | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && ! python3 task_cli.py --db \"$db\" done 99 2>/dev/null && ! python3 task_cli.py --db \"$db\" done abc 2>/dev/null && ! python3 task_cli.py --db \"$db\" add \"   \" 2>/dev/null && o2=$(python3 task_cli.py --db \"$db\" add Third) && echo \"$o2\" | grep -q '\"id\": 3' && rm -rf \"$d\""
+    ],
+    "inputs": [
+      "SPEC.md",
+      "task_store.py"
+    ],
+    "outputs": [
+      "README.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ]
+  },
+  "proposer": "b",
+  "submissions": [
+    {
+      "against_revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+      "artifacts": [
+        "urn:hacp:artifact:6e011fae-3856-4dce-a5f3-ceb70345bb38",
+        "urn:hacp:artifact:2c266773-b935-49d9-99b1-dbb002156973",
+        "urn:hacp:artifact:3b9ebc40-bd13-4d15-aa7c-0721bdefd711"
+      ],
+      "claim": "task_cli.py (argparse, flags-before-subcommand, stdout only specified JSON, TaskStoreError/malformed-id -> stderr exit 1, usage exit 2), tests/test_tasks.py (16 tests: persistence via subprocess, missing db [], parent dir creation, sorted open/all lists, id monotonicity, idempotent done, blank/malformed/missing errors no-traceback, corrupt json + invalid schema unchanged bytes, stdout-pure-JSON, usage exit), README.md (usage, examples, behavior, storage API, test instructions). All 3 acceptance commands pass locally (16/16 OK, guard, smoke).",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+      "artifacts": [
+        "urn:hacp:artifact:6e011fae-3856-4dce-a5f3-ceb70345bb38",
+        "urn:hacp:artifact:2c266773-b935-49d9-99b1-dbb002156973",
+        "urn:hacp:artifact:3b9ebc40-bd13-4d15-aa7c-0721bdefd711"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "artifact changed: README.md",
+          "name": "before: README.md",
+          "passed": false
+        },
+        {
+          "detail": "SHA-256 22c4e3fa099d3e80ab4d7a35296fca3f4f188a2c5b803377766742a921bfd955 and 2153 bytes match working file and immutable copy",
+          "name": "before: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "artifact changed: tests/test_tasks.py",
+          "name": "before: tests/test_tasks.py",
+          "passed": false
+        },
+        {
+          "detail": "artifact changed: README.md",
+          "name": "after: README.md",
+          "passed": false
+        },
+        {
+          "detail": "SHA-256 22c4e3fa099d3e80ab4d7a35296fca3f4f188a2c5b803377766742a921bfd955 and 2153 bytes match working file and immutable copy",
+          "name": "after: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "artifact changed: tests/test_tasks.py",
+          "name": "after: tests/test_tasks.py",
+          "passed": false
+        }
+      ],
+      "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+      "evidence": [],
+      "reasons": [
+        "before: README.md: artifact changed: README.md",
+        "before: tests/test_tasks.py: artifact changed: tests/test_tasks.py",
+        "after: README.md: artifact changed: README.md",
+        "after: tests/test_tasks.py: artifact changed: tests/test_tasks.py"
+      ],
+      "verdict": {
+        "rework": {
+          "scope": "before: README.md: artifact changed: README.md; before: tests/test_tasks.py: artifact changed: tests/test_tasks.py; after: README.md: artifact changed: README.md; after: tests/test_tasks.py: artifact changed: tests/test_tasks.py"
+        }
+      },
+      "verification_id": "v-2ecdbb132fcc43bfb294d015c81a9a51",
+      "verifier": "urn:hacp:agent:a"
+    }
+  ]
+}

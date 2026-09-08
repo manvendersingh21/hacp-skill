@@ -1,0 +1,97 @@
+{
+  "checks": {
+    "both_processes_successful": true,
+    "both_contracts_settled": true,
+    "session_closed": true,
+    "all_questions_answered": true,
+    "bilateral_question_roundtrip": true,
+    "cross_verification": true,
+    "all_output_files_after_both_freezes": true,
+    "observed_all_four_outputs": true,
+    "all_artifacts_intact": true,
+    "spec_unchanged": true,
+    "peer_tests_passed_nonzero": true,
+    "independent_12_tests_passed": true
+  },
+  "passed": true,
+  "peer_test_count": 20,
+  "question_count": 4,
+  "answer_count": 4,
+  "artifact_count": 4,
+  "artifacts": [
+    {
+      "path": "README.md",
+      "artifact_id": "urn:hacp:artifact:02b20b71-a466-47a4-9d7d-04b90c39439f",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "task_cli.py",
+      "artifact_id": "urn:hacp:artifact:03fc98ba-c825-49d1-b65b-fc0689a588b5",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "artifact_id": "urn:hacp:artifact:95880cec-0ce4-40c7-add3-4b02e325e5bd",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    },
+    {
+      "path": "task_store.py",
+      "artifact_id": "urn:hacp:artifact:f4e2d3bb-3c93-42d5-8b1e-8566437e0812",
+      "latest_submission": true,
+      "copy_hash_matches": true,
+      "copy_size_matches": true,
+      "working_hash_matches": true,
+      "working_size_matches": true,
+      "revision_exists": true
+    }
+  ],
+  "file_observations": [
+    {
+      "seconds": 139.088,
+      "first_file_seen": "task_store.py",
+      "owner": "a",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 172.556,
+      "first_file_seen": "task_cli.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 195.839,
+      "first_file_seen": "tests/test_tasks.py",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    },
+    {
+      "seconds": 201.332,
+      "first_file_seen": "README.md",
+      "owner": "b",
+      "both_contracts_frozen": true,
+      "owner_contract_frozen": true
+    }
+  ],
+  "verification_verdicts": [
+    "accept",
+    "accept"
+  ]
+}

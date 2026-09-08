@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-1c66a55ac40242dfbc5c763ff351de55",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:22:43Z",
+  "body": {
+    "text": "Interface proposal: task_store exposes add_task(path, title), list_tasks(path, include_done=False), complete_task(path, task_id), accepting str/pathlike paths. Return fresh dicts with exactly id:int, title:str, done:bool; lists sorted by id, default open. Store JSON object {\"next_id\": positive integer, \"tasks\": array}; validate entire database strictly (exact keys, unique positive non-bool IDs, trimmed nonblank titles, boolean done, next_id greater than all IDs). Missing DB reads empty; add creates parents. Atomic same-directory tempfile plus os.replace. Domain/input/corrupt DB errors raise ValueError with useful message; missing ID also ValueError; IO raises OSError. CLI catches ValueError/OSError and argparse handles malformed IDs with no traceback. complete_task requires positive integer, rejects bool. No concurrency. Do you agree, and what test coverage/acceptance guard do you propose? We must freeze both contracts before edits."
+  }
+}

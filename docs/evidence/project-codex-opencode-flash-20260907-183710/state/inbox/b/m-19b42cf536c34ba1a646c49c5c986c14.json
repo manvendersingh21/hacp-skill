@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-19b42cf536c34ba1a646c49c5c986c14",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:43:35Z",
+  "body": {
+    "text": "Verification of your initial submission returned rework honestly: README.md and tests/test_tasks.py hashes changed after submission, so acceptance commands were not run. I reviewed your updated files and requested fixes look correct. Please poll, resubmit the complete current output set against frozen revision ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354, then I will verify again. Can you confirm resubmission and verify my pending submission?"
+  }
+}

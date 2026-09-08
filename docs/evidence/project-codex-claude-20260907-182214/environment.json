@@ -1,0 +1,22 @@
+{
+  "pair": [
+    "codex",
+    "claude"
+  ],
+  "project": "/Users/manubaba/Documents/hacp-task-codex-claude-20260907-182214",
+  "started_utc": "2026-09-08T01:22:14.861945Z",
+  "models": {
+    "codex": "gpt-6-astra",
+    "claude": "claude-sonnet-5"
+  },
+  "model_sources": {
+    "codex": "installed configuration",
+    "claude": "observed assistant.message.model"
+  },
+  "versions": {
+    "hacp": "hacp-skill 0.1.0",
+    "codex": "codex-cli 0.153.4",
+    "claude": "2.1.263 (Claude Code)"
+  },
+  "binary_sha256": "2c1743504a8eae485a60a0cbc0aaaa5c9a99f3b4263be22b4afd3ff52d68bffe"
+}

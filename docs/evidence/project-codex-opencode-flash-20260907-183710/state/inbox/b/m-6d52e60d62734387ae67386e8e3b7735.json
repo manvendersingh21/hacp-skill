@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-6d52e60d62734387ae67386e8e3b7735",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "contract.proposed",
+  "timestamp": "2026-09-08T01:37:59Z",
+  "body": {
+    "contract_id": "c-67d94473f0b743258197720b38f27abd",
+    "next": "review terms and accept digest or counter",
+    "revision": null,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement persistent task storage",
+      "task_id": "t-f113fe2c04354c8ebbfb784afc1746a7"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest discover -s tests -v",
+        "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\""
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ],
+      "outputs": [
+        "task_store.py"
+      ]
+    },
+    "terms_digest": "e2c0eb7400126e29c73bf43d41358ddeca891d5a4ba9a9284cfde940de66670f"
+  }
+}

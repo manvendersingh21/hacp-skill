@@ -1,0 +1,38 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-f742e5df696e402daea8e52e83a448de",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "contract.proposed",
+  "timestamp": "2026-09-08T01:38:11Z",
+  "body": {
+    "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+    "next": "review terms and accept digest or counter",
+    "revision": null,
+    "state": "proposed",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Task Pocket CLI: CLI wrapper, unittest coverage, README",
+      "task_id": "t-a9551156950346059a304b68328149db"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest discover -s tests -v",
+        "rm -f smoke_tmp.db && python3 task_cli.py --db smoke_tmp.db add 'smoke task' >/dev/null && python3 task_cli.py --db smoke_tmp.db done 1 >/dev/null && python3 task_cli.py --db smoke_tmp.db list >/dev/null && python3 task_cli.py --db smoke_tmp.db list --all >/dev/null && rm -f smoke_tmp.db",
+        "python3 task_cli.py --db smoke_missing_dir/x/y.db add 'dir create' >/dev/null && rm -rf smoke_missing_dir",
+        "printf 'not json' > smoke_err.db; if python3 task_cli.py --db smoke_err.db list >/dev/null 2>smoke_err.txt; then rm -f smoke_err.db smoke_err.txt; exit 1; else grep -qi 'error' smoke_err.txt || { cat smoke_err.txt; rm -f smoke_err.db smoke_err.txt; exit 1; }; fi; rm -f smoke_err.db smoke_err.txt"
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_store.py"
+      ],
+      "outputs": [
+        "README.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ]
+    },
+    "terms_digest": "f96fb0bf8af43ce10b06cc31c2e0151d3abc2a7b30f12d5e3c6c8e11b99afdce"
+  }
+}

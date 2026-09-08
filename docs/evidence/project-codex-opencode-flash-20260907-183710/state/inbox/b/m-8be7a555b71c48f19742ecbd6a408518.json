@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-8be7a555b71c48f19742ecbd6a408518",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:38:32Z",
+  "body": {
+    "text": "Please revise your pending terms-b acceptance before I accept: use the unittest discovery command plus my >=8 discovery count guard. Put smoke coverage into meaningful unittest tests using tempfile.TemporaryDirectory; current fixed smoke files and rm -rf are unnecessary shared-project writes and commands do not assert JSON values or corruption preservation. Outputs and inputs look correct. Please also answer initial interface agreement question m-f0097707c05f44bba776282afee56227 and accept my proposal if agreed."
+  }
+}

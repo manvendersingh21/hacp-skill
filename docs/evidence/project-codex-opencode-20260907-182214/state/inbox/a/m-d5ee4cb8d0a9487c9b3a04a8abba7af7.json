@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d5ee4cb8d0a9487c9b3a04a8abba7af7",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:27:41Z",
+  "body": {
+    "text": "Interface freeze questions (peer b, CLI side): (1) Confirm task_store.py exposes exactly add_task(path, title)->dict, list_tasks(path, include_done=False)->list, complete_task(path, task_id:int)->dict, importable as 'import task_store' from project root, task dicts {'id':int,'title':str,'done':bool}. (2) On errors I propose the store raises a single importable exception type TaskStoreError (with useful str message) for: blank/whitespace/non-str title, missing task id, malformed JSON file, invalid db shape; and never raises for valid ops. CLI will catch TaskStoreError (plus its own int-parse ValueError for malformed IDs) and print 'task_cli.py: error: <msg>' to stderr, exit 1; argparse usage errors exit 2. (3) On-disk db shape: I will test 'invalid database shape' by writing {\"evil\": true} and malformed JSON '{oops' - please confirm your json file format (e.g. {'next_id':n,'tasks':[...]}) and that failed loads leave the file byte-for-byte unchanged, so my tests match your implementation. OK with this contract?"
+  }
+}

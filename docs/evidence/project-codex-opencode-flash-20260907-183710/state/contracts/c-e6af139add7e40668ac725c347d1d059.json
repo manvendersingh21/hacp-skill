@@ -1,0 +1,334 @@
+{
+  "artifacts": [
+    {
+      "path": "README.md",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:138b2e9f-7859-48e4-a8e0-0bd0c2ca05f7",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "b7ed4e57a0973d829b9f04a1a50f884c4879ca134495f2fdea5d866b249d90ce",
+        "location": ".hacp/artifacts/138b2e9f-7859-48e4-a8e0-0bd0c2ca05f7.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2395,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "task_cli.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:68e6ddee-a90d-42be-913b-cb52edbcea1b",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49",
+        "location": ".hacp/artifacts/68e6ddee-a90d-42be-913b-cb52edbcea1b.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2286,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:2c9967ce-fdaa-4ec1-bc01-1f1062c22aa5",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "6a01019d3a6fca2666a5eaff96808c92cbfaf50a4c4633bcd20643535c44e9f6",
+        "location": ".hacp/artifacts/2c9967ce-fdaa-4ec1-bc01-1f1062c22aa5.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 7321,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "README.md",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:431cfdd1-5ff6-4bb1-a817-ca45c9e682f2",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "661390814de3b3bc6b78ed5ec9376fa9a44b476050467ef416a0694931c06b46",
+        "location": ".hacp/artifacts/431cfdd1-5ff6-4bb1-a817-ca45c9e682f2.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2486,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "task_cli.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:a8453604-e4ba-42b3-9ea6-67d1b00b8162",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49",
+        "location": ".hacp/artifacts/a8453604-e4ba-42b3-9ea6-67d1b00b8162.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 2286,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    },
+    {
+      "path": "tests/test_tasks.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:dd892f96-e556-4869-b5ef-7e053d8246b0",
+        "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+        "contract_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "derived_from": [],
+        "digest": "18af7d9669841c3603ac5ed165c105ca449c9ca0a9363e8bb11540a0fc51fc77",
+        "location": ".hacp/artifacts/dd892f96-e556-4869-b5ef-7e053d8246b0.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:b",
+        "size": 8228,
+        "task_id": "t-a9551156950346059a304b68328149db",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [],
+      "id": "v-658cccf8f51b498284d51d15d2149388",
+      "peer": "a",
+      "status": "completed"
+    },
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest discover -s tests -v",
+          "duration_ms": 1711,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_add_blank_title_fails_without_db_creation (test_tasks.TaskCliTestCase) ... ok\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\ntest_add_prints_created_task (test_tasks.TaskCliTestCase) ... ok\ntest_atomic_write_failure_preserves_db_and_leaves_no_temp_files (test_tasks.TaskCliTestCase) ... ok\ntest_done_completes_and_list_filters (test_tasks.TaskCliTestCase) ... ok\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_ids_increase_and_are_never_reused (test_tasks.TaskCliTestCase) ... ok\ntest_invalid_db_shapes_fail_and_are_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\ntest_list_missing_db_is_empty_array (test_tasks.TaskCliTestCase) ... ok\ntest_list_sorted_by_id_and_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\ntest_list_sorts_hand_seeded_reversed_ids (test_tasks.TaskCliTestCase) ... ok\ntest_malformed_json_db_fails_and_is_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\ntest_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 1.641s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        },
+        {
+          "command": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\"",
+          "duration_ms": 71,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-54624c5fb6a44647b874e330596d896a",
+      "peer": "a",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest discover -s tests -v",
+            "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\""
+          ],
+          "inputs": [
+            "SPEC.md",
+            "task_store.py"
+          ],
+          "outputs": [
+            "README.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ]
+        },
+        "digest": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 1,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Task Pocket CLI: CLI wrapper, unittest coverage, README",
+      "task_id": "t-a9551156950346059a304b68328149db"
+    }
+  },
+  "pending_digest": "fdd2f5e172f167cc37564f1c1d7c8e15d08efadf7c9a08c3f302c68022dcd457",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest discover -s tests -v",
+      "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\""
+    ],
+    "inputs": [
+      "SPEC.md",
+      "task_store.py"
+    ],
+    "outputs": [
+      "README.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ]
+  },
+  "proposer": "b",
+  "submissions": [
+    {
+      "against_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+      "artifacts": [
+        "urn:hacp:artifact:138b2e9f-7859-48e4-a8e0-0bd0c2ca05f7",
+        "urn:hacp:artifact:68e6ddee-a90d-42be-913b-cb52edbcea1b",
+        "urn:hacp:artifact:2c9967ce-fdaa-4ec1-bc01-1f1062c22aa5"
+      ],
+      "claim": "Implemented task_cli.py (argparse CLI over agreed task_store API: add/list [--all]/done, positive-int id parsing, TaskStoreError/OSError mapped to 'Error: ...' on stderr with exit 1, JSON-only stdout), tests/test_tasks.py (14 subprocess + storage tests: happy paths, sorted/persistent lists, list --all, idempotent done, id non-reuse, parent-dir creation, blank title, missing/malformed ids, corrupt and invalid-shape DBs byte-for-byte preserved, mocked os.replace atomic-failure with no temp leftovers), and README.md with usage, storage layout, error semantics, and test instructions.",
+      "evidence": []
+    },
+    {
+      "against_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+      "artifacts": [
+        "urn:hacp:artifact:431cfdd1-5ff6-4bb1-a817-ca45c9e682f2",
+        "urn:hacp:artifact:a8453604-e4ba-42b3-9ea6-67d1b00b8162",
+        "urn:hacp:artifact:dd892f96-e556-4869-b5ef-7e053d8246b0"
+      ],
+      "claim": "Rework resubmission of the complete current output set (task_cli.py unchanged, README.md and tests/test_tasks.py updated): README clarifies missing-DB (list [], add creates with parent dirs) vs missing/malformed-id/blank-title/corrupt-DB (exit 1, Error: on stderr) semantics and pins Python 3.9+; tests add hand-seeded reversed-id sorting (ids 3,1,2 -> 1,2,3, next id 4) and run corrupt-JSON plus all invalid-shape DBs through list, add, and done asserting byte-for-byte preservation; storage test mocks task_store.os.replace to fail asserting TaskStoreError, preserved bytes, no temp leftovers. 15 tests OK.",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+      "artifacts": [
+        "urn:hacp:artifact:138b2e9f-7859-48e4-a8e0-0bd0c2ca05f7",
+        "urn:hacp:artifact:68e6ddee-a90d-42be-913b-cb52edbcea1b",
+        "urn:hacp:artifact:2c9967ce-fdaa-4ec1-bc01-1f1062c22aa5"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "artifact changed: README.md",
+          "name": "before: README.md",
+          "passed": false
+        },
+        {
+          "detail": "SHA-256 3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49 and 2286 bytes match working file and immutable copy",
+          "name": "before: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "artifact changed: tests/test_tasks.py",
+          "name": "before: tests/test_tasks.py",
+          "passed": false
+        },
+        {
+          "detail": "artifact changed: README.md",
+          "name": "after: README.md",
+          "passed": false
+        },
+        {
+          "detail": "SHA-256 3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49 and 2286 bytes match working file and immutable copy",
+          "name": "after: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "artifact changed: tests/test_tasks.py",
+          "name": "after: tests/test_tasks.py",
+          "passed": false
+        }
+      ],
+      "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+      "evidence": [],
+      "reasons": [
+        "before: README.md: artifact changed: README.md",
+        "before: tests/test_tasks.py: artifact changed: tests/test_tasks.py",
+        "after: README.md: artifact changed: README.md",
+        "after: tests/test_tasks.py: artifact changed: tests/test_tasks.py"
+      ],
+      "verdict": {
+        "rework": {
+          "scope": "before: README.md: artifact changed: README.md; before: tests/test_tasks.py: artifact changed: tests/test_tasks.py; after: README.md: artifact changed: README.md; after: tests/test_tasks.py: artifact changed: tests/test_tasks.py"
+        }
+      },
+      "verification_id": "v-658cccf8f51b498284d51d15d2149388",
+      "verifier": "urn:hacp:agent:a"
+    },
+    {
+      "against_revision": "ed0cace372e6d9af456f573305269ed6c20a7a5a579f85b4322a33d4fb33f354",
+      "artifacts": [
+        "urn:hacp:artifact:431cfdd1-5ff6-4bb1-a817-ca45c9e682f2",
+        "urn:hacp:artifact:a8453604-e4ba-42b3-9ea6-67d1b00b8162",
+        "urn:hacp:artifact:dd892f96-e556-4869-b5ef-7e053d8246b0"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 661390814de3b3bc6b78ed5ec9376fa9a44b476050467ef416a0694931c06b46 and 2486 bytes match working file and immutable copy",
+          "name": "before: README.md",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49 and 2286 bytes match working file and immutable copy",
+          "name": "before: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 18af7d9669841c3603ac5ed165c105ca449c9ca0a9363e8bb11540a0fc51fc77 and 8228 bytes match working file and immutable copy",
+          "name": "before: tests/test_tasks.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest discover -s tests -v\",\"stdout\":\"\",\"stderr\":\"test_add_blank_title_fails_without_db_creation (test_tasks.TaskCliTestCase) ... ok\\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\\ntest_add_prints_created_task (test_tasks.TaskCliTestCase) ... ok\\ntest_atomic_write_failure_preserves_db_and_leaves_no_temp_files (test_tasks.TaskCliTestCase) ... ok\\ntest_done_completes_and_list_filters (test_tasks.TaskCliTestCase) ... ok\\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_ids_increase_and_are_never_reused (test_tasks.TaskCliTestCase) ... ok\\ntest_invalid_db_shapes_fail_and_are_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\\ntest_list_missing_db_is_empty_array (test_tasks.TaskCliTestCase) ... ok\\ntest_list_sorted_by_id_and_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\\ntest_list_sorts_hand_seeded_reversed_ids (test_tasks.TaskCliTestCase) ... ok\\ntest_malformed_json_db_fails_and_is_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\\ntest_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\\n\\n----------------------------------------------------------------------\\nRan 15 tests in 1.641s\\n\\nOK\\n\",\"duration_ms\":1711,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest discover -s tests -v",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -c \\\"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\\\"\",\"stdout\":\"\",\"stderr\":\"\",\"duration_ms\":71,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\"",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 661390814de3b3bc6b78ed5ec9376fa9a44b476050467ef416a0694931c06b46 and 2486 bytes match working file and immutable copy",
+          "name": "after: README.md",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 3572309d440a4e5ed75718b02b24ed8184e2a024bafdbcc3dfc7a46ed6886a49 and 2286 bytes match working file and immutable copy",
+          "name": "after: task_cli.py",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 18af7d9669841c3603ac5ed165c105ca449c9ca0a9363e8bb11540a0fc51fc77 and 8228 bytes match working file and immutable copy",
+          "name": "after: tests/test_tasks.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-e6af139add7e40668ac725c347d1d059",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-54624c5fb6a44647b874e330596d896a",
+      "verifier": "urn:hacp:agent:a"
+    }
+  ]
+}

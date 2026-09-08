@@ -73,6 +73,8 @@ The harness uses each CLI's installed default model and per-process unattended p
 
 A separate Codex–AGY run built a usable JSON-backed task CLI in 221 seconds. Both contracts settled, all five questions were answered, all four artifact hashes matched, and the 16 peer tests plus 12 independent CLI tests passed on macOS and Linux. See the [full small-project test report](PROJECT-E2E.md) for the runnable project and evidence.
 
+Three further full-project runs—Codex–Claude Code, Codex–OpenCode, and Claude Code–OpenCode—also passed. Each pair froze both contracts before observed implementation, settled through cross-verification, answered all questions, and passed its peer suite plus 12 independent CLI tests on macOS and Linux. See the [three-pair project report](PROJECT-MATRIX.md) for timings, runnable projects, models, and complete logs.
+
 ## Recording
 
 [Open the standalone player](demo.html) locally in a browser, or download [the asciicast](demo.cast). It contains 115.54 seconds of actual live event-monitor capture at clearly labeled **2× playback**, followed by the real final log, for **74.77 seconds total**. [Unaccelerated event timestamps](evidence/live-2026-09-07/claude-codex/events.cast) and CLI transcripts are retained. It is a live lifecycle monitor recording, not a scripted imitation of agent output.

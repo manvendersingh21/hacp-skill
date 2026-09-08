@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-175fbd9f29ac409fab6c539be16a422e",
+  "session_id": "s-d132d9de4167464a814b910705673a14",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "submission.delivered",
+  "timestamp": "2026-09-08T01:49:10Z",
+  "body": {
+    "contract_id": "c-9c17013d9b734fe29f24e511da3c656d",
+    "next": "counterparty verifies",
+    "revision": "8eb0bcf1aa9c677335e57b9e4a32cd4c042a9df66f1995ff6838cc6b682f8ab1",
+    "state": "verifying",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Task Pocket: CLI, tests, README (see SPEC.md)",
+      "task_id": "t-c207052d28684b0aa193d4d536c20a89"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m py_compile task_cli.py task_store.py",
+        "python3 -m unittest discover -s tests -v"
+      ],
+      "inputs": [
+        "task_store.py"
+      ],
+      "outputs": [
+        "README.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ]
+    },
+    "terms_digest": "d053b5f0d166c947b62ae641eab15f2b227806267829d0fb70e2b42bed73a230"
+  }
+}

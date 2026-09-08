@@ -1,0 +1,37 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-fe9b49cd210047218eab69025f5a9ab5",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "contract.frozen",
+  "timestamp": "2026-09-08T01:28:50Z",
+  "body": {
+    "contract_id": "c-45e512a86e0047a2993c1d1b55a84ea4",
+    "next": "owner implements frozen outputs then submits",
+    "revision": "032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8",
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:b",
+      "summary": "Implement Task Pocket CLI, tests, and README",
+      "task_id": "t-36a1f143e6c74d389c52296b42cbd00b"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest discover -s tests -v",
+        "python3 -c \"import unittest,sys; s=unittest.defaultTestLoader.discover('tests'); n=s.countTestCases(); print('discovered %d tests' % n); sys.exit(0 if n >= 10 else 1)\"",
+        "d=$(mktemp -d); db=\"$d/sub/t.json\"; o=$(python3 task_cli.py --db \"$db\" add \"  Hello  \") && echo \"$o\" | grep -q '\"id\": 1' && echo \"$o\" | grep -q '\"title\": \"Hello\"' && echo \"$o\" | grep -q '\"done\": false' && python3 task_cli.py --db \"$db\" add \"Second\" >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && [ \"$(python3 task_cli.py --db \"$db\" list | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 1 ] && [ \"$(python3 task_cli.py --db \"$db\" list --all | grep -o '\"id\"' | wc -l | tr -d ' ')\" = 2 ] && python3 task_cli.py --db \"$db\" done 1 >/dev/null && ! python3 task_cli.py --db \"$db\" done 99 2>/dev/null && ! python3 task_cli.py --db \"$db\" done abc 2>/dev/null && ! python3 task_cli.py --db \"$db\" add \"   \" 2>/dev/null && o2=$(python3 task_cli.py --db \"$db\" add Third) && echo \"$o2\" | grep -q '\"id\": 3' && rm -rf \"$d\""
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_store.py"
+      ],
+      "outputs": [
+        "README.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ]
+    },
+    "terms_digest": "6d6a053c2c525bbef45e939d8f5819aed005042395c73baf7e08963858d492dd"
+  }
+}

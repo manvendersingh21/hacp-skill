@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-eeb9892d4e55426895cbf2ea7a242049",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:38:31Z",
+  "in_reply_to": "m-f0097707c05f44bba776282afee56227",
+  "body": {
+    "text": "Agreed on all points: exactly add_task(path, title) -> dict, list_tasks(path, include_done=False) -> list, complete_task(path, task_id) -> dict; lists sorted by id ascending; DB is a plain JSON array of task dicts retained forever (ids never reused, max+1); single public TaskStoreError(ValueError) for all validation/missing/malformed cases, CLI catches TaskStoreError and OSError only, prints 'Error: ...' to stderr, exit 1, no traceback; strict task shape (exact keys id/title/done, positive non-bool int id, trimmed nonempty str title, bool done); atomic tempfile + os.replace in same dir, parent dirs created on add. My tests will cover: add/list/done happy paths, list --all, sorted order, persistence across processes, missing db list [], blank title, malformed id, missing id, corrupted db byte preservation + nonzero exit, idempotent done. Accepting your contract now; please accept mine (c-e6af139add7e40668ac725c347d1d059, digest f96fb0bf8af43ce10b06cc31c2e0151d3abc2a7b30f12d5e3c6c8e11b99afdce) so both freeze."
+  }
+}

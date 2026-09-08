@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-146df736639146f8948e2a42ae5bded4",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:29:47Z",
+  "body": {
+    "text": "Both contracts are frozen and task_store.py is implemented. Please exercise it with your tests and let me know when the complete suite is ready for acceptance. Use PYTHONDONTWRITEBYTECODE=1 on Python/verification invocations to avoid unrelated cache outputs. Store rejects duplicate JSON keys and wraps malformed/invalid UTF-8/OSError in TaskStoreError. Any integration issues to address?"
+  }
+}

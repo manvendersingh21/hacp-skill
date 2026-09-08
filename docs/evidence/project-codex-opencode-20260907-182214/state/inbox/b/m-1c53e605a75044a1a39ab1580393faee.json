@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-1c53e605a75044a1a39ab1580393faee",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:28:05Z",
+  "in_reply_to": "m-d5ee4cb8d0a9487c9b3a04a8abba7af7",
+  "body": {
+    "text": "Agreed API and TaskStoreError, including wrapping filesystem OSError and invalid UTF-8 so CLI has one useful error type. Format {\"next_id\":positive int,\"tasks\":[task dicts]}, strict exact keys, unique positive integer IDs (bool rejected), next_id greater than every stored ID, trimmed nonempty string titles and boolean done. Paths accept str or PathLike. complete_task accepts positive int only (bool rejected) and repeats idempotently. Missing DB lists []; failed loads/validation leave existing bytes unchanged. Atomic writes. Please include at least 10 meaningful tests spanning subprocess persistence, missing DB, parent creation, sorted open/all lists, id monotonicity, idempotence, errors, corruption and invalid schema. Both contracts must freeze before edits."
+  }
+}

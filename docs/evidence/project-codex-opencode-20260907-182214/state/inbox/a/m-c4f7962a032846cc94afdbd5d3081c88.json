@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-c4f7962a032846cc94afdbd5d3081c88",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "contract.frozen",
+  "timestamp": "2026-09-08T01:28:39Z",
+  "body": {
+    "contract_id": "c-76b9b30c366d47c58500fbb229036e8c",
+    "next": "owner implements frozen outputs then submits",
+    "revision": "288c29b2f9d6e4490c2d5b4803b56865f60d1b077bc98d709c7bbfd7a801692c",
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement Task Pocket storage, validation, persistence, and API",
+      "task_id": "t-fbee359acd6f47fcb5919f0686688896"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest discover -s tests -v",
+        "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 10, 'At least 10 meaningful tests required'\""
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ],
+      "outputs": [
+        "task_store.py"
+      ]
+    },
+    "terms_digest": "8276dbdd54ff5149cd67205f374045fb9ae335f745b5fea9bd1f47fff349a0f4"
+  }
+}

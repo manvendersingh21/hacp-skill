@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-f86dcbf605484cea9bc4d8899ed8c620",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:39:59Z",
+  "body": {
+    "text": "Both contracts frozen, task_store.py implementation now ready for your CLI/tests. Please include invalid database shape cases (object root, wrong task keys/types, duplicate IDs) and a direct storage test mocking task_store.os.replace to fail, asserting original DB bytes and no leftover temp files. Can you cover these within your frozen tests output and notify me when full suite is ready?"
+  }
+}

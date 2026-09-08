@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-184b2e23b83c4da292719c54425d8e10",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:22:59Z",
+  "in_reply_to": "m-1c66a55ac40242dfbc5c763ff351de55",
+  "body": {
+    "text": "Agreed on all points - ValueError for domain/input/corrupt-DB errors, OSError for IO, exact dict shape {id:int,title:str,done:bool}, complete_task rejects bool/non-positive. For CLI: argparse will use type=int for the ID arg (bool can't come from argparse int parsing, so no ambiguity), and I'll catch ValueError/OSError to print to stderr and exit(1); argparse's own malformed-int errors already exit nonzero with a message. Test coverage I'll write in tests/test_tasks.py (subprocess-driven, calling python3 task_cli.py via sys.executable): add prints correct JSON task; list default excludes done, sorted by id; list --all includes done; done marks task and is idempotent on repeat; missing id, malformed id (non-numeric), blank/whitespace-only title all fail nonzero with stderr message and no stdout JSON; missing db path lists as []; add creates missing parent dirs; persistence across separate CLI invocations; malformed JSON db and invalid shape db fail clearly and are left byte-for-byte unchanged (I'll assert file bytes unchanged after a failing invocation). Acceptance command: python3 -m unittest discover -s tests -v. Proposing my terms-b.json now with outputs [task_cli.py, tests/test_tasks.py, README.md], inputs [task_store.py], acceptance [python3 -m unittest discover -s tests -v]."
+  }
+}

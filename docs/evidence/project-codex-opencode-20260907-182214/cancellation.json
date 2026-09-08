@@ -1,0 +1,5 @@
+{
+  "peer": "a",
+  "reason": "OpenCode exited after provider HTTP 403 free quota exhausted. Stopped waiting Codex; session and pending rework preserved, no fabricated consent.",
+  "utc": "2026-09-08T01:35:26.413743Z"
+}

@@ -1,0 +1,73 @@
+# Task Pocket
+
+A tiny, dependency-free Python 3 task tracker backed by a single JSON file.
+Requires only the standard `python3` on your `PATH`.
+
+## Usage
+
+Flags come **before** the subcommand:
+
+```sh
+python3 task_cli.py --db PATH add "title"      # create a task, print it as JSON
+python3 task_cli.py --db PATH list             # open tasks, JSON array sorted by id
+python3 task_cli.py --db PATH list --all       # include completed tasks
+python3 task_cli.py --db PATH done ID          # mark a task done, print it as JSON
+```
+
+`--db` is required. A missing database file lists as `[]`; `add` creates the
+file along with any missing parent directories. Data persists across runs.
+
+## Examples
+
+```sh
+$ python3 task_cli.py --db ~/tasks.json add "  Buy milk  "
+{"id": 1, "title": "Buy milk", "done": false}
+
+$ python3 task_cli.py --db ~/tasks.json add "Water plants"
+{"id": 2, "title": "Water plants", "done": false}
+
+$ python3 task_cli.py --db ~/tasks.json done 1
+{"id": 1, "title": "Buy milk", "done": true}
+
+$ python3 task_cli.py --db ~/tasks.json list
+[{"id": 2, "title": "Water plants", "done": false}]
+
+$ python3 task_cli.py --db ~/tasks.json list --all
+[{"id": 1, "title": "Buy milk", "done": true}, {"id": 2, "title": "Water plants", "done": false}]
+
+$ python3 task_cli.py --db ~/tasks.json done 99
+task_cli.py: error: no task with id 99
+$ echo $?
+1
+```
+
+## Behavior
+
+- Tasks have an integer `id`, a trimmed nonempty `title`, and a boolean
+  `done`. First id is `1`; ids increase and are never reused.
+- `done` on an already-completed task succeeds idempotently.
+- Missing task ids, malformed ids, blank titles, malformed JSON, and invalid
+  database shapes fail with a nonzero exit code and a `task_cli.py: error: ...`
+  message on stderr (no traceback). Failed writes leave the database file
+  byte-for-byte unchanged.
+- Successful stdout contains only the specified JSON.
+- Argparse usage errors (e.g. a missing `--db`) exit with code `2`.
+
+## Storage API
+
+The CLI is a thin layer over `task_store.py`:
+
+- `add_task(path, title) -> dict`
+- `list_tasks(path, include_done=False) -> list[dict]`
+- `complete_task(path, task_id) -> dict`
+
+Errors raise `task_store.TaskStoreError`. Writes replace the database
+atomically. Concurrent writers are out of scope.
+
+## Tests
+
+From the project root:
+
+```sh
+python3 -m unittest discover -s tests -v
+```

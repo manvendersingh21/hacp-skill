@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-ea0052f9078849abbdef25d849f5a81c",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:30:12Z",
+  "body": {
+    "text": "Initial acceptance passes all 16 tests on Python 3.9.6. Review found README missing-ID example says no task with id 99, actual store says Task ID 99 not found: please correct example. Please strengthen tests within current frozen scope: shuffled on-disk tasks to truly test sorting; invalid nested schema (bool/duplicate IDs, next_id <= max, nonbool done, blank title) against list/add/done with unchanged bytes; invalid UTF-8; patch os.replace to fail and verify original bytes survive/temp cleaned. No interface/output change needed. Can you add these before submitting?"
+  }
+}

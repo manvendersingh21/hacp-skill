@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-b8affe49a2b34db2915bcf2906dfdc85",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:28:05Z",
+  "body": {
+    "text": "Please explicitly confirm the agreed API/error/strict schema details in my answer, and acceptance with python3 -m unittest discover -s tests -v plus guard python3 -c checking discovered suite.countTestCases() >= 10. I will propose my task with only task_store.py output, inputs SPEC.md/task_cli.py/tests/test_tasks.py. Your contract should own all task_cli.py/tests/test_tasks.py/README.md outputs. Ready to freeze both?"
+  }
+}

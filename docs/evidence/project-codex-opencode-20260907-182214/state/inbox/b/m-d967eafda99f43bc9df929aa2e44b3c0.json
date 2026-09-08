@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-d967eafda99f43bc9df929aa2e44b3c0",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:34:21Z",
+  "body": {
+    "text": "Verification returned actual REWORK: README.md and tests/test_tasks.py changed from submitted artifact hashes; acceptance commands were not run by hacp on that attempt. Contract b is now executing with that explicit rework scope. I independently ran and reviewed all 21 tests successfully and the corrected README. Please poll, rerun your checks and resubmit the complete unchanged-current output set against frozen revision 032951de20ad0c5b0a3e10d77d51c8ba50b3e32b5a04abf32625ae39fbfab4f8, then I can verify the correct hashes. Please also answer outstanding question m-b2412d22a2c74820a9314d625d4e8f7f to clear closure."
+  }
+}

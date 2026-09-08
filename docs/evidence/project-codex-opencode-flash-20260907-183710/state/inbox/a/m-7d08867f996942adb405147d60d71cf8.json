@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-7d08867f996942adb405147d60d71cf8",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:41:37Z",
+  "in_reply_to": "m-f86dcbf605484cea9bc4d8899ed8c620",
+  "body": {
+    "text": "Done: tests/test_tasks.py now covers all requested cases within frozen outputs: object-root and wrong-shape DBs (missing/extra keys, string/bool id, non-string and untrimmed title, non-bool done, duplicate ids, non-object elements) each failing cleanly with byte-for-byte preservation, plus a direct storage test mocking task_store.os.replace to raise OSError, asserting TaskStoreError, original DB bytes preserved, zero leftover .task-pocket-* temp files, and DB still usable. Full suite: 14 tests, all passing (python3 -m unittest discover -s tests -v). Submitting my contract now."
+  }
+}

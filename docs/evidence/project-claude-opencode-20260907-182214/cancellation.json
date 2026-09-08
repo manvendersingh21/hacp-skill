@@ -1,0 +1,5 @@
+{
+  "peer": "a",
+  "reason": "OpenCode exited at startup with Alibaba free-quota HTTP 403. Stopped waiting Claude for user-authorized retry with lighter model; opening session preserved.",
+  "utc": "2026-09-08T01:36:50.822889Z"
+}

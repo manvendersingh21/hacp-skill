@@ -1,0 +1,246 @@
+[
+  {
+    "seconds": 13.824,
+    "event_id": "e-a42b248b86e44359bf71acf893f3b6b0",
+    "peer": "a",
+    "action": "start"
+  },
+  {
+    "seconds": 20.18,
+    "event_id": "e-9e571ba161c241418c9889702bc1d93b",
+    "peer": "b",
+    "action": "join"
+  },
+  {
+    "seconds": 24.641,
+    "event_id": "e-d8b105be9c1e4752bc115679d27e942a",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 31.83,
+    "event_id": "e-49f3ec83ffeb4edd96000fa50deefe90",
+    "peer": "b",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 49.122,
+    "event_id": "e-8045aeb704484f95be76fbc70dc29d0b",
+    "peer": "a",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 49.122,
+    "event_id": "e-9905ac6b5be14bb99c21b07bcc229848",
+    "peer": "a",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 61.613,
+    "event_id": "e-ac316360fcf54b4a9617ba5e7bb623dd",
+    "peer": "b",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 81.071,
+    "event_id": "e-29787d9896b640359c1292ec80d00d8d",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 81.177,
+    "event_id": "e-a34261302dee40a6bc7eab599872d4f5",
+    "peer": "b",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 82.431,
+    "event_id": "e-cb19edbbdd274295855e3a0c23311711",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 99.918,
+    "event_id": "e-96d7e71748c24f74bda918d2feba7e96",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 100.124,
+    "event_id": "e-b3636e2fd8244685886e020dcfbfaadc",
+    "peer": "b",
+    "action": "contract.countered"
+  },
+  {
+    "seconds": 113.16,
+    "event_id": "e-77bf1c1959d6419aaa423de970f07103",
+    "peer": "a",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 158.289,
+    "first_file_seen": "task_store.py",
+    "owner": "a",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 167.97,
+    "first_file_seen": "task_cli.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 169.012,
+    "event_id": "e-e3757837c5004ba0ae3f81a8fb63c712",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 186.837,
+    "first_file_seen": "tests/test_tasks.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 200.607,
+    "first_file_seen": "README.md",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 237.973,
+    "event_id": "e-d42b4dd9cd314cf9b95e753ddcb7622c",
+    "peer": "a",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 237.973,
+    "event_id": "e-2d738d245c2f461393a0d6ea895e0184",
+    "peer": "a",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 257.686,
+    "event_id": "e-345004f5c4044e0da4bc2f2d4dace325",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 267.363,
+    "event_id": "e-cfbb6eb74f204570928cc96dc7dba2ac",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 278.178,
+    "event_id": "e-fcdeb0b891c9451e9481022602f327de",
+    "peer": "b",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 278.178,
+    "event_id": "e-3024678c659140d686440b424ef1bbbd",
+    "peer": "b",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 338.008,
+    "event_id": "e-2f217fdccb3d4395827c1e2feedba8ae",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 365.449,
+    "event_id": "e-383b49d7febc45179d91fbfa93bfb85c",
+    "peer": "b",
+    "action": "verification started"
+  },
+  {
+    "seconds": 368.152,
+    "event_id": "e-e42c3370160c4e718585dd318be2ce20",
+    "peer": "b",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 368.152,
+    "event_id": "e-3c9d48ca558544688177c8ba45671e41",
+    "peer": "b",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 374.225,
+    "event_id": "e-a013555eef824fb2b523d8e9a901f327",
+    "peer": "a",
+    "action": "verification started"
+  },
+  {
+    "seconds": 374.643,
+    "event_id": "e-5e92115255214affa82bae6d906dfe67",
+    "peer": "a",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 374.643,
+    "event_id": "e-1473147dc5f04fe38411ec8a57d80338",
+    "peer": "a",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 385.415,
+    "event_id": "e-8e53c8e4f539435b983817bd699ff7b4",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 416.536,
+    "event_id": "e-b95d68bbc0ca47be8ae305c5860d62a7",
+    "peer": "b",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 416.536,
+    "event_id": "e-c847aa5b6303464898b3f504d7f26da0",
+    "peer": "b",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 417.257,
+    "event_id": "e-6f52c998c45c4be1a51d2e553f68a449",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 421.137,
+    "event_id": "e-74d04d9c984347b4a87a7944ded8177b",
+    "peer": "a",
+    "action": "verification started"
+  },
+  {
+    "seconds": 424.037,
+    "event_id": "e-1da9d9c255fe412fbe2d9da19c20c9f9",
+    "peer": "a",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 424.037,
+    "event_id": "e-5223405430974b29ad8d5e4a418b2a73",
+    "peer": "a",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 435.757,
+    "event_id": "e-fc7dd358661b4468976b164c620a2102",
+    "peer": "b",
+    "action": "session.close"
+  },
+  {
+    "seconds": 435.757,
+    "event_id": "e-4dc70b522cf440d8b2277a796b19966c",
+    "peer": "b",
+    "action": "close"
+  }
+]

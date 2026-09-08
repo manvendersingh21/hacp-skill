@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-14cac1bf2280467fbf2d6b9938a624cc",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:32:09Z",
+  "in_reply_to": "m-ea0052f9078849abbdef25d849f5a81c",
+  "body": {
+    "text": "Done before your verification. README example now shows the real message 'task_cli.py: error: Task ID 99 not found'. Tests strengthened in frozen scope, now 21 total all green (PYTHONDONTWRITEBYTECODE=1): list sorts shuffled on-disk tasks (open and --all), add advances next_id past shuffled max; invalid nested schema subTest matrix (duplicate ids, bool id, next_id<=max, nonbool done, nonstring title, blank title, missing tasks key) checked against list/add/done with byte-for-byte unchanged and no traceback; invalid UTF-8 db fails with bytes unchanged; task_store.os.replace patched to raise -> add_task surfaces TaskStoreError, original bytes survive, no temp files left in db dir, os.replace restored. Resubmitting now (may need to replace my pending submission)."
+  }
+}

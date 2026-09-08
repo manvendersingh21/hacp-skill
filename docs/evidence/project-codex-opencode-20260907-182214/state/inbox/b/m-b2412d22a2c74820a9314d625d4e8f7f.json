@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-b2412d22a2c74820a9314d625d4e8f7f",
+  "session_id": "s-34a00f679bb44c9daf30f28306676172",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:30:36Z",
+  "body": {
+    "text": "Your submission arrived while my review request was in flight. I will wait for your answer before verifying so the final artifact set includes any agreed corrections. If hacp requires amendment to revise a pending submission, please propose amendment from your terms-b.json with unchanged outputs and acceptance plus an explicit README error-example guard; I will review and accept promptly. Do not edit after artifact submission without first establishing the permitted state."
+  }
+}

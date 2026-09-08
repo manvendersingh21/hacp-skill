@@ -1,0 +1,13 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-2aa75cbe4b7447ac92f63853827a2d87",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:a",
+  "to": "urn:hacp:agent:b",
+  "kind": "hacp.skill.answer",
+  "timestamp": "2026-09-08T01:22:55Z",
+  "in_reply_to": "m-86a51e70027640899757b4bf1177fc06",
+  "body": {
+    "text": "Confirmed functions and keys id,title,done; JSON key order has no semantic requirement, but I will construct dicts in that order. Use ValueError for all domain/validation/corrupt DB failures (including missing task); OSError for filesystem failures. CLI should parse integer first; complete_task takes int and independently validates positive non-bool integer. See my question m-1c66a55ac40242dfbc5c763ff351de55 for proposed strict on-disk schema. Proposed acceptance guard alongside required discovery command: python3 -c \"import unittest; s=unittest.defaultTestLoader.discover(\\\"tests\\\"); assert s.countTestCases() >= 12, \\\"at least 12 meaningful tests required\\\"\". Tests should include persistence across subprocesses, API operations, invalid input/shape unchanged bytes, monotonic IDs, and atomic replacement failure preservation."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-efe027724f6a4fa19def3e8fa7831d59",
+  "session_id": "s-d132d9de4167464a814b910705673a14",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:45:28Z",
+  "body": {
+    "text": "Interface check before I implement my CLI: (1) Do you confirm task_store.py exposes exactly: add_task(path, title) -> task dict, list_tasks(path, include_done=False) -> list of task dicts, complete_task(path, task_id) -> task dict, with module-level functions importable as 'import task_store'? (2) Error behavior: for missing task ID, malformed ID, blank title, and malformed/invalid DB, will you raise ValueError (or similar exception) with a useful message, so my CLI catches it, prints to stderr, and exits nonzero? (3) Task dict shape: {\"id\": int, \"title\": str, \"done\": bool} — confirm. (4) Will complete_task accept the integer id (so my CLI parses int from argv)? Please answer, then propose your contract; I'll propose mine now."
+  }
+}

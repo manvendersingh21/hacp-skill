@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "both_processes_successful": false,
+    "both_contracts_settled": false,
+    "session_closed": false,
+    "all_questions_answered": true,
+    "bilateral_question_roundtrip": false,
+    "cross_verification": false,
+    "all_output_files_after_both_freezes": false,
+    "observed_all_four_outputs": false,
+    "all_artifacts_intact": false,
+    "spec_unchanged": true,
+    "peer_tests_passed_nonzero": false,
+    "independent_12_tests_passed": false
+  },
+  "passed": false,
+  "peer_test_count": 0,
+  "question_count": 0,
+  "answer_count": 0,
+  "artifact_count": 0,
+  "artifacts": [],
+  "file_observations": [],
+  "verification_verdicts": []
+}

@@ -1,0 +1,192 @@
+[
+  {
+    "seconds": 15.195,
+    "event_id": "e-d4d8e3bfd87a45e4a1dad723bf9c22d9",
+    "peer": "a",
+    "action": "start"
+  },
+  {
+    "seconds": 22.897,
+    "event_id": "e-ebf10068467045488c21f35bcf022682",
+    "peer": "b",
+    "action": "join"
+  },
+  {
+    "seconds": 28.514,
+    "event_id": "e-f5f6ace93482467fa9e9c00e26c47df1",
+    "peer": "b",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 28.725,
+    "event_id": "e-9dafc0ae3f6d4e698e78853503afd74d",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 40.385,
+    "event_id": "e-b9649d9ce0364052b9b94e6b9b507d0f",
+    "peer": "a",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 44.438,
+    "event_id": "e-5b12a23883fb4c79a25f4418b8c616f6",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 49.128,
+    "event_id": "e-0e022e363f84454fbb319ac4a48ed02f",
+    "peer": "b",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 66.953,
+    "event_id": "e-babeee0f3819479f8924713150b7df40",
+    "peer": "b",
+    "action": "contract.countered"
+  },
+  {
+    "seconds": 82.18,
+    "event_id": "e-f1af856cf91b452098617ba3237c63cf",
+    "peer": "a",
+    "action": "contract.proposed"
+  },
+  {
+    "seconds": 82.49,
+    "event_id": "e-81f4616bddf34e498f1563b66efd3528",
+    "peer": "a",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 82.698,
+    "event_id": "e-5a2ed60932d2491498254c5d5da86240",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 87.903,
+    "event_id": "e-7758563a8bcd41099b98b0d35fefc507",
+    "peer": "b",
+    "action": "contract.frozen"
+  },
+  {
+    "seconds": 105.737,
+    "event_id": "e-0f407c475db24fe093dba78b77745c92",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 139.088,
+    "first_file_seen": "task_store.py",
+    "owner": "a",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 165.963,
+    "event_id": "e-e389b4b386aa4a03b3423da395a4a2cb",
+    "peer": "a",
+    "action": "hacp.skill.ask"
+  },
+  {
+    "seconds": 172.556,
+    "first_file_seen": "task_cli.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 195.839,
+    "first_file_seen": "tests/test_tasks.py",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 201.332,
+    "first_file_seen": "README.md",
+    "owner": "b",
+    "both_contracts_frozen": true,
+    "owner_contract_frozen": true
+  },
+  {
+    "seconds": 217.71,
+    "event_id": "e-9900a587611e427aac1fdabecdc5422d",
+    "peer": "b",
+    "action": "hacp.skill.answer"
+  },
+  {
+    "seconds": 225.775,
+    "event_id": "e-f79220618bfd4249b62b21524517e6a6",
+    "peer": "b",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 225.775,
+    "event_id": "e-629fa60d837045b197072d7f47efeb8f",
+    "peer": "b",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 243.417,
+    "event_id": "e-2de29f9ebada40eead530b4d1c366492",
+    "peer": "a",
+    "action": "submission.delivered"
+  },
+  {
+    "seconds": 243.417,
+    "event_id": "e-50d99defa1e646b8aa73365cddcb3e81",
+    "peer": "a",
+    "action": "artifacts preserved"
+  },
+  {
+    "seconds": 246.545,
+    "event_id": "e-3e3a31d2932a40a79a9dd6361cc43797",
+    "peer": "b",
+    "action": "verification started"
+  },
+  {
+    "seconds": 248.415,
+    "event_id": "e-4b272716231b4a07add7661ad4164f76",
+    "peer": "b",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 248.415,
+    "event_id": "e-03dabcc3f04f45cfa33bb33d31e6fced",
+    "peer": "b",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 252.29,
+    "event_id": "e-ce07a7a1cdc445c08fc7dd1a0c6c9ca3",
+    "peer": "a",
+    "action": "verification started"
+  },
+  {
+    "seconds": 254.264,
+    "event_id": "e-e429209c48164da2b56a44556cef60fb",
+    "peer": "a",
+    "action": "verification measured"
+  },
+  {
+    "seconds": 254.264,
+    "event_id": "e-0a529bea8bf74c2ca8e2d725d54bbc2f",
+    "peer": "a",
+    "action": "verification.delivered"
+  },
+  {
+    "seconds": 261.993,
+    "event_id": "e-5431306022fa4940acde0738233ff412",
+    "peer": "b",
+    "action": "session.close"
+  },
+  {
+    "seconds": 261.993,
+    "event_id": "e-21090ac1ea114146b6c87419b3b79173",
+    "peer": "b",
+    "action": "close"
+  }
+]

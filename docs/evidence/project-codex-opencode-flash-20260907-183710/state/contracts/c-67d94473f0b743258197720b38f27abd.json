@@ -1,0 +1,156 @@
+{
+  "artifacts": [
+    {
+      "path": "task_store.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:cf1ae0bd-0ca1-4ce3-b491-b394d07610c3",
+        "contract_id": "c-67d94473f0b743258197720b38f27abd",
+        "contract_revision": "7ed694c17490a69eb92205a2f0bff21ca913e88d9e638d240596b4a11c2f4f7d",
+        "derived_from": [],
+        "digest": "2d48a4a1000872d4f6c1a97792401a03046259d39b4524f4b673a082b6492ff9",
+        "location": ".hacp/artifacts/cf1ae0bd-0ca1-4ce3-b491-b394d07610c3.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 4277,
+        "task_id": "t-f113fe2c04354c8ebbfb784afc1746a7",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m unittest discover -s tests -v",
+          "duration_ms": 1694,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_add_blank_title_fails_without_db_creation (test_tasks.TaskCliTestCase) ... ok\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\ntest_add_prints_created_task (test_tasks.TaskCliTestCase) ... ok\ntest_atomic_write_failure_preserves_db_and_leaves_no_temp_files (test_tasks.TaskCliTestCase) ... ok\ntest_done_completes_and_list_filters (test_tasks.TaskCliTestCase) ... ok\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_ids_increase_and_are_never_reused (test_tasks.TaskCliTestCase) ... ok\ntest_invalid_db_shapes_fail_and_are_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\ntest_list_missing_db_is_empty_array (test_tasks.TaskCliTestCase) ... ok\ntest_list_sorted_by_id_and_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\ntest_list_sorts_hand_seeded_reversed_ids (test_tasks.TaskCliTestCase) ... ok\ntest_malformed_json_db_fails_and_is_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\ntest_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 1.599s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        },
+        {
+          "command": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\"",
+          "duration_ms": 94,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-4dbf0b864fd84517a6a8f831c6d67d87",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-67d94473f0b743258197720b38f27abd",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m unittest discover -s tests -v",
+            "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\""
+          ],
+          "inputs": [
+            "SPEC.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ],
+          "outputs": [
+            "task_store.py"
+          ]
+        },
+        "digest": "7ed694c17490a69eb92205a2f0bff21ca913e88d9e638d240596b4a11c2f4f7d",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement persistent task storage",
+      "task_id": "t-f113fe2c04354c8ebbfb784afc1746a7"
+    }
+  },
+  "pending_digest": "e2c0eb7400126e29c73bf43d41358ddeca891d5a4ba9a9284cfde940de66670f",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m unittest discover -s tests -v",
+      "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\""
+    ],
+    "inputs": [
+      "SPEC.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ],
+    "outputs": [
+      "task_store.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "7ed694c17490a69eb92205a2f0bff21ca913e88d9e638d240596b4a11c2f4f7d",
+      "artifacts": [
+        "urn:hacp:artifact:cf1ae0bd-0ca1-4ce3-b491-b394d07610c3"
+      ],
+      "claim": "Complete task_store.py implements agreed API and TaskStoreError, strict full-database validation, sorted filtering, monotonically increasing IDs, idempotent completion, missing-database behavior, parent creation and atomic replacement with failure cleanup. Python 3.9.6 acceptance: 13 meaningful subprocess tests passed and >=8 test guard passed. Requested additional invalid-shape/write-failure coverage is pending with peer b.",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "7ed694c17490a69eb92205a2f0bff21ca913e88d9e638d240596b4a11c2f4f7d",
+      "artifacts": [
+        "urn:hacp:artifact:cf1ae0bd-0ca1-4ce3-b491-b394d07610c3"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 2d48a4a1000872d4f6c1a97792401a03046259d39b4524f4b673a082b6492ff9 and 4277 bytes match working file and immutable copy",
+          "name": "before: task_store.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest discover -s tests -v\",\"stdout\":\"\",\"stderr\":\"test_add_blank_title_fails_without_db_creation (test_tasks.TaskCliTestCase) ... ok\\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\\ntest_add_prints_created_task (test_tasks.TaskCliTestCase) ... ok\\ntest_atomic_write_failure_preserves_db_and_leaves_no_temp_files (test_tasks.TaskCliTestCase) ... ok\\ntest_done_completes_and_list_filters (test_tasks.TaskCliTestCase) ... ok\\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_ids_increase_and_are_never_reused (test_tasks.TaskCliTestCase) ... ok\\ntest_invalid_db_shapes_fail_and_are_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\\ntest_list_missing_db_is_empty_array (test_tasks.TaskCliTestCase) ... ok\\ntest_list_sorted_by_id_and_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\\ntest_list_sorts_hand_seeded_reversed_ids (test_tasks.TaskCliTestCase) ... ok\\ntest_malformed_json_db_fails_and_is_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok\\ntest_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\\n\\n----------------------------------------------------------------------\\nRan 15 tests in 1.599s\\n\\nOK\\n\",\"duration_ms\":1694,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest discover -s tests -v",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -c \\\"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\\\"\",\"stdout\":\"\",\"stderr\":\"\",\"duration_ms\":94,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -c \"import unittest; suite = unittest.defaultTestLoader.discover('tests'); assert suite.countTestCases() >= 8, 'Expected at least 8 meaningful tests'\"",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 2d48a4a1000872d4f6c1a97792401a03046259d39b4524f4b673a082b6492ff9 and 4277 bytes match working file and immutable copy",
+          "name": "after: task_store.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-67d94473f0b743258197720b38f27abd",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-4dbf0b864fd84517a6a8f831c6d67d87",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

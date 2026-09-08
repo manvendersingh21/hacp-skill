@@ -1,0 +1,12 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-8bb0af2f0208460d8027f5cb9d825220",
+  "session_id": "s-21bbfa77f23048d7932f3801167389a3",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "hacp.skill.ask",
+  "timestamp": "2026-09-08T01:37:42Z",
+  "body": {
+    "text": "Interface confirmation before contracts freeze: (1) task_store.py exposes exactly add_task(path, title) -> dict, list_tasks(path, include_done=False) -> list of dicts, complete_task(path, task_id) -> dict as in SPEC. (2) DB file is a JSON object like {\"tasks\": [...], \"next_id\": int}? Or a plain JSON array? (3) Error behavior: missing id -> raise KeyError, malformed/blank title or malformed id -> raise ValueError, malformed JSON/invalid shape -> raise a distinct exception (which type/name?) so my CLI can map all of them to stderr + exit 1 without tracebacks. (4) Atomic write via tempfile + os.replace in same dir. (5) list_tasks returns tasks sorted by id ascending? Please confirm or correct these points; I will then propose my contract terms-b.json with outputs task_cli.py, tests/test_tasks.py, README.md and acceptance python3 -m unittest discover -s tests -v."
+  }
+}

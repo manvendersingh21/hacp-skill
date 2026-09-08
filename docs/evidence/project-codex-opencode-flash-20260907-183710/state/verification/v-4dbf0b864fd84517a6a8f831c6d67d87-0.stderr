@@ -1,0 +1,20 @@
+test_add_blank_title_fails_without_db_creation (test_tasks.TaskCliTestCase) ... ok
+test_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok
+test_add_prints_created_task (test_tasks.TaskCliTestCase) ... ok
+test_atomic_write_failure_preserves_db_and_leaves_no_temp_files (test_tasks.TaskCliTestCase) ... ok
+test_done_completes_and_list_filters (test_tasks.TaskCliTestCase) ... ok
+test_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok
+test_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok
+test_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok
+test_ids_increase_and_are_never_reused (test_tasks.TaskCliTestCase) ... ok
+test_invalid_db_shapes_fail_and_are_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok
+test_list_missing_db_is_empty_array (test_tasks.TaskCliTestCase) ... ok
+test_list_sorted_by_id_and_persists_across_processes (test_tasks.TaskCliTestCase) ... ok
+test_list_sorts_hand_seeded_reversed_ids (test_tasks.TaskCliTestCase) ... ok
+test_malformed_json_db_fails_and_is_preserved_byte_for_byte (test_tasks.TaskCliTestCase) ... ok
+test_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.599s
+
+OK

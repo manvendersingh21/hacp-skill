@@ -1,0 +1,156 @@
+{
+  "artifacts": [
+    {
+      "path": "task_store.py",
+      "record": {
+        "artifact_id": "urn:hacp:artifact:f9504eb8-9641-4ac9-8c56-53ac34c25936",
+        "contract_id": "c-e455bb55b5514c32b61030b9d5834927",
+        "contract_revision": "e34d1265613357ae4bd21aacf03602b29e1367ea075c47c7b6abf32d13fda361",
+        "derived_from": [],
+        "digest": "8c4e25bf97a4f5221c254e056586c998aaa4dbb62209fb6eb8230c2a4aac08e7",
+        "location": ".hacp/artifacts/f9504eb8-9641-4ac9-8c56-53ac34c25936.bin",
+        "media_type": "application/octet-stream",
+        "producer": "urn:hacp:agent:a",
+        "size": 4854,
+        "task_id": "t-fdb6f096487c4c09afe6d3c2ce6cb5fa",
+        "visibility": "participants"
+      }
+    }
+  ],
+  "attempts": [
+    {
+      "commands": [
+        {
+          "command": "python3 -m py_compile task_store.py",
+          "duration_ms": 49,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        {
+          "command": "python3 -m unittest discover -s tests -v",
+          "duration_ms": 1266,
+          "exit_code": 0,
+          "signal": null,
+          "stderr": "test_add_assigns_increasing_ids (test_tasks.TaskCliTestCase) ... ok\ntest_add_blank_title_fails (test_tasks.TaskCliTestCase) ... ok\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\ntest_add_prints_created_task_as_json (test_tasks.TaskCliTestCase) ... ok\ntest_add_whitespace_title_fails (test_tasks.TaskCliTestCase) ... ok\ntest_data_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\ntest_done_prints_completed_task_as_json (test_tasks.TaskCliTestCase) ... ok\ntest_invalid_db_shape_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok\ntest_list_missing_db_prints_empty_array (test_tasks.TaskCliTestCase) ... ok\ntest_list_output_is_json_array_of_task_dicts (test_tasks.TaskCliTestCase) ... ok\ntest_list_sorted_by_id_and_hides_done (test_tasks.TaskCliTestCase) ... ok\ntest_malformed_json_db_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok\ntest_successful_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 1.205s\n\nOK\n",
+          "stdout": "",
+          "timed_out": false
+        }
+      ],
+      "id": "v-b98a1e0785fb4ddd8eb9e50a3e669cb9",
+      "peer": "b",
+      "status": "completed"
+    }
+  ],
+  "contract": {
+    "agreed_by": [],
+    "agreed_terms_digest": null,
+    "amendments": 0,
+    "contract_id": "c-e455bb55b5514c32b61030b9d5834927",
+    "escalation_path": [],
+    "limits": {
+      "max_amendments": 3,
+      "max_rounds": 3
+    },
+    "participants": [
+      "urn:hacp:agent:a",
+      "urn:hacp:agent:b"
+    ],
+    "pending_submission": null,
+    "pending_submitter": null,
+    "relationship": "collaboration",
+    "revisions": [
+      {
+        "content": {
+          "acceptance": [
+            "python3 -m py_compile task_store.py",
+            "python3 -m unittest discover -s tests -v"
+          ],
+          "inputs": [
+            "SPEC.md",
+            "task_cli.py",
+            "tests/test_tasks.py"
+          ],
+          "outputs": [
+            "task_store.py"
+          ]
+        },
+        "digest": "e34d1265613357ae4bd21aacf03602b29e1367ea075c47c7b6abf32d13fda361",
+        "number": 1
+      }
+    ],
+    "rework_scope": null,
+    "rounds": 0,
+    "state": "settled",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Task Pocket: tiny local task CLI (see SPEC.md)",
+      "task_id": "t-fdb6f096487c4c09afe6d3c2ce6cb5fa"
+    }
+  },
+  "pending_digest": "91909d871a69a1687468c3c9a64766398a0b8440b2942fec9aea3bd9accbc6f1",
+  "pending_terms": {
+    "acceptance": [
+      "python3 -m py_compile task_store.py",
+      "python3 -m unittest discover -s tests -v"
+    ],
+    "inputs": [
+      "SPEC.md",
+      "task_cli.py",
+      "tests/test_tasks.py"
+    ],
+    "outputs": [
+      "task_store.py"
+    ]
+  },
+  "proposer": "a",
+  "submissions": [
+    {
+      "against_revision": "e34d1265613357ae4bd21aacf03602b29e1367ea075c47c7b6abf32d13fda361",
+      "artifacts": [
+        "urn:hacp:artifact:f9504eb8-9641-4ac9-8c56-53ac34c25936"
+      ],
+      "claim": "Implemented task_store.py: JSON-file-backed storage with add_task/list_tasks/complete_task. Atomic writes via tempfile+os.replace, blank-title/missing-id/malformed-JSON/invalid-shape all raise ValueError leaving the db byte-for-byte unchanged, missing db lists as [], parent dirs auto-created, done is idempotent, ids increase and are never reused. Full acceptance passes: py_compile OK, 16/16 unittest tests OK (peer b's suite exercises task_store via task_cli.py end-to-end).",
+      "evidence": []
+    }
+  ],
+  "verifications": [
+    {
+      "against_revision": "e34d1265613357ae4bd21aacf03602b29e1367ea075c47c7b6abf32d13fda361",
+      "artifacts": [
+        "urn:hacp:artifact:f9504eb8-9641-4ac9-8c56-53ac34c25936"
+      ],
+      "attests": [],
+      "checks": [
+        {
+          "detail": "SHA-256 8c4e25bf97a4f5221c254e056586c998aaa4dbb62209fb6eb8230c2a4aac08e7 and 4854 bytes match working file and immutable copy",
+          "name": "before: task_store.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m py_compile task_store.py\",\"stdout\":\"\",\"stderr\":\"\",\"duration_ms\":49,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m py_compile task_store.py",
+          "passed": true
+        },
+        {
+          "detail": "{\"command\":\"python3 -m unittest discover -s tests -v\",\"stdout\":\"\",\"stderr\":\"test_add_assigns_increasing_ids (test_tasks.TaskCliTestCase) ... ok\\ntest_add_blank_title_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_add_creates_missing_parent_directories (test_tasks.TaskCliTestCase) ... ok\\ntest_add_prints_created_task_as_json (test_tasks.TaskCliTestCase) ... ok\\ntest_add_whitespace_title_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_data_persists_across_processes (test_tasks.TaskCliTestCase) ... ok\\ntest_done_is_idempotent (test_tasks.TaskCliTestCase) ... ok\\ntest_done_malformed_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_done_missing_id_fails (test_tasks.TaskCliTestCase) ... ok\\ntest_done_prints_completed_task_as_json (test_tasks.TaskCliTestCase) ... ok\\ntest_invalid_db_shape_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok\\ntest_list_missing_db_prints_empty_array (test_tasks.TaskCliTestCase) ... ok\\ntest_list_output_is_json_array_of_task_dicts (test_tasks.TaskCliTestCase) ... ok\\ntest_list_sorted_by_id_and_hides_done (test_tasks.TaskCliTestCase) ... ok\\ntest_malformed_json_db_fails_and_stays_unchanged (test_tasks.TaskCliTestCase) ... ok\\ntest_successful_stdout_is_only_json (test_tasks.TaskCliTestCase) ... ok\\n\\n----------------------------------------------------------------------\\nRan 16 tests in 1.205s\\n\\nOK\\n\",\"duration_ms\":1266,\"exit_code\":0,\"signal\":null,\"timed_out\":false}",
+          "name": "python3 -m unittest discover -s tests -v",
+          "passed": true
+        },
+        {
+          "detail": "SHA-256 8c4e25bf97a4f5221c254e056586c998aaa4dbb62209fb6eb8230c2a4aac08e7 and 4854 bytes match working file and immutable copy",
+          "name": "after: task_store.py",
+          "passed": true
+        }
+      ],
+      "contract_id": "c-e455bb55b5514c32b61030b9d5834927",
+      "evidence": [],
+      "reasons": [],
+      "verdict": "accept",
+      "verification_id": "v-b98a1e0785fb4ddd8eb9e50a3e669cb9",
+      "verifier": "urn:hacp:agent:b"
+    }
+  ]
+}

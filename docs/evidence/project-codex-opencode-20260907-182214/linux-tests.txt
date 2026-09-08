@@ -1,0 +1,44 @@
+Python 3.13.5
+test_add_appends_after_shuffled_tasks_and_next_id_advances (test_tasks.TaskCliTest.test_add_appends_after_shuffled_tasks_and_next_id_advances) ... ok
+test_add_creates_missing_parent_directories (test_tasks.TaskCliTest.test_add_creates_missing_parent_directories) ... ok
+test_add_prints_created_task_json (test_tasks.TaskCliTest.test_add_prints_created_task_json) ... ok
+test_blank_title_fails_cleanly (test_tasks.TaskCliTest.test_blank_title_fails_cleanly) ... ok
+test_data_persists_across_processes (test_tasks.TaskCliTest.test_data_persists_across_processes) ... ok
+test_done_is_idempotent (test_tasks.TaskCliTest.test_done_is_idempotent) ... ok
+test_done_prints_completed_task_json (test_tasks.TaskCliTest.test_done_prints_completed_task_json) ... ok
+test_failed_atomic_write_keeps_original_db_and_no_temp (test_tasks.TaskCliTest.test_failed_atomic_write_keeps_original_db_and_no_temp) ... ok
+test_ids_are_never_reused (test_tasks.TaskCliTest.test_ids_are_never_reused) ... ok
+test_invalid_nested_schema_fails_and_bytes_unchanged (test_tasks.TaskCliTest.test_invalid_nested_schema_fails_and_bytes_unchanged) ... ok
+test_invalid_schema_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest.test_invalid_schema_db_fails_and_bytes_unchanged) ... ok
+test_invalid_utf8_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest.test_invalid_utf8_db_fails_and_bytes_unchanged) ... ok
+test_list_excludes_done_and_all_includes (test_tasks.TaskCliTest.test_list_excludes_done_and_all_includes) ... ok
+test_list_missing_db_prints_empty_array (test_tasks.TaskCliTest.test_list_missing_db_prints_empty_array) ... ok
+test_list_sorted_by_id (test_tasks.TaskCliTest.test_list_sorted_by_id) ... ok
+test_list_sorts_regardless_of_on_disk_order (test_tasks.TaskCliTest.test_list_sorts_regardless_of_on_disk_order) ... ok
+test_malformed_id_fails_cleanly (test_tasks.TaskCliTest.test_malformed_id_fails_cleanly) ... ok
+test_malformed_json_db_fails_and_bytes_unchanged (test_tasks.TaskCliTest.test_malformed_json_db_fails_and_bytes_unchanged) ... ok
+test_missing_db_flag_is_usage_error (test_tasks.TaskCliTest.test_missing_db_flag_is_usage_error) ... ok
+test_missing_id_fails_without_traceback_and_keeps_db (test_tasks.TaskCliTest.test_missing_id_fails_without_traceback_and_keeps_db) ... ok
+test_successful_stdout_contains_only_json (test_tasks.TaskCliTest.test_successful_stdout_contains_only_json) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.231s
+
+OK
+test_add_trims_title_and_returns_task (__main__.TaskCLI.test_add_trims_title_and_returns_task) ... ok
+test_blank_titles_refused_without_mutation (__main__.TaskCLI.test_blank_titles_refused_without_mutation) ... ok
+test_completion_is_idempotent (__main__.TaskCLI.test_completion_is_idempotent) ... ok
+test_corrupt_json_never_overwritten (__main__.TaskCLI.test_corrupt_json_never_overwritten) ... ok
+test_ids_not_reused_after_all_completed (__main__.TaskCLI.test_ids_not_reused_after_all_completed) ... ok
+test_invalid_database_shape_never_overwritten (__main__.TaskCLI.test_invalid_database_shape_never_overwritten) ... ok
+test_malformed_ids_refused_without_mutation (__main__.TaskCLI.test_malformed_ids_refused_without_mutation) ... ok
+test_missing_database_lists_empty (__main__.TaskCLI.test_missing_database_lists_empty) ... ok
+test_nested_parent_directories (__main__.TaskCLI.test_nested_parent_directories) ... ok
+test_persistence_filtering_and_sorted_ids (__main__.TaskCLI.test_persistence_filtering_and_sorted_ids) ... ok
+test_unicode_and_quotes_roundtrip (__main__.TaskCLI.test_unicode_and_quotes_roundtrip) ... ok
+test_unknown_task_refused_without_mutation (__main__.TaskCLI.test_unknown_task_refused_without_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.751s
+
+OK

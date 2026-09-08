@@ -1,0 +1,35 @@
+{
+  "protocol": "HACP/2.0",
+  "message_id": "m-5fb5eedfff5c4f659865830280336156",
+  "session_id": "s-5cbbe2cf2ecd484ab34a7600be7eb841",
+  "from": "urn:hacp:agent:b",
+  "to": "urn:hacp:agent:a",
+  "kind": "contract.frozen",
+  "timestamp": "2026-09-08T01:23:42Z",
+  "body": {
+    "contract_id": "c-ec1214b752a44c8d9661658bb3768942",
+    "next": "owner implements frozen outputs then submits",
+    "revision": "774cf3327fd3637dc76d0fd4fb702e65446a18079c27e704cb6438120262267f",
+    "state": "executing",
+    "task": {
+      "owner": "urn:hacp:agent:a",
+      "summary": "Implement the task store module",
+      "task_id": "t-6cf222fa3c174a9297239fa6955410cf"
+    },
+    "terms": {
+      "acceptance": [
+        "python3 -m unittest discover -s tests -v",
+        "python3 -c 'import unittest; s = unittest.defaultTestLoader.discover(\"tests\"); assert s.countTestCases() >= 12, \"at least 12 meaningful tests required\"'"
+      ],
+      "inputs": [
+        "SPEC.md",
+        "task_cli.py",
+        "tests/test_tasks.py"
+      ],
+      "outputs": [
+        "task_store.py"
+      ]
+    },
+    "terms_digest": "19077759d4cc8daf89466dab39b5ce364e16e761e9533fb46a86643aa6a1f975"
+  }
+}

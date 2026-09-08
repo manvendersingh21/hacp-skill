@@ -28,6 +28,8 @@ Restart the CLIs after installation. `hacp install` without `--cli` selects all 
 
 **Live validation:** all six distinct CLI pairings have completed successfully. Codex–AGY passed on a later retry with the same models after two earlier AGY capacity failures. Full outcomes, including those failures, are linked below.
 
+Codex–Claude, Codex–OpenCode, and Claude–OpenCode also built a complete task CLI in fresh repositories, with independent tests on macOS and Linux. See the [small-project comparison and runnable outputs](docs/PROJECT-MATRIX.md).
+
 OpenCode honors `XDG_CONFIG_HOME`. AGY's path follows the bundled guide in version 1.1.27. See [discovery and validation evidence](docs/VALIDATION.md) for tested versions and actual outcomes. Prebuilt binaries and `install.sh` are deferred to v0.2.
 
 ## Try two agents
